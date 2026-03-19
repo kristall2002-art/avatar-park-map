@@ -34,13 +34,18 @@
             position: relative;
         }
 
-        body::before {
-            content: '';
+        .site-bg {
             position: fixed;
             inset: 0;
-            background: url('img/pillars.jpg') center/cover no-repeat;
-            filter: brightness(0.15) saturate(0.5);
             z-index: -1;
+            overflow: hidden;
+        }
+
+        .site-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.15) saturate(0.5);
         }
 
         body.large-text { font-size: 20px; }
@@ -494,12 +499,19 @@
         }
 
         @media (max-width: 480px) {
-            .features-grid, .photos-grid, .fragments-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .features-grid .feature-item { padding: 16px; }
+            .features-grid .feature-icon { font-size: 22px; margin-bottom: 6px; }
+            .features-grid .feature-item h3 { font-size: 13px; }
+            .features-grid .feature-item p { font-size: 11px; }
+            .photos-grid, .fragments-grid { grid-template-columns: 1fr; }
             .park-days { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
+<div class="site-bg"><img src="img/pillars.jpg" alt=""></div>
 
 <div class="a11y-panel">
     <button onclick="toggleLargeText()" id="btnText">🔍 Крупнее</button>
@@ -606,18 +618,14 @@
 <section id="map-details">
     <h2>Что покупатель увидит на карте</h2>
     <p style="text-align:center;color:var(--text-muted);margin-bottom:40px;">Реальные фрагменты — названия на двух языках, время между точками, автобусы, кафе</p>
-    <div class="fragments-grid">
+    <div class="fragments-grid" style="grid-template-columns: repeat(2, 1fr);">
         <div class="fragment-item">
-            <img src="img/fragment1.jpg" alt="Фрагмент карты — тропы и маршруты">
-            <div class="fragment-label">🗺 Тропы и маршруты с таймингами</div>
+            <img src="img/fragment1.jpg" alt="Фрагмент карты — информация и маршруты">
+            <div class="fragment-label">🗺 Информация о парке и маршруты</div>
         </div>
         <div class="fragment-item">
-            <img src="img/fragment2.jpg" alt="Фрагмент карты — центральная зона">
-            <div class="fragment-label">⏱ Время пешком между точками</div>
-        </div>
-        <div class="fragment-item">
-            <img src="img/fragment3.jpg" alt="Фрагмент карты — автобусы и кафе">
-            <div class="fragment-label">🚌 Автобусы, остановки и кафе</div>
+            <img src="img/fragment2.jpg" alt="Фрагмент карты — центральная зона парка">
+            <div class="fragment-label">⏱ Центральная зона — тропы, подъёмники, время</div>
         </div>
     </div>
 </section>
