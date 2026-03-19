@@ -31,6 +31,16 @@
             color: var(--text);
             line-height: 1.6;
             font-size: 16px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: url('img/pillars.jpg') center/cover no-repeat;
+            filter: brightness(0.15) saturate(0.5);
+            z-index: -1;
         }
 
         body.large-text { font-size: 20px; }
@@ -232,7 +242,7 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
         }
 
@@ -478,7 +488,7 @@
             .map-card { width: 100%; max-width: 360px; }
             .price-box { padding: 30px 24px; }
             .price-amount { font-size: 48px; }
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }  /* already 2 cols */
             .photos-grid { grid-template-columns: repeat(2, 1fr); }
             .fragments-grid { grid-template-columns: repeat(2, 1fr); }
         }
@@ -559,6 +569,11 @@
                 <div class="feature-icon">📱</div>
                 <h3>PDF для телефона</h3>
                 <p>Скачайте на телефон — работает без интернета. Увеличивайте любой участок без потери качества</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🏔</div>
+                <h3>Бонус: карта Небесные Врата</h3>
+                <p>Карта города с горой Тяньмэнь (天门山) — Небесные Врата — в комплекте</p>
             </div>
         </div>
     </div>
@@ -662,9 +677,13 @@
         </div>
 
         <div class="ticket-banner">
-            <div class="ticket-price">¥239</div>
-            <p>Единый билет в парк на 4 дня · ~2 690 ₽ на человека<br>
-            Въезд в Китай для россиян — <strong style="color:var(--accent2)">безвизовый до 30 дней</strong> 🇨🇳</p>
+            <h3 style="font-size:20px;margin-bottom:16px;color:var(--accent)">Обратите внимание</h3>
+            <p style="font-size:15px;color:var(--text-light);line-height:1.8;max-width:640px;margin:0 auto;">
+                Билет в парк действует <strong style="color:var(--accent)">4 дня</strong> и даёт вход только с одного входа в день. Парк огромный — без грамотного плана вы потратите время на ожидание и пропустите ключевые точки. Наша карта поможет спланировать маршруты так, чтобы за 4 дня увидеть всё: горы Аватара, лифт Байлун, Золотой Хлыст, стеклянный мост, пещеру Жёлтого Дракона и Янцзяцзе.
+                <br><br>
+                Стоимость входного билета: <strong style="color:var(--accent)">¥239</strong> (~2 690 ₽) на человека.<br>
+                Въезд в Китай для россиян — <strong style="color:var(--accent2)">безвизовый до 30 дней</strong>.
+            </p>
         </div>
     </div>
 </section>
