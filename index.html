@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта Парка Аватар — Горы Аватара, Чжанцзяцзе | 张家界地图</title>
+    <meta name="description" content="Подробная карта Парка Аватар (Чжанцзяцзе, Горы Аватара). Все маршруты, лифт Байлун, стеклянный мост, гора Тяньмэнь. PDF высокого качества на русском.">
+    <meta name="keywords" content="карта парка аватара, чжанцзяцзе карта, zhangjiajie map, чанчзачзе карта, чанджанчзе, горы аватара карта, wulingyuan карта, улинъюань карта, лифт байлун, стеклянный мост чжанцзяцзе, гора тяньмэнь карта, tianmen mountain map, 张家界地图, национальный парк аватар карта, лучшая карта чжанцзяцзе, подробная карта парка аватара, zhangjiajie national park map, горы аватар китай карта, джанджадзе карта, чанджадже карта, джанджадже карта, самая подробная карта парка аватара">
+
+    <meta property="og:title" content="Карта Парка Аватар — Горы Аватара, Чжанцзяцзе">
+    <meta property="og:description" content="Подробные PDF-карты Парка Аватар (Чжанцзяцзе). Все маршруты, автобусы, достопримечательности.">
+    <meta property="og:type" content="website">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0d1117;
+            --bg2: #161b22;
+            --text: #e0e0e0;
+            --text-muted: #8b949e;
+            --text-light: #c9d1d9;
+            --accent: #4ecdc4;
+            --accent2: #ffe66d;
+            --border: #30363d;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        body.large-text { font-size: 20px; }
+        body.large-text h1 { font-size: clamp(38px, 6vw, 62px) !important; }
+        body.large-text h2 { font-size: 38px !important; }
+        body.large-text h3 { font-size: 22px !important; }
+        body.large-text p, body.large-text li, body.large-text td { font-size: 18px !important; line-height: 1.8 !important; }
+
+        body.light-theme { --bg: #f5f6f8; --bg2: #ffffff; --text: #1a1a1a; --text-muted: #5a6270; --text-light: #333; --accent: #0a8f85; --accent2: #c5940a; --border: #d0d5dd; }
+        body.light-theme h1 { background: linear-gradient(135deg, #1a1a1a, var(--accent)); -webkit-background-clip: text; background-clip: text; }
+        body.light-theme .hero h1 { background: linear-gradient(135deg, #ffffff, #4ecdc4); -webkit-background-clip: text; background-clip: text; }
+        body.light-theme .hero-bg { filter: brightness(0.25) saturate(0.7); }
+        body.light-theme .hero .subtitle { color: #ccc; }
+        body.light-theme .hero .badge { color: #4ecdc4; }
+        body.light-theme .review-name { color: var(--text); }
+        body.light-theme .price-box { background: linear-gradient(135deg, #f0f2f5, #e8eaed); }
+        body.light-theme .hero .buy-btn { background: linear-gradient(135deg, #4ecdc4, #44b8b0); color: #0d1117; }
+        body.light-theme .map-card { background: #fff; border-color: var(--border); backdrop-filter: none; }
+        body.light-theme .review-card { background: #fff; }
+        body.light-theme .footer-tags { color: #bbb; }
+
+        .a11y-panel {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .a11y-panel button {
+            background: var(--accent);
+            color: #0d1117;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 18px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(78,205,196,0.4);
+            transition: transform 0.2s;
+            white-space: nowrap;
+        }
+        .a11y-panel button:hover { transform: scale(1.05); }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px 40px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('img/pillars.jpg') center/cover no-repeat;
+            filter: brightness(0.25) saturate(0.7);
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(78,205,196,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(255,230,109,0.07) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero > * { position: relative; z-index: 2; }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(78,205,196,0.15);
+            border: 1px solid rgba(78,205,196,0.3);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-names {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .hero-name-tag {
+            padding: 4px 12px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            font-size: 12px;
+            color: #bbb;
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: #aaa;
+            max-width: 640px;
+            margin-bottom: 40px;
+        }
+
+        .maps-showcase {
+            display: flex;
+            gap: 24px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .map-card {
+            background: rgba(22,27,34,0.88);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            width: 320px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(4px);
+        }
+
+        .map-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(78,205,196,0.15); }
+        .map-card img { width: 100%; height: 240px; object-fit: cover; }
+        .map-card-body { padding: 20px; }
+        .map-card h3 { font-size: 18px; margin-bottom: 8px; color: var(--text); }
+        .map-card p { font-size: 14px; color: var(--text-muted); }
+
+        .map-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(78,205,196,0.1);
+            color: var(--accent);
+            border-radius: 12px;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        .map-tag.bonus { background: rgba(255,230,109,0.1); color: var(--accent2); }
+
+        /* SECTIONS */
+        section { padding: 80px 20px; }
+        section h2 { font-size: 32px; text-align: center; margin-bottom: 48px; }
+        .section-dark { background: var(--bg2); }
+
+        /* PARK INFO */
+        .park-info { max-width: 900px; margin: 0 auto; }
+
+        .park-days {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .day-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .day-card .day-num { font-size: 38px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+        .day-card h4 { font-size: 15px; color: var(--text); margin-bottom: 8px; }
+        .day-card p { font-size: 13px; color: var(--text-muted); }
+
+        .ticket-banner {
+            background: linear-gradient(135deg, rgba(78,205,196,0.1), rgba(78,205,196,0.04));
+            border: 1px solid rgba(78,205,196,0.3);
+            border-radius: 16px;
+            padding: 24px 32px;
+            text-align: center;
+        }
+
+        .ticket-banner .ticket-price { font-size: 44px; font-weight: 700; color: var(--accent); }
+        .ticket-banner p { color: var(--text-muted); font-size: 15px; margin-top: 8px; }
+
+        /* FEATURES */
+        .features { max-width: 1000px; margin: 0 auto; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-item {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .feature-icon { font-size: 28px; margin-bottom: 10px; }
+        .feature-item h3 { font-size: 16px; margin-bottom: 6px; }
+        .feature-item p { font-size: 13px; color: var(--text-muted); }
+
+        /* PHOTOS */
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .photo-item { border-radius: 12px; overflow: hidden; position: relative; }
+        .photo-item img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.3s; }
+        .photo-item:hover img { transform: scale(1.05); }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 12px 16px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            font-size: 13px;
+            color: #fff; /* always white — on dark photo overlay */
+        }
+
+        .photo-caption .cn { font-size: 11px; color: #aaa; }
+
+        /* FRAGMENTS */
+        .fragments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .fragment-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+        .fragment-item img { width: 100%; display: block; }
+
+        .fragment-label {
+            padding: 10px 14px;
+            font-size: 13px;
+            color: var(--text-muted);
+            background: var(--bg2);
+        }
+
+        /* REVIEWS */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .review-stars { color: #ffe66d; font-size: 16px; margin-bottom: 12px; }
+        .review-text { font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 16px; }
+
+        .review-author { display: flex; align-items: center; gap: 12px; }
+
+        .review-avatar {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #2a9d97);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 15px; font-weight: 700;
+            color: #0d1117;
+            flex-shrink: 0;
+        }
+
+        .review-name { font-size: 14px; font-weight: 600; }
+        .review-date { font-size: 12px; color: var(--text-muted); }
+
+        /* PRICING */
+        .pricing { text-align: center; }
+        .pricing h2 { margin-bottom: 12px; }
+        .pricing .desc { color: var(--text-muted); margin-bottom: 40px; font-size: 18px; }
+
+        .price-box {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a2332, #0d1117);
+            border: 2px solid var(--accent);
+            border-radius: 24px;
+            padding: 40px 60px;
+            max-width: 480px;
+        }
+
+        .price-amount { font-size: 64px; font-weight: 700; color: var(--accent); line-height: 1; }
+        .price-currency { font-size: 24px; color: var(--text-muted); vertical-align: super; }
+
+        .price-includes { list-style: none; margin: 24px 0; text-align: left; }
+
+        .price-includes li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .price-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+
+        .buy-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: linear-gradient(135deg, #4ecdc4, #44b8b0);
+            color: #0d1117;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .buy-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(78,205,196,0.4); }
+
+        /* SUPPORT */
+        .support-banner {
+            background: linear-gradient(135deg, rgba(255,230,109,0.08), rgba(255,230,109,0.03));
+            border: 1px solid rgba(255,230,109,0.25);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .support-banner h3 { font-size: 22px; margin-bottom: 12px; color: var(--accent2); }
+        .support-banner p { color: var(--text-muted); margin-bottom: 24px; font-size: 15px; }
+
+        .tg-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: #2AABEE;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .tg-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(42,171,238,0.4); }
+
+        /* TIPS */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tip-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .tip-icon { font-size: 28px; margin-bottom: 10px; }
+        .tip-card h4 { font-size: 15px; margin-bottom: 8px; color: var(--text); }
+        .tip-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+        /* PHRASES */
+        .phrases-table {
+            max-width: 720px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .phrases-table th {
+            text-align: left;
+            padding: 12px 16px;
+            font-size: 13px;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phrases-table td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid rgba(48,54,61,0.5); }
+        .phrases-table tr:hover td { background: rgba(78,205,196,0.04); }
+
+        .phrase-cn { font-size: 20px; color: var(--accent); }
+        .phrase-ru { color: var(--text); }
+        .phrase-transcr { color: var(--text-muted); font-style: italic; }
+
+        /* VIDEO */
+        .video-wrap {
+            max-width: 860px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .video-wrap iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
+
+        /* FAQ */
+        .faq { max-width: 700px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+        .faq-item h3 { font-size: 16px; color: var(--text-light); margin-bottom: 8px; }
+        .faq-item p { font-size: 14px; color: var(--text-muted); }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #484f58;
+            font-size: 13px;
+            border-top: 1px solid #21262d;
+        }
+
+        footer .footer-tags { margin-top: 12px; font-size: 11px; color: #2a2f36; line-height: 1.8; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .maps-showcase { flex-direction: column; align-items: center; }
+            .map-card { width: 100%; max-width: 360px; }
+            .price-box { padding: 30px 24px; }
+            .price-amount { font-size: 48px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .photos-grid { grid-template-columns: repeat(2, 1fr); }
+            .fragments-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid, .photos-grid, .fragments-grid { grid-template-columns: 1fr; }
+            .park-days { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="a11y-panel">
+    <button onclick="toggleLargeText()" id="btnText">🔍 Крупнее</button>
+    <button onclick="toggleTheme()" id="btnTheme">☀️ Светлый фон</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <span class="badge">Горы Аватара · Национальный парк Чжанцзяцзе</span>
+
+    <h1>Карта Парка Аватар</h1>
+
+    <p class="subtitle">Подробная карта парка Горы Аватара. Все маршруты на 4 дня, тропы, автобусы, лифт Байлун, стеклянный мост и все достопримечательности. PDF для телефона — работает без интернета.</p>
+
+    <a href="#buy" class="buy-btn">Купить за 150 руб.</a>
+</section>
+
+<!-- FEATURES (9 cards) -->
+<section id="features">
+    <div class="features">
+        <h2>Что внутри карты</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">⏱</div>
+                <h3>Тайминги между точками</h3>
+                <p>Точное время пешком между ключевыми точками — планируйте маршрут без догадок</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚡</div>
+                <h3>Лифты, фуникулёры, поезда</h3>
+                <p>Лифт Байлун, канатные дороги, мини-поезд — все подъёмники отмечены на карте</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚪</div>
+                <h3>Все входы в парк</h3>
+                <p>Восточный, Южный, Западный входы с привязкой к транспорту</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📍</div>
+                <h3>Все достопримечательности</h3>
+                <p>Смотровые площадки, мосты, горы Аватара, Золотой Хлыст — ничего не пропустите</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🍜</div>
+                <h3>Кафе и точки перекуса</h3>
+                <p>Где поесть внутри парка — все кафе и магазины отмечены</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚌</div>
+                <h3>Транспорт и автобусы</h3>
+                <p>Маршруты эко-автобусов, остановки, как добраться от города до входов</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🇨🇳</div>
+                <h3>На двух языках</h3>
+                <p>Названия на китайском и английском — удобно показывать таксистам и местным</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🧭</div>
+                <h3>Понятная навигация</h3>
+                <p>Рисованная карта с чёткими обозначениями — максимально легко ориентироваться</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>PDF для телефона</h3>
+                <p>Скачайте на телефон — работает без интернета. Увеличивайте любой участок без потери качества</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAP PREVIEWS -->
+<section class="section-dark">
+    <h2>Две карты в комплекте</h2>
+    <div class="maps-showcase" style="justify-content:center;">
+        <div class="map-card">
+            <img src="img/park_preview.jpg" alt="Карта парка Аватар">
+            <div class="map-card-body">
+                <h3>Карта парка Аватар</h3>
+                <p>Все маршруты, тропы, автобусные остановки, входы, канатные дороги и лифт Байлун</p>
+                <span class="map-tag">PDF высокого качества</span>
+            </div>
+        </div>
+        <div class="map-card">
+            <img src="img/city_preview.jpg" alt="Карта города Чжанцзяцзе">
+            <div class="map-card-body">
+                <h3>Карта города Чжанцзяцзе</h3>
+                <p>Центр города, аэропорт, вокзалы, гора Тяньмэнь, рестораны и отели</p>
+                <span class="map-tag bonus">БОНУС</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAP FRAGMENTS -->
+<section id="map-details">
+    <h2>Что покупатель увидит на карте</h2>
+    <p style="text-align:center;color:var(--text-muted);margin-bottom:40px;">Реальные фрагменты — названия на двух языках, время между точками, автобусы, кафе</p>
+    <div class="fragments-grid">
+        <div class="fragment-item">
+            <img src="img/fragment1.jpg" alt="Фрагмент карты — тропы и маршруты">
+            <div class="fragment-label">🗺 Тропы и маршруты с таймингами</div>
+        </div>
+        <div class="fragment-item">
+            <img src="img/fragment2.jpg" alt="Фрагмент карты — центральная зона">
+            <div class="fragment-label">⏱ Время пешком между точками</div>
+        </div>
+        <div class="fragment-item">
+            <img src="img/fragment3.jpg" alt="Фрагмент карты — автобусы и кафе">
+            <div class="fragment-label">🚌 Автобусы, остановки и кафе</div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="section-dark pricing" id="buy">
+    <h2>Получить карты</h2>
+    <p class="desc">Одна покупка — два PDF-файла навсегда</p>
+
+    <div class="price-box">
+        <div>
+            <span class="price-amount">150</span>
+            <span class="price-currency"> руб.</span>
+        </div>
+        <ul class="price-includes">
+            <li>Карта парка Аватар — PDF</li>
+            <li>Карта города Чжанцзяцзе — PDF (бонус)</li>
+            <li>Высокое разрешение для печати и телефона</li>
+            <li>Работает оффлайн на любом устройстве</li>
+            <li>Доступ навсегда</li>
+        </ul>
+        <a href="#" class="buy-btn" id="buyBtn">Купить за 150 руб.</a>
+    </div>
+</section>
+
+<!-- ==================== ДОПОЛНИТЕЛЬНЫЕ СЕКЦИИ ==================== -->
+
+<!-- PARK INFO -->
+<section id="park">
+    <div class="park-info">
+        <h2>Парк Аватара — 4 дня незабываемых впечатлений</h2>
+        <p style="text-align:center;color:var(--text-muted);margin-bottom:40px;font-size:16px;">
+            Единый билет действует <strong style="color:var(--accent)">4 дня</strong> — этого достаточно чтобы увидеть всё самое важное. Карта поможет составить оптимальный маршрут с учётом расстояний и времени в пути.
+        </p>
+
+        <div class="park-days">
+            <div class="day-card">
+                <div class="day-num">1</div>
+                <h4>Горы Аватара</h4>
+                <p>Юаньцзяцзе → Гора Халлелуя → Первый мост под небом → Золотой Хлыст (7.5 км)</p>
+            </div>
+            <div class="day-card">
+                <div class="day-num">2</div>
+                <h4>Тяньцзышань + Пещера</h4>
+                <p>Галерея Десяти Миль → пещера Жёлтого Дракона (黄龙洞) — 3 часа под землёй</p>
+            </div>
+            <div class="day-card">
+                <div class="day-num">3</div>
+                <h4>Стеклянный мост</h4>
+                <p>Гранд-Каньон Чжанцзяцзе + Стеклянный мост 430м + озеро Баофэн с лодкой</p>
+            </div>
+            <div class="day-card">
+                <div class="day-num">4</div>
+                <h4>Янцзяцзе</h4>
+                <p>Каменные стены Янцзяцзе — мало туристов, суровые пейзажи. Или Хуанши Чжай — панорама 1200м</p>
+            </div>
+        </div>
+
+        <div class="ticket-banner">
+            <div class="ticket-price">¥239</div>
+            <p>Единый билет в парк на 4 дня · ~2 690 ₽ на человека<br>
+            Въезд в Китай для россиян — <strong style="color:var(--accent2)">безвизовый до 30 дней</strong> 🇨🇳</p>
+        </div>
+    </div>
+</section>
+
+<!-- KEY PHOTOS -->
+<section id="photos">
+    <h2>Ключевые точки парка</h2>
+    <div class="photos-grid">
+        <div class="photo-item">
+            <img src="img/pillars.jpg" alt="Скальные столбы Чжанцзяцзе — горы Аватара">
+            <div class="photo-caption">Скальные столбы<div class="cn">张家界石柱 · Zhangjiajie Pillars</div></div>
+        </div>
+        <div class="photo-item">
+            <img src="img/yuanjiajie.jpg" alt="Плато Юаньцзяцзе Wulingyuan">
+            <div class="photo-caption">Плато Юаньцзяцзе<div class="cn">袁家界 · Yuanjiajie Plateau</div></div>
+        </div>
+        <div class="photo-item">
+            <img src="img/glass_bridge.jpg" alt="Стеклянный мост Чжанцзяцзе Glass Bridge">
+            <div class="photo-caption">Стеклянный мост<div class="cn">张家界玻璃桥 · Glass Bridge</div></div>
+        </div>
+        <div class="photo-item">
+            <img src="img/tianmen.jpg" alt="Гора Тяньмэнь Небесные врата Tianmen Mountain">
+            <div class="photo-caption">Гора Тяньмэнь<div class="cn">天门山 · Tianmen Mountain</div></div>
+        </div>
+        <div class="photo-item">
+            <img src="img/dawn.jpg" alt="Чжанцзяцзе на рассвете Zhangjiajie at dawn">
+            <div class="photo-caption">Рассвет над парком<div class="cn">张家界日出 · Zhangjiajie at Dawn</div></div>
+        </div>
+        <div class="photo-item">
+            <img src="img/park_preview.jpg" alt="Карта маршрутов парка Аватара">
+            <div class="photo-caption">Карта маршрутов<div class="cn">景区地图 · Park Map</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-dark" id="reviews">
+    <h2>Отзывы покупателей</h2>
+    <div class="reviews-grid">
+        <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">Ездила с подругами в феврале. Карта — просто находка! Долго искала хоть что-то нормальное на русском, и вот наконец. Всё есть: автобусы, тропы, тайминги. Составили маршрут на все 4 дня прямо по ней. Очень рекомендую!</p>
+            <div class="review-author">
+                <div class="review-avatar">А</div>
+                <div>
+                    <div class="review-name">Анастасия К.</div>
+                    <div class="review-date">Москва · февраль 2026</div>
+                </div>
+            </div>
+        </div>
+        <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">Въезд в Китай сейчас безвизовый — мы просто купили билеты и полетели. Карту взяли заранее, очень помогла с ориентацией. Особенно удобно что названия на китайском — показывал водителю такси и никаких проблем.</p>
+            <div class="review-author">
+                <div class="review-avatar">Д</div>
+                <div>
+                    <div class="review-name">Дмитрий В.</div>
+                    <div class="review-date">Санкт-Петербург · январь 2026</div>
+                </div>
+            </div>
+        </div>
+        <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">Лучшая карта которую я видела для этого парка. Очень информативная, очень детальная. Долго не могла найти ничего подобного — везде или слишком мало деталей, или вообще только по-английски. Здесь всё что нужно!</p>
+            <div class="review-author">
+                <div class="review-avatar">М</div>
+                <div>
+                    <div class="review-name">Марина Л.</div>
+                    <div class="review-date">Екатеринбург · март 2026</div>
+                </div>
+            </div>
+        </div>
+        <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">Ездили компанией 5 человек. Без этой карты потеряли бы кучу времени — парк огромный. Безвизовый въезд в Китай — поездку организовать очень просто. Карта позволила спланировать всё по минутам.</p>
+            <div class="review-author">
+                <div class="review-avatar">С</div>
+                <div>
+                    <div class="review-name">Сергей П.</div>
+                    <div class="review-date">Новосибирск · февраль 2026</div>
+                </div>
+            </div>
+        </div>
+        <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">Стеклянный мост продаётся только онлайн, карта помогла правильно распределить дни. Отметили кафе — это важно, еда в парке дорогая. Полностью всё что нужно для четырёх дней. Покупала карту на всю группу — всем понравилась!</p>
+            <div class="review-author">
+                <div class="review-avatar">Е</div>
+                <div>
+                    <div class="review-name">Екатерина Ф.</div>
+                    <div class="review-date">Казань · март 2026</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+    <h2>Посмотри на парк своими глазами</h2>
+    <div class="video-wrap">
+        <iframe
+            src="https://www.youtube.com/embed/R7yGJmHdLs4"
+            title="Национальный парк Чжанцзяцзе — Горы Аватара"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+<!-- SUPPORT -->
+<section id="support">
+    <div class="support-banner">
+        <h3>💬 Нужна помощь с покупкой билетов?</h3>
+        <p>Поможем купить билеты в парк, стеклянный мост и другие достопримечательности онлайн — быстро и без лишних хлопот</p>
+        <a href="https://t.me/YOUR_BOT_HERE" class="tg-btn" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+            Написать в Telegram
+        </a>
+    </div>
+</section>
+
+<!-- CHINA TIPS -->
+<section class="section-dark" id="china-tips">
+    <h2>Советы путешественникам по Китаю</h2>
+    <div class="tips-grid">
+        <div class="tip-card">
+            <div class="tip-icon">🛂</div>
+            <h4>Безвизовый въезд</h4>
+            <p>Россияне могут въезжать в Китай без визы на срок до 30 дней. Просто берёте билеты и летите.</p>
+        </div>
+        <div class="tip-card">
+            <div class="tip-icon">💳</div>
+            <h4>Оплата и деньги</h4>
+            <p>В Китае платят через WeChat Pay и Alipay. Иностранные карты принимают в отелях. Наличные юани нужны для мелких покупок.</p>
+        </div>
+        <div class="tip-card">
+            <div class="tip-icon">📱</div>
+            <h4>Интернет и VPN</h4>
+            <p>Google, Instagram, WhatsApp — заблокированы. Установите VPN до поездки. WeChat работает — скачайте заранее.</p>
+        </div>
+        <div class="tip-card">
+            <div class="tip-icon">🚆</div>
+            <h4>Транспорт</h4>
+            <p>Скоростные поезда (高铁) — отличный способ передвижения. Берите билеты на trip.com или ctrip.com.</p>
+        </div>
+        <div class="tip-card">
+            <div class="tip-icon">🌡</div>
+            <h4>Лучшее время</h4>
+            <p>Март–апрель и сентябрь–ноябрь. Летом жарко и много туристов. Зима — очень мало людей, иногда снег на вершинах.</p>
+        </div>
+        <div class="tip-card">
+            <div class="tip-icon">🐒</div>
+            <h4>Обезьяны в парке</h4>
+            <p>В парке живут обезьяны — они воруют еду и вещи. Закрывайте рюкзаки и не держите пакеты в руках.</p>
+        </div>
+        <div class="tip-card">
+            <div class="tip-icon">👟</div>
+            <h4>Что взять с собой</h4>
+            <p>Удобная обувь обязательна — до 25 000 шагов в день. Дождевик пригодится. Перекус с собой — еда в парке дорогая.</p>
+        </div>
+        <div class="tip-card">
+            <div class="tip-icon">🎫</div>
+            <h4>Стеклянный мост</h4>
+            <p>Билеты ТОЛЬКО онлайн — на месте не продают. Бронируйте за несколько дней. Нужен оригинал паспорта.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CHINESE PHRASES -->
+<section id="phrases">
+    <h2>Полезные фразы на китайском</h2>
+    <p style="text-align:center;color:var(--text-muted);margin-bottom:40px;">Покажи экран телефона — и тебя поймут. Транскрипция поможет произнести правильно.</p>
+    <table class="phrases-table">
+        <thead>
+            <tr>
+                <th>По-русски</th>
+                <th>中文</th>
+                <th>Произношение</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="phrase-ru">Здравствуйте</td><td class="phrase-cn">你好</td><td class="phrase-transcr">Нǐ хǎо</td></tr>
+            <tr><td class="phrase-ru">Спасибо</td><td class="phrase-cn">谢谢</td><td class="phrase-transcr">Сʼе сʼе</td></tr>
+            <tr><td class="phrase-ru">Сколько стоит?</td><td class="phrase-cn">多少钱？</td><td class="phrase-transcr">Дуō шǎо цʼян?</td></tr>
+            <tr><td class="phrase-ru">Где это?</td><td class="phrase-cn">在哪里？</td><td class="phrase-transcr">Цзài нǎ ли?</td></tr>
+            <tr><td class="phrase-ru">Как пройти в парк?</td><td class="phrase-cn">怎么去景区？</td><td class="phrase-transcr">Зэнь мэ цʼǜй цзǐн цʼǜй?</td></tr>
+            <tr><td class="phrase-ru">Мне нужно такси</td><td class="phrase-cn">我需要出租车</td><td class="phrase-transcr">Вǒ сʼǖ яо чˊу цзǖ чˊē</td></tr>
+            <tr><td class="phrase-ru">Отель</td><td class="phrase-cn">酒店</td><td class="phrase-transcr">Цзǐу дʼянь</td></tr>
+            <tr><td class="phrase-ru">Помогите!</td><td class="phrase-cn">帮帮我！</td><td class="phrase-transcr">Бāнь бāнь вǒ!</td></tr>
+            <tr><td class="phrase-ru">Не хочу / Нет</td><td class="phrase-cn">不要</td><td class="phrase-transcr">Бǔ яо</td></tr>
+            <tr><td class="phrase-ru">До свидания</td><td class="phrase-cn">再见</td><td class="phrase-transcr">Цзài цзʼянь</td></tr>
+            <tr><td class="phrase-ru">Национальный парк</td><td class="phrase-cn">张家界国家森林公园</td><td class="phrase-transcr">Чжāнцзяцзʼе гуо цзʼя сēнь линь гōнь юань</td></tr>
+            <tr><td class="phrase-ru">Лифт Байлун</td><td class="phrase-cn">百龙天梯</td><td class="phrase-transcr">Бǎй лóнь тʼянь тʼи</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- FAQ -->
+<section class="section-dark">
+    <div class="faq">
+        <h2>Вопросы</h2>
+        <div class="faq-item">
+            <h3>Как я получу карты после оплаты?</h3>
+            <p>Сразу после оплаты вы будете перенаправлены на страницу со ссылками для скачивания. Ссылки также придут на указанный email.</p>
+        </div>
+        <div class="faq-item">
+            <h3>В каком формате карты?</h3>
+            <p>PDF высокого разрешения. Можно увеличивать на телефоне, планшете или распечатать на А4/А3.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Нужен ли интернет для просмотра?</h3>
+            <p>Нет. Скачайте PDF заранее — карты работают полностью оффлайн. Особенно удобно в парке где плохой сигнал.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Нужна ли виза для въезда в Китай?</h3>
+            <p>Нет. Россиянам — безвизовый въезд до 30 дней. Просто покупаете билеты и летите.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Карта Парка Аватар — Горы Аватара, Чжанцзяцзе
+    <div class="footer-tags">
+        Карта парка Аватара · Карта Чжанцзяцзе · Zhangjiajie map · 张家界地图 · Wulingyuan map · Горы Аватара Китай ·
+        Чжанцзяцзе карта на русском · Чанджанчзе · Джанджадзе · Чанзачзе карта · Чанчзачзе ·
+        Стеклянный мост Чжанцзяцзе · Лифт Байлун карта · Гора Тяньмэнь карта · Tianmen Mountain ·
+        Подробная карта парка Аватара · Лучшая карта Чжанцзяцзе · Самая подробная карта ·
+        Национальный лесной парк Чжанцзяцзе карта · Улинъюань карта · Avatar Mountains China map
+    </div>
+</footer>
+
+<script>
+function toggleLargeText() {
+    document.body.classList.toggle('large-text');
+    document.getElementById('btnText').textContent = document.body.classList.contains('large-text') ? '🔍 Обычный' : '🔍 Крупнее';
+}
+function toggleTheme() {
+    document.body.classList.toggle('light-theme');
+    document.getElementById('btnTheme').textContent = document.body.classList.contains('light-theme') ? '🌙 Тёмный фон' : '☀️ Светлый фон';
+}
+</script>
+
+</body>
+</html>
