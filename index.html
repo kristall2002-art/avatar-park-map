@@ -382,6 +382,17 @@
         .video-wrap { max-width: 860px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
         .video-wrap iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
 
+        /* NEWS */
+        .news-section { max-width: 800px; margin: 0 auto; }
+        .news-list { display: flex; flex-direction: column; gap: 20px; }
+        .news-card { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 24px; transition: border-color 0.2s; }
+        .news-card:hover { border-color: var(--accent); }
+        .news-date { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+        .news-title { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+        .news-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .news-tg-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; padding: 12px 24px; background: rgba(42,171,238,0.1); border: 1px solid rgba(42,171,238,0.3); border-radius: 12px; color: #2AABEE; text-decoration: none; font-size: 15px; font-weight: 600; transition: background 0.2s; }
+        .news-tg-link:hover { background: rgba(42,171,238,0.2); }
+
         /* FAQ */
         .faq { max-width: 700px; margin: 0 auto; }
         .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
@@ -434,6 +445,7 @@
         <li><a href="#photos">Фото парка</a></li>
         <li><a href="#reviews">Отзывы</a></li>
         <li><a href="#buy">Купить</a></li>
+        <li><a href="#news">Новости</a></li>
         <li><a href="#faq">Вопросы</a></li>
     </ul>
 </nav>
@@ -856,6 +868,24 @@
     </table>
 </section>
 
+<!-- NEWS -->
+<section id="news">
+    <div class="news-section">
+        <h2>Новости и советы</h2>
+        <div class="news-list" id="newsList">
+            <div class="news-card">
+                <div class="news-date">Загрузка...</div>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <a href="https://t.me/avatarparkmap" target="_blank" rel="noopener" class="news-tg-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#2AABEE"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Все новости в нашем Telegram-канале &rarr;
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- FAQ -->
 <section class="section-dark" id="faq">
     <div class="faq">
@@ -956,6 +986,31 @@ function toggleTheme() {
     document.body.classList.toggle('light-theme');
     document.getElementById('btnTheme').textContent = document.body.classList.contains('light-theme') ? '🌙 Тёмный фон' : '☀️ Светлый фон';
 }
+
+(function() {
+    fetch('/news.json')
+        .then(function(r) { return r.json(); })
+        .then(function(news) {
+            var list = document.getElementById('newsList');
+            if (!news || !news.length) return;
+            var items = news.slice(0, 5);
+            var html = '';
+            for (var i = 0; i < items.length; i++) {
+                var n = items[i];
+                var d = n.date.split('-');
+                var months = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+                var dateStr = parseInt(d[2]) + ' ' + months[parseInt(d[1])-1] + ' ' + d[0];
+                var text = n.text.length > 200 ? n.text.substring(0, 200) + '...' : n.text;
+                html += '<div class="news-card" id="' + (n.id || 'news-' + i) + '">';
+                html += '<div class="news-date">' + dateStr + '</div>';
+                html += '<div class="news-title">' + n.title + '</div>';
+                html += '<div class="news-text">' + text + '</div>';
+                html += '</div>';
+            }
+            list.innerHTML = html;
+        })
+        .catch(function() {});
+})();
 </script>
 
 </body>

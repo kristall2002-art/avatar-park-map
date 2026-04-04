@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://avatar-park-map.pages.dev/sitemap.xml
