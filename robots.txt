@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://avatar-park-map.pages.dev/sitemap.xml
+Sitemap: https://kristall2002-art.github.io/avatar-park-map/sitemap.xml
