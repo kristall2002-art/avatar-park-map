@@ -361,6 +361,31 @@
         .buy-btn { display: inline-block; padding: 16px 48px; background: linear-gradient(135deg, #4ecdc4, #44b8b0); color: #0d1117; text-decoration: none; border-radius: 12px; font-size: 18px; font-weight: 700; margin-top: 24px; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none; }
         .buy-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(78,205,196,0.4); }
 
+        /* Purchase modal */
+        .buy-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(6px); }
+        .buy-modal[hidden] { display: none; }
+        .buy-modal-content { background: #1a2332; border-radius: 16px; padding: 32px 28px; max-width: 440px; width: 100%; position: relative; border: 1px solid rgba(78,205,196,0.2); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        body.light-theme .buy-modal-content { background: #fff; border-color: rgba(15,52,96,0.15); }
+        .buy-modal-close { position: absolute; top: 12px; right: 16px; font-size: 28px; cursor: pointer; color: var(--text-muted); background: none; border: none; line-height: 1; }
+        .buy-modal-close:hover { color: var(--text); }
+        .buy-modal h3 { margin: 0 0 20px 0; font-size: 22px; color: var(--text); }
+        .buy-modal p { color: var(--text-muted); font-size: 15px; margin: 0 0 20px 0; }
+        .delivery-option { display: flex; align-items: center; gap: 14px; width: 100%; padding: 18px 20px; margin-bottom: 12px; background: rgba(78,205,196,0.08); border: 1px solid rgba(78,205,196,0.25); border-radius: 12px; color: var(--text); font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.15s; text-align: left; }
+        .delivery-option:hover { background: rgba(78,205,196,0.15); transform: translateY(-1px); }
+        .delivery-option-icon { font-size: 24px; flex-shrink: 0; }
+        .delivery-option-text { flex: 1; }
+        .delivery-option-sub { display: block; font-size: 13px; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+        .buy-input { width: 100%; padding: 14px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(78,205,196,0.3); border-radius: 10px; font-size: 16px; color: var(--text); margin-bottom: 12px; box-sizing: border-box; }
+        body.light-theme .buy-input { background: #f5f7fa; color: #0d1117; }
+        .buy-input:focus { outline: none; border-color: var(--accent); }
+        .buy-pay-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #4ecdc4, #44b8b0); color: #0d1117; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: transform 0.15s; }
+        .buy-pay-btn:hover:not(:disabled) { transform: scale(1.02); }
+        .buy-pay-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .buy-back-btn { width: 100%; padding: 10px; background: none; color: var(--text-muted); border: none; font-size: 14px; cursor: pointer; margin-top: 8px; }
+        .buy-back-btn:hover { color: var(--text); }
+        .buy-error { color: #e74c3c; font-size: 14px; margin: 10px 0 0 0; min-height: 20px; }
+        .buy-hint { color: var(--text-muted); font-size: 13px; margin-top: 14px; text-align: center; }
+
         /* SUPPORT */
         .support-banner { background: linear-gradient(135deg, rgba(255,230,109,0.08), rgba(255,230,109,0.03)); border: 1px solid rgba(255,230,109,0.25); border-radius: 20px; padding: 40px; text-align: center; max-width: 700px; margin: 0 auto; }
         .support-banner h3 { font-size: 22px; margin-bottom: 12px; color: var(--accent2); }
@@ -1000,6 +1025,84 @@ function toggleTheme() {
     document.getElementById('btnTheme').textContent = document.body.classList.contains('light-theme') ? '🌙 Тёмный фон' : '☀️ Светлый фон';
 }
 
+// --- Purchase modal ---
+var API_URL = "https://avatarparkmap-autopost.kristall2002.workers.dev/api";
+function openBuyModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('buyModal').hidden = false;
+    document.body.style.overflow = 'hidden';
+    if (typeof ym === 'function') ym(108565991, 'reachGoal', 'buy_modal_open');
+}
+function closeBuyModal() {
+    document.getElementById('buyModal').hidden = true;
+    document.body.style.overflow = '';
+    document.getElementById('buyEmailForm').hidden = true;
+    document.getElementById('buyChoice').hidden = false;
+    document.getElementById('buyError').textContent = '';
+    var btn = document.getElementById('buyPayBtn');
+    btn.disabled = false;
+    btn.textContent = 'Перейти к оплате — 150 ₽';
+}
+function showBuyEmailForm() {
+    document.getElementById('buyChoice').hidden = true;
+    document.getElementById('buyEmailForm').hidden = false;
+    setTimeout(function(){ document.getElementById('buyEmailInput').focus(); }, 100);
+}
+function backToBuyChoice() {
+    document.getElementById('buyEmailForm').hidden = true;
+    document.getElementById('buyChoice').hidden = false;
+    document.getElementById('buyError').textContent = '';
+}
+async function submitBuyOrder() {
+    var email = document.getElementById('buyEmailInput').value.trim().toLowerCase();
+    var errEl = document.getElementById('buyError');
+    errEl.textContent = '';
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        errEl.textContent = 'Введите корректный email';
+        return;
+    }
+    var btn = document.getElementById('buyPayBtn');
+    btn.disabled = true;
+    btn.textContent = 'Создаю платёж...';
+    try {
+        var resp = await fetch(API_URL + '/create-order', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({email: email})
+        });
+        var data = await resp.json();
+        if (data.pay_url) {
+            if (typeof ym === 'function') ym(108565991, 'reachGoal', 'payment_redirect');
+            window.location.href = data.pay_url;
+        } else {
+            errEl.textContent = 'Ошибка: ' + (data.error || 'попробуйте позже');
+            btn.disabled = false;
+            btn.textContent = 'Перейти к оплате — 150 ₽';
+        }
+    } catch (err) {
+        errEl.textContent = 'Сеть недоступна. Проверьте интернет и попробуйте снова.';
+        btn.disabled = false;
+        btn.textContent = 'Перейти к оплате — 150 ₽';
+    }
+}
+// Intercept buy button clicks (non-anchor ones)
+document.addEventListener('DOMContentLoaded', function() {
+    var btns = document.querySelectorAll('.buy-btn');
+    for (var i = 0; i < btns.length; i++) {
+        var href = btns[i].getAttribute('href') || '';
+        if (href.indexOf('#') === 0) continue; // anchor scrolls — leave alone
+        btns[i].addEventListener('click', openBuyModal);
+    }
+    // Close on overlay click
+    document.getElementById('buyModal').addEventListener('click', function(e) {
+        if (e.target.id === 'buyModal') closeBuyModal();
+    });
+    // Enter key in email input
+    document.getElementById('buyEmailInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') submitBuyOrder();
+    });
+});
+
 (function() {
     fetch('news.json')
         .then(function(r) { return r.json(); })
@@ -1025,6 +1128,38 @@ function toggleTheme() {
         .catch(function() {});
 })();
 </script>
+
+<!-- Purchase modal -->
+<div id="buyModal" class="buy-modal" hidden>
+    <div class="buy-modal-content">
+        <button class="buy-modal-close" onclick="closeBuyModal()" aria-label="Закрыть">&times;</button>
+        <div id="buyChoice">
+            <h3>Как получить карту?</h3>
+            <p>3 PDF-карты (парк Аватар, город Чжанцзяцзе, гора Тяньмэнь) за <b>150 ₽</b></p>
+            <button class="delivery-option" onclick="showBuyEmailForm()">
+                <span class="delivery-option-icon">📧</span>
+                <span class="delivery-option-text">На email
+                    <span class="delivery-option-sub">Оплата → карты в письме</span>
+                </span>
+            </button>
+            <a href="https://t.me/Avatarparkmap_bot" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_telegram')">
+                <span class="delivery-option-icon">📲</span>
+                <span class="delivery-option-text">В Telegram
+                    <span class="delivery-option-sub">Оплата → карты в боте</span>
+                </span>
+            </a>
+        </div>
+        <div id="buyEmailForm" hidden>
+            <h3>Оплата картой</h3>
+            <p>Введите email — на него придут 3 PDF-карты после оплаты</p>
+            <input type="email" id="buyEmailInput" class="buy-input" placeholder="your@email.com" autocomplete="email" />
+            <button id="buyPayBtn" class="buy-pay-btn" onclick="submitBuyOrder()">Перейти к оплате — 150 ₽</button>
+            <p id="buyError" class="buy-error"></p>
+            <button class="buy-back-btn" onclick="backToBuyChoice()">← Назад</button>
+            <p class="buy-hint">Оплата через ЮKassa (СБП, карта). Безопасно.</p>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
