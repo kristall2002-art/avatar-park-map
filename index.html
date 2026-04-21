@@ -7,6 +7,13 @@
     <meta name="description" content="Самая информативная карта парка Чжанцзяцзе (Горы Аватара), которую удалось найти в Китае. Обновлена в 2026. Карт много — эта собрала всё в одном месте. Все маршруты на 4 дня, лифт Байлун, стеклянный мост. Названия на английском и китайском. PDF для телефона — работает без интернета. 150 руб. Бонусом: карта города Чжанцзяцзе и карта парка Небесные Врата.">
     <meta name="keywords" content="карта парка аватара, карта чжанцзяцзе, карта чжанцзяцзе на английском и китайском, горы аватара карта, чжанцзяцзе карта парка, схема парка аватар, туристическая карта чжанцзяцзе, zhangjiajie map, 张家界地图, wulingyuan карта, улинъюань карта, лифт байлун карта, стеклянный мост чжанцзяцзе, гора тяньмэнь карта, подробная карта парка аватара, лучшая карта чжанцзяцзе, чжанцзяцзе маршрут, горы аватара китай, национальный парк аватар, парк аватар билеты, чжанцзяцзе что посмотреть, чжанцзяцзе самостоятельно, чжанцзяцзе как добраться, карта чжанцзяцзе скачать, джанджадзе, чанджанчзе, чанзачзе, чанчзачзе">
     <link rel="canonical" href="https://kristall2002-art.github.io/avatar-park-map/">
+    <link rel="alternate" hreflang="ru" href="https://kristall2002-art.github.io/avatar-park-map/">
+    <link rel="alternate" hreflang="en" href="https://kristall2002-art.github.io/avatar-park-map/en/">
+    <link rel="alternate" hreflang="es" href="https://kristall2002-art.github.io/avatar-park-map/es/">
+    <link rel="alternate" hreflang="zh" href="https://kristall2002-art.github.io/avatar-park-map/zh/">
+    <link rel="alternate" hreflang="ko" href="https://kristall2002-art.github.io/avatar-park-map/ko/">
+    <link rel="alternate" hreflang="ja" href="https://kristall2002-art.github.io/avatar-park-map/ja/">
+    <link rel="alternate" hreflang="x-default" href="https://kristall2002-art.github.io/avatar-park-map/">
     <meta name="robots" content="index, follow">
 
     <!-- Yandex.Metrika counter -->
@@ -271,6 +278,10 @@
         .a11y-panel { position: fixed; bottom: 24px; right: 24px; z-index: 1000; display: flex; flex-direction: column; gap: 8px; }
         .a11y-panel button { background: var(--accent); color: #0d1117; border: none; border-radius: 50px; padding: 10px 18px; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 20px rgba(78,205,196,0.4); transition: transform 0.2s; white-space: nowrap; }
         .a11y-panel button:hover { transform: scale(1.05); }
+        .lang-switcher { display: flex; flex-wrap: wrap; gap: 4px; background: rgba(13,17,23,0.8); padding: 6px; border-radius: 50px; box-shadow: 0 4px 20px rgba(78,205,196,0.3); }
+        .lang-link { flex: 1; min-width: 28px; text-align: center; color: var(--text); text-decoration: none; font-size: 11px; font-weight: 700; padding: 4px 6px; border-radius: 50px; transition: background 0.2s; }
+        .lang-link:hover { background: rgba(78,205,196,0.2); }
+        .lang-link.active { background: var(--accent); color: #0d1117; }
 
         /* NAV */
         nav { background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--border); padding: 12px 20px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
@@ -473,6 +484,14 @@
 <div class="a11y-panel">
     <button onclick="toggleLargeText()" id="btnText">🔍 Крупнее</button>
     <button onclick="toggleTheme()" id="btnTheme">☀️ Светлый фон</button>
+    <div class="lang-switcher">
+        <a href="/avatar-park-map/" class="lang-link active" hreflang="ru">RU</a>
+        <a href="/avatar-park-map/en/" class="lang-link" hreflang="en">EN</a>
+        <a href="/avatar-park-map/es/" class="lang-link" hreflang="es">ES</a>
+        <a href="/avatar-park-map/zh/" class="lang-link" hreflang="zh">ZH</a>
+        <a href="/avatar-park-map/ko/" class="lang-link" hreflang="ko">KO</a>
+        <a href="/avatar-park-map/ja/" class="lang-link" hreflang="ja">JA</a>
+    </div>
 </div>
 
 <!-- NAV -->
