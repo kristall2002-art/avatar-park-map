@@ -343,6 +343,20 @@
         .photo-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); font-size: 13px; color: #fff; }
         .photo-caption .cn { font-size: 11px; color: #aaa; }
 
+        /* GALLERY */
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 1200px; margin: 0 auto; }
+        .gallery-item { position: relative; cursor: pointer; border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; background: #f0f0f0; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+        .gallery-item:hover img { transform: scale(1.08); }
+        .gallery-item .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px 10px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); font-size: 12px; color: #fff; opacity: 0; transition: opacity 0.25s; }
+        .gallery-item:hover .gallery-caption { opacity: 1; }
+        #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; align-items: center; justify-content: center; flex-direction: column; padding: 20px; }
+        #lightbox.open { display: flex; }
+        #lightbox img { max-width: 95vw; max-height: 80vh; object-fit: contain; border-radius: 8px; }
+        #lightboxCaption { color: #fff; margin-top: 16px; font-size: 16px; max-width: 800px; text-align: center; }
+        #lightboxClose { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.15); color: #fff; border: none; font-size: 32px; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; line-height: 1; }
+        #lightboxClose:hover { background: rgba(255,255,255,0.3); }
+
         /* FRAGMENTS */
         .fragments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1100px; margin: 0 auto; }
         .fragment-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
@@ -462,6 +476,7 @@
             .price-box { padding: 30px 24px; }
             .price-amount { font-size: 48px; }
             .photos-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
             .fragments-grid { grid-template-columns: repeat(2, 1fr); }
             nav ul { gap: 12px; }
         }
@@ -473,6 +488,7 @@
             .features-grid .feature-item h3 { font-size: 13px; }
             .features-grid .feature-item p { font-size: 11px; }
             .photos-grid, .fragments-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
             .park-days { grid-template-columns: 1fr; }
         }
     </style>
@@ -500,6 +516,7 @@
         <li><a href="#features">Что внутри</a></li>
         <li><a href="#park">Маршруты</a></li>
         <li><a href="#photos">Фото парка</a></li>
+        <li><a href="#gallery">Галерея</a></li>
         <li><a href="#reviews">Отзывы</a></li>
         <li><a href="#buy">Купить</a></li>
         <li><a href="#news">Новости</a></li>
@@ -975,6 +992,22 @@
     </div>
 </section>
 
+<!-- GALLERY -->
+<section id="gallery">
+    <h2>Фотогалерея — 100 видов Чжанцзяцзе</h2>
+    <p style="text-align:center; color:#666; max-width:700px; margin:0 auto 24px;">Каждый день в 19:00 МСК — новое фото в <a href="https://t.me/avatarparkmap" target="_blank" rel="noopener" style="color:#0f3460;">нашем Telegram-канале</a>. Здесь — полная коллекция: парк Аватар, Тяньмэнь, Стеклянный мост, лифт Байлун, Тяньцзышань.</p>
+    <div class="gallery-grid" id="galleryGrid">
+        <div style="grid-column: 1 / -1; text-align:center; color:#999;">Загрузка фотогалереи…</div>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-hidden="true" onclick="closeLightbox()">
+    <img id="lightboxImg" alt="">
+    <div id="lightboxCaption"></div>
+    <button id="lightboxClose" aria-label="Закрыть" onclick="closeLightbox()">×</button>
+</div>
+
 <!-- FAQ -->
 <section class="section-dark" id="faq">
     <div class="faq">
@@ -1178,6 +1211,56 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(function() {});
 })();
+
+(function() {
+    var grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+    fetch('img/photos/photos.json')
+        .then(function(r) { return r.json(); })
+        .then(function(photos) {
+            if (!photos || !photos.length) {
+                grid.innerHTML = '<div style="grid-column: 1 / -1; text-align:center; color:#999;">Галерея временно недоступна</div>';
+                return;
+            }
+            var html = '';
+            for (var i = 0; i < photos.length; i++) {
+                var p = photos[i];
+                var safeCap = p.caption.replace(/"/g, '&quot;');
+                html += '<div class="gallery-item" onclick="openLightbox(' + i + ')" data-i="' + i + '">';
+                html += '<img src="img/photos/' + p.file + '" alt="' + safeCap + '" loading="lazy">';
+                html += '<div class="gallery-caption">' + p.caption + '</div>';
+                html += '</div>';
+            }
+            grid.innerHTML = html;
+            window.__galleryPhotos = photos;
+        })
+        .catch(function() {
+            grid.innerHTML = '<div style="grid-column: 1 / -1; text-align:center; color:#999;">Не удалось загрузить галерею</div>';
+        });
+})();
+
+function openLightbox(i) {
+    var photos = window.__galleryPhotos;
+    if (!photos || !photos[i]) return;
+    var lb = document.getElementById('lightbox');
+    var img = document.getElementById('lightboxImg');
+    var cap = document.getElementById('lightboxCaption');
+    img.src = 'img/photos/' + photos[i].file;
+    img.alt = photos[i].caption;
+    cap.textContent = photos[i].caption;
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+    var lb = document.getElementById('lightbox');
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+});
 </script>
 
 <!-- Purchase modal -->
