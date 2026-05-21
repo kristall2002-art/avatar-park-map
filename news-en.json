@@ -1,5 +1,11 @@
 [
   {
+    "id": "news-2026-05-21-1779357650167",
+    "date": "2026-05-21",
+    "title": "Getting around inside the park",
+    "text": "The park covers 369 km2 - you cannot walk it all. The 65-yuan transport ticket includes free shuttle buses on upper and lower loops (every 5-15 minutes until ~18:00). Cable cars go to Huangshizhai (65 yuan), Yangjiajie (76 yuan) and Tianzi Mountain (72 yuan)."
+  },
+  {
     "id": "news-2026-05-20-1779271210668",
     "date": "2026-05-20",
     "title": "Medical care in Zhangjiajie",
@@ -22,11 +28,5 @@
     "date": "2026-05-17",
     "title": "Language barrier in Zhangjiajie - mini phrasebook",
     "text": "Few people speak English in Zhangjiajie, even in hotels. Install offline Chinese packs in Google Translate before arrival. Key phrases: Ni hao (hello), Xie xie (thanks), Duo shao qian (how much), Bu yao la (not spicy), Ce suo zai na li (where is the toilet)."
-  },
-  {
-    "id": "news-2026-05-16-1778925658219",
-    "date": "2026-05-16",
-    "title": "Internet and SIM cards in Zhangjiajie",
-    "text": "A Chinese SIM from China Mobile or China Unicom at the airport is the best option - about 100 yuan for 10-20 GB over 30 days. eSIMs like Airalo work too. Install a VPN before arrival - Google, YouTube, Instagram and WhatsApp are all blocked in China."
   }
 ]
