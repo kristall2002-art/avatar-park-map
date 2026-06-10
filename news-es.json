@@ -1,5 +1,11 @@
 [
   {
+    "id": "news-2026-06-10-1781085618035",
+    "date": "2026-06-10",
+    "title": "Abril en Zhangjiajie: pico de floracion",
+    "text": "Temperatura +15…+22°C, lluvias moderadas. El mejor mes de primavera. Florecen azaleas que tinen de rosa las laderas, cerezos en la ciudad, glicinias en las entradas y los primeros peonias. Las cascadas llevan caudal pleno y el aire es limpio tras las lluvias."
+  },
+  {
     "id": "news-2026-06-09-1780999223519",
     "date": "2026-06-09",
     "title": "Marzo en Zhangjiajie: despertar de las montanas",
@@ -22,11 +28,5 @@
     "date": "2026-06-06",
     "title": "Animales de Zhangjiajie: quien vive alli",
     "text": "En el parque viven mas de 150 especies de vertebrados. Veras seguro macacos rhesus, sobre todo en el Arroyo del Latigo Dorado. Probablemente veas urracas azules de pico rojo, garzas blancas y mariposas gigantes. Con suerte: faisan dorado, salamandra gigante o pangolin chino."
-  },
-  {
-    "id": "news-2026-06-05-1780653625180",
-    "date": "2026-06-05",
-    "title": "Plantas de Zhangjiajie: que crece en las montanas",
-    "text": "El parque alberga uno de los bosques mas biodiversos de China con mas de 3000 especies. Los pinos en las cimas son pinos de Arman con raices en las grietas. Hay rododendros en primavera, arces y ginkgos en otono, y especies raras como el arbol de los panuelos y davidia."
   }
 ]
