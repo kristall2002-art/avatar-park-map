@@ -1,5 +1,11 @@
 [
   {
+    "id": "news-2026-06-28-1782640811251",
+    "date": "2026-06-28",
+    "title": "Mirador de las Seis Maravillas en Huangshizhai",
+    "text": "Uno de los miradores principales de la meseta Huangshizhai. Desde aqui se ven seis famosas formaciones rocosas a la vez: Cinco Dedos, Puente Celestial, Pico del Cumulo Estelar, Espejo de Hada, Pagoda del Cielo y Pico del Amanecer. Mejor a primera hora."
+  },
+  {
     "id": "news-2026-06-27-1782554411225",
     "date": "2026-06-27",
     "title": "Mirador Avatar: la Montana Hallelujah",
@@ -22,11 +28,5 @@
     "date": "2026-06-24",
     "title": "Comida callejera en Zhangjiajie",
     "text": "Los mejores sitios estan en el mercado nocturno junto al puente Wulizhou, en la calle Pipa y en la entrada norte del parque. Prueba el tofu apestoso a la parrilla, las brochetas, fideos por 10-15 yuanes, los baozi al vapor y los jianbing. Cena por 50-80 yuanes."
-  },
-  {
-    "id": "news-2026-06-23-1782208811659",
-    "date": "2026-06-23",
-    "title": "Cocina del pueblo Tujia: autentica de la montana",
-    "text": "Los Tujia son el pueblo originario de Zhangjiajie. Su cocina es menos picante que la de Hunan, con mas ahumados y fermentados. Prueba la panceta ahumada varios meses, los Tres Potes tradicionales, el vino dulce de arroz, el pescado en costra de azucar y el te de nueces."
   }
 ]
