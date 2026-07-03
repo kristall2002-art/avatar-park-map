@@ -1,5 +1,11 @@
 [
   {
+    "id": "news-2026-07-03-1783072851709",
+    "date": "2026-07-03",
+    "title": "Estaciones de tren de Zhangjiajie",
+    "text": "Dos estaciones: la antigua en el centro y Zhangjiajie Oeste, inaugurada en 2021 para alta velocidad. Trenes directos desde Changsha en 1,5 h, Wuhan en 3,5, Chongqing en 4, Guilin en 4,5, Guangzhou en 5,5 y Shanghai en 7-8 horas. Reserva en Trip.com o 12306.cn."
+  },
+  {
     "id": "news-2026-07-02-1782986451589",
     "date": "2026-07-02",
     "title": "Aeropuerto de Zhangjiajie Hehua (DYG)",
@@ -22,11 +28,5 @@
     "date": "2026-06-29",
     "title": "Mirador del Jardin Celestial en Tianzishan",
     "text": "Esta en el borde norte de la meseta Tianzishan a 1262 m. El nombre viene de la multitud de pilares que parecen flores en un jardin. Desde aqui se ven mas de 200 pilares en 16 km cuadrados, destacando el Mar Occidental de Nubes al amanecer y las cumbres con nieve."
-  },
-  {
-    "id": "news-2026-06-28-1782640811251",
-    "date": "2026-06-28",
-    "title": "Mirador de las Seis Maravillas en Huangshizhai",
-    "text": "Uno de los miradores principales de la meseta Huangshizhai. Desde aqui se ven seis famosas formaciones rocosas a la vez: Cinco Dedos, Puente Celestial, Pico del Cumulo Estelar, Espejo de Hada, Pagoda del Cielo y Pico del Amanecer. Mejor a primera hora."
   }
 ]
