@@ -1,5 +1,11 @@
 [
   {
+    "id": "news-2026-07-24-1784887253437",
+    "date": "2026-07-24",
+    "title": "Zhangjiajie Glass Bridge - 430 meters above the abyss",
+    "text": "The Glass Bridge in the Zhangjiajie Grand Canyon was the longest and highest glass bridge in the world when it opened. Length 430 m, height 300 m above the canyon, width 6 m, three-layer glass 4 cm thick. Ticket 138 yuan."
+  },
+  {
     "id": "news-2026-07-23-1784800853512",
     "date": "2026-07-23",
     "title": "Bailong Elevator - 326 meters straight up",
@@ -22,11 +28,5 @@
     "date": "2026-07-20",
     "title": "Summer in Zhangjiajie (June-August)",
     "text": "Hot and humid: +28 to +35 C, humidity up to 90%. It is peak season with crowds of Chinese tourists. Longest daylight, lush green mountains and all routes open, but Bailong Elevator lines can reach 1-2 hours."
-  },
-  {
-    "id": "news-2026-07-19-1784455260645",
-    "date": "2026-07-19",
-    "title": "Spring in Zhangjiajie (March-May)",
-    "text": "Spring is one of the best times to visit the park. Temperatures of +15 to +25 C, rhododendrons and mountain flowers bloom. Frequent fog and rain create that iconic Avatar atmosphere - the quartzite pillars literally float among the clouds."
   }
 ]
