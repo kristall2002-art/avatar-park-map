@@ -1,5 +1,11 @@
 [
   {
+    "id": "news-2026-07-25-1784973654278",
+    "date": "2026-07-25",
+    "title": "Teleferico de Tianmen: 7455 metros",
+    "text": "El teleferico de pasajeros mas largo del mundo. Sube desde el centro de la ciudad hasta la cima del monte Tianmen. Longitud 7455 m, desnivel 1279 m, tiempo de subida 28 minutos. Primero sobrevuelas la ciudad, luego bosques y al final acantilados verticales."
+  },
+  {
     "id": "news-2026-07-24-1784887254338",
     "date": "2026-07-24",
     "title": "Puente de cristal de Zhangjiajie: 430 metros sobre el abismo",
@@ -22,11 +28,5 @@
     "date": "2026-07-21",
     "title": "Otono en Zhangjiajie (septiembre - noviembre)",
     "text": "La mejor epoca para visitar. Temperatura +15…+25°C, pocas lluvias, colores increibles: arces rojos y ginkgos dorados sobre pilares de cuarcita. Octubre es ideal, pero evita la Semana Dorada (1-7 oct): el parque se llena. Mejor desde mediados de octubre."
-  },
-  {
-    "id": "news-2026-07-20-1784541629389",
-    "date": "2026-07-20",
-    "title": "Verano en Zhangjiajie (junio - agosto)",
-    "text": "Calor y humedad: +28…+35°C, humedad hasta 90%. Es la temporada alta, con multitudes de turistas chinos. A favor: dias largos, montanas muy verdes, todas las rutas abiertas. En contra: colas de 1-2 horas para el ascensor Bailong."
   }
 ]
