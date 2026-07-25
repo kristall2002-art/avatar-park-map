@@ -1,5 +1,11 @@
 [
   {
+    "id": "news-2026-07-25-1784973653481",
+    "date": "2026-07-25",
+    "title": "Tianmen Cable Car - 7,455 meters long",
+    "text": "The longest passenger cable car in the world, rising 1,279 m from the city center straight to the summit of Tianmen Mountain. The 28-minute ride carries you over the city, through forests and past sheer cliffs at a final angle of 37 degrees."
+  },
+  {
     "id": "news-2026-07-24-1784887253437",
     "date": "2026-07-24",
     "title": "Zhangjiajie Glass Bridge - 430 meters above the abyss",
@@ -22,11 +28,5 @@
     "date": "2026-07-21",
     "title": "Autumn in Zhangjiajie (September-November)",
     "text": "The best time to visit! Temperatures of +15 to +25 C, little rain and incredible colors - red maples and golden ginkgos against quartzite pillars. October is ideal, but avoid the Golden Week crowds in the first week."
-  },
-  {
-    "id": "news-2026-07-20-1784541628452",
-    "date": "2026-07-20",
-    "title": "Summer in Zhangjiajie (June-August)",
-    "text": "Hot and humid: +28 to +35 C, humidity up to 90%. It is peak season with crowds of Chinese tourists. Longest daylight, lush green mountains and all routes open, but Bailong Elevator lines can reach 1-2 hours."
   }
 ]
