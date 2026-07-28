@@ -1171,10 +1171,28 @@ function toggleTheme() {
 
 // --- Purchase modal ---
 var API_URL = "https://avatarparkmap-autopost.kristall2002.workers.dev/api";
+// Источник визита: utm_source из ссылки (VK/TG/MAX), запоминаем на сессию.
+function getSource() {
+    try {
+        var s = new URLSearchParams(location.search).get('utm_source');
+        if (s) { sessionStorage.setItem('apm_src', s); return s; }
+        return sessionStorage.getItem('apm_src') || (document.referrer ? 'referral' : 'direct');
+    } catch (e) { return 'direct'; }
+}
+// Свой лёгкий трекинг воронки → /api/track (visit / buy_click / checkout).
+function track(event) {
+    try {
+        fetch(API_URL + '/track', {
+            method: 'POST', headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({event: event, source: getSource()}), keepalive: true
+        }).catch(function(){});
+    } catch (e) {}
+}
 function openBuyModal(e) {
     if (e) e.preventDefault();
     document.getElementById('buyModal').hidden = false;
     document.body.style.overflow = 'hidden';
+    track('buy_click');
     if (typeof ym === 'function') ym(108565991, 'reachGoal', 'buy_modal_open');
 }
 function closeBuyModal() {
@@ -1212,10 +1230,11 @@ async function submitBuyOrder() {
         var resp = await fetch(API_URL + '/create-order', {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({email: email})
+            body: JSON.stringify({email: email, source: getSource()})
         });
         var data = await resp.json();
         if (data.pay_url) {
+            track('checkout');
             if (typeof ym === 'function') ym(108565991, 'reachGoal', 'payment_redirect');
             window.location.href = data.pay_url;
         } else {
@@ -1231,6 +1250,7 @@ async function submitBuyOrder() {
 }
 // Intercept buy button clicks (non-anchor ones)
 document.addEventListener('DOMContentLoaded', function() {
+    track('visit');
     var btns = document.querySelectorAll('.buy-btn');
     for (var i = 0; i < btns.length; i++) {
         var href = btns[i].getAttribute('href') || '';
