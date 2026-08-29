@@ -1,5 +1,11 @@
 [
   {
+    "id": "news-2026-08-29-1787997606106",
+    "date": "2026-08-29",
+    "title": "Transporte dentro del parque: como moverse",
+    "text": "El parque tiene 369 km cuadrados, no se puede recorrer a pie. Los buses verdes circulan cada 5-15 minutos, incluidos en el ticket de 65 yuanes. El ascensor Bailong cuesta 65 yuanes. Los telefericos de Huangshi, Yangjiajie y Tianzishan entre 65 y 76 yuanes."
+  },
+  {
     "id": "news-2026-08-28-1787911206150",
     "date": "2026-08-28",
     "title": "Atencion medica en Zhangjiajie",
@@ -22,11 +28,5 @@
     "date": "2026-08-25",
     "title": "Barrera idiomatica en Zhangjiajie: mini guia",
     "text": "En Zhangjiajie pocas personas hablan ingles, incluso en hoteles. Instala el paquete offline de chino en Google Translate antes del viaje. Frases utiles: ni hao (hola), xiexie (gracias), duoshao qian (cuanto cuesta), tai gui le (muy caro), bu yao la (sin picante)."
-  },
-  {
-    "id": "news-2026-08-24-1787565637854",
-    "date": "2026-08-24",
-    "title": "Internet y comunicacion en Zhangjiajie",
-    "text": "Sin internet en China es dificil: mapas, traductor, WeChat Pay y taxi van por el movil. Lo mejor es una SIM china (100 yuanes por 10-20 GB en 30 dias, requiere pasaporte) o una eSIM como Airalo. Instala una VPN antes de llegar: Google y WhatsApp estan bloqueados."
   }
 ]
