@@ -42,3 +42,50 @@
 - **Это бумага или файл?** Файлы PDF (сканы бумажных карт), приходят сразу после оплаты. Работают офлайн.
 - **Что входит?** Карта парка Аватар + бонусом карта города Чжанцзяцзе и карта горы Тяньмэнь.
 - **Сколько стоит?** 150 рублей за весь комплект.
+
+---
+
+# Zhangjiajie Avatar Mountains Map (Wulingyuan National Park, China)
+
+> The most detailed map set for a self-guided trip to Zhangjiajie National Forest Park — the "Avatar Mountains" that inspired the film. These are scans of the real paper maps sold on the ground in Zhangjiajie this year, not a redrawn tourist sketch. Labels in English and Chinese, so you can point at them and show staff, drivers and ticket clerks. PDF, works offline on any phone. 150 RUB (about 1.5 USD) for the whole set.
+
+## What you get (150 RUB)
+
+- **Zhangjiajie National Forest Park / Wulingyuan map** — every viewpoint, trails with walking times, the free shuttle bus routes and timetable, the Bailong Elevator, both cableways, and suggested 1-day to 4-day routes.
+- **Bonus: Zhangjiajie city map** — where to stay, the railway and bus stations, buses to the park entrances.
+- **Bonus: Tianmen Mountain ("Heaven's Gate") map** — routes A and B, the glass skywalk, the cableway, the 999 steps.
+- Format: PDF. Opens on any phone, **works with no internet and no roaming**.
+
+## Key facts
+
+- Park: Zhangjiajie National Forest Park / Wulingyuan Scenic Area, a UNESCO World Heritage site in Hunan Province, China.
+- Map language: English + Chinese. Deliberately not translated into other languages — the Chinese labels are what make the map usable with local staff.
+- Freshness: scans of this year's paper editions, refreshed for the season.
+- Delivery: instantly after payment, by email or through the Telegram / MAX bot.
+- Price: 150 RUB for all three maps.
+
+## Common questions
+
+- **Is this paper or a file?** Files — PDF scans of the paper maps, delivered right after payment. They work offline.
+- **What language are the maps in?** English and Chinese, side by side.
+- **What is included?** The Avatar Mountains park map plus two bonus maps: Zhangjiajie city and Tianmen Mountain.
+- **How much?** 150 RUB for the complete set.
+- **How do I pay from abroad?** Payment goes through YooKassa; the maps arrive by email, so no Russian messenger account is required.
+
+## Where to buy
+
+- Website (English): https://kristall2002-art.github.io/avatar-park-map/en/
+- Telegram purchase bot: https://t.me/Avatarparkmap_bot
+- MAX purchase bot: https://max.ru/id780453702801_bot
+
+---
+
+# Otros idiomas / 其他语言 / 다른 언어 / 他の言語
+
+**Español** — Mapa del Parque Nacional de Zhangjiajie (las «Montañas Avatar», Wulingyuan, China): escaneos de los mapas de papel reales del año en curso, con los nombres en inglés y chino para enseñárselos al personal local. Incluye el mapa del parque, el mapa de la ciudad de Zhangjiajie y el mapa de la montaña Tianmen. PDF, funciona sin conexión. 150 rublos. https://kristall2002-art.github.io/avatar-park-map/es/
+
+**中文** — 张家界国家森林公园（武陵源，「阿凡达山」）地图：今年张家界当地出售的纸质地图的真实扫描件，英文与中文对照标注，可直接指给工作人员和司机看。含公园地图、张家界市区地图、天门山地图。PDF 格式，离线可用。150 卢布。https://kristall2002-art.github.io/avatar-park-map/zh/
+
+**한국어** — 장가계 국립삼림공원(우링위안, '아바타 산') 지도: 올해 현지에서 판매되는 종이 지도를 그대로 스캔한 자료로, 영어와 중국어가 함께 표기되어 현지 직원과 기사에게 바로 보여줄 수 있습니다. 공원 지도, 장가계 시내 지도, 톈먼산 지도 포함. PDF, 오프라인 사용 가능. 150루블. https://kristall2002-art.github.io/avatar-park-map/ko/
+
+**日本語** — 張家界国家森林公園（武陵源、「アバターの山」）の地図：今年現地で売られている紙の地図をそのままスキャンしたもので、英語と中国語が併記されているためスタッフや運転手にそのまま見せられます。公園の地図、張家界市街の地図、天門山の地図を収録。PDF、オフラインで利用可。150ルーブル。https://kristall2002-art.github.io/avatar-park-map/ja/
