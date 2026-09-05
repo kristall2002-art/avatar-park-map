@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page not found | Zhangjiajie Avatar Mountains Map</title>
+<meta name="robots" content="noindex, follow">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+        --bg: #0d1117; --bg2: #161b22; --text: #e0e0e0; --text-muted: #8b949e;
+        --accent: #4ecdc4; --accent2: #ffe66d; --border: #30363d;
+    }
+    body {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        background: var(--bg); color: var(--text); line-height: 1.6;
+        min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        padding: 24px; text-align: center;
+    }
+    .box { max-width: 560px; }
+    .code { font-size: 72px; font-weight: 700; color: var(--accent); line-height: 1; }
+    h1 { font-size: 22px; margin: 12px 0 6px; font-weight: 600; }
+    p { color: var(--text-muted); margin-bottom: 4px; }
+    .home {
+        display: inline-block; margin: 24px 0 20px; padding: 12px 28px;
+        background: var(--accent); color: #0d1117; border-radius: 8px;
+        text-decoration: none; font-weight: 600;
+    }
+    .home:hover { background: var(--accent2); }
+    .langs { border-top: 1px solid var(--border); padding-top: 18px; }
+    .langs a {
+        display: inline-block; margin: 4px 6px; padding: 6px 14px;
+        background: var(--bg2); border: 1px solid var(--border); border-radius: 6px;
+        color: var(--text); text-decoration: none; font-size: 14px;
+    }
+    .langs a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="box">
+    <div class="code">404</div>
+    <h1>Page not found</h1>
+    <p>Страница не найдена — возможно, ссылка устарела.</p>
+    <a class="home" id="homeLink" href="https://kristall2002-art.github.io/avatar-park-map/">Go to the map &rarr;</a>
+    <div class="langs" id="langs">
+        <a href="https://kristall2002-art.github.io/avatar-park-map/" data-l="">Русский</a>
+        <a href="https://kristall2002-art.github.io/avatar-park-map/en/" data-l="en/">English</a>
+        <a href="https://kristall2002-art.github.io/avatar-park-map/es/" data-l="es/">Español</a>
+        <a href="https://kristall2002-art.github.io/avatar-park-map/zh/" data-l="zh/">中文</a>
+        <a href="https://kristall2002-art.github.io/avatar-park-map/ko/" data-l="ko/">한국어</a>
+        <a href="https://kristall2002-art.github.io/avatar-park-map/ja/" data-l="ja/">日本語</a>
+    </div>
+</div>
+<script>
+// Сайт живёт на двух хостах с разным корнем: /avatar-park-map/ на GitHub Pages и / на Cloudflare Pages.
+// 404 отдаётся по любому пути, поэтому корень вычисляем, а не зашиваем.
+(function () {
+    var root = location.pathname.indexOf('/avatar-park-map/') === 0 ? '/avatar-park-map/' : '/';
+    document.getElementById('homeLink').href = root;
+    var links = document.querySelectorAll('#langs a');
+    for (var i = 0; i < links.length; i++) links[i].href = root + links[i].dataset.l;
+})();
+</script>
+</body>
+</html>
