@@ -32,12 +32,12 @@
     <!-- Open Graph -->
     <meta property="og:type" content="product">
     <meta property="og:title" content="Mapa del Parque Nacional de Zhangjiajie (Montañas Avatar) — PDF 2026">
-    <meta property="og:description" content="El mapa más completo del parque de Zhangjiajie — todo en un solo lugar. Mapa del parque Avatar — 150 RUB. Bonus: mapa de la ciudad de Zhangjiajie y mapa del parque Tianmen (Puerta del Cielo). Actualizado a 2026.">
+    <meta property="og:description" content="El mapa más completo del parque de Zhangjiajie — todo en un solo lugar. 3 mapas en inglés y chino (parque Avatar, ciudad de Zhangjiajie y montaña Tianmen) — 250 ₽. Mapa del parque Avatar con traducción al ruso — 550 ₽. Actualizado a 2026.">
     <meta property="og:image" content="https://kristall2002-art.github.io/avatar-park-map/img/park_preview.jpg">
     <meta property="og:url" content="https://kristall2002-art.github.io/avatar-park-map/es/">
     <meta property="og:locale" content="es_ES">
     <meta property="og:site_name" content="Mapa del Parque Avatar">
-    <meta property="product:price:amount" content="150">
+    <meta property="product:price:amount" content="250">
     <meta property="product:price:currency" content="RUB">
 
     <!-- Schema.org: Organization -->
@@ -72,7 +72,7 @@
         },
         "offers": {
             "@type": "Offer",
-            "price": "150",
+            "price": "250",
             "priceCurrency": "RUB",
             "availability": "https://schema.org/InStock",
             "url": "https://kristall2002-art.github.io/avatar-park-map/es/#buy"
@@ -82,6 +82,28 @@
             "ratingValue": "5",
             "reviewCount": "25",
             "bestRating": "5"
+        }
+    }
+    </script>
+
+    <!-- Schema.org: Product (карта с переводом на русский) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Mapa del parque Avatar con traducción al ruso",
+        "description": "Escaneo del mapa de papel del Parque Nacional de Zhangjiajie (Montañas Avatar) de 2026: 71 nombres traducidos al ruso, con los nombres en inglés al lado, entradas resaltadas en rojo, la montaña Avatar en morado y precios actualizados del ascensor Bailong, los teleféricos y el tren. PDF.",
+        "image": "https://kristall2002-art.github.io/avatar-park-map/img/ru_1_obrazec_sq.jpg",
+        "brand": {
+            "@type": "Brand",
+            "name": "OOO «KRISTALL»"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "550",
+            "priceCurrency": "RUB",
+            "availability": "https://schema.org/InStock",
+            "url": "https://kristall2002-art.github.io/avatar-park-map/es/#buy-ru"
         }
     }
     </script>
@@ -372,6 +394,26 @@
         .buy-btn { display: inline-block; padding: 16px 48px; background: linear-gradient(135deg, #4ecdc4, #44b8b0); color: #0d1117; text-decoration: none; border-radius: 12px; font-size: 18px; font-weight: 700; margin-top: 24px; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none; }
         .buy-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(78,205,196,0.4); }
 
+        /* Два предложения: 3 карты и карта с переводом на русский */
+        .hero-buys { display: flex; flex-wrap: wrap; gap: 0 16px; justify-content: center; }
+        .hero-buys .buy-btn { padding: 14px 28px; font-size: 16px; }
+        .buy-btn.buy-btn-alt { background: linear-gradient(135deg, #ffe66d, #f5c842); }
+        .buy-btn.buy-btn-alt:hover { box-shadow: 0 8px 30px rgba(255,230,109,0.4); }
+        body.light-theme .hero .buy-btn.buy-btn-alt { background: linear-gradient(135deg, #ffe66d, #f5c842); color: #0d1117; }
+        .offers { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+        .offers .price-box { display: block; width: 100%; box-sizing: border-box; scroll-margin-top: 70px; }
+        .offers .price-box.offer-ru-full { max-width: 760px; }
+        .offers .buy-btn { display: block; text-align: center; padding: 16px 24px; }
+        .offer-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.35; }
+        .offer-ru-compact .price-amount { font-size: 48px; }
+        .offer-text { color: var(--text-light); font-size: 15px; margin: 18px 0 4px; text-align: left; line-height: 1.6; }
+        .ru-samples { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 22px 0 8px; }
+        .ru-samples figure { margin: 0; }
+        .ru-samples a { display: block; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        .ru-samples img { width: 100%; height: auto; display: block; }
+        .ru-samples figcaption { font-size: 12px; color: var(--text-muted); margin-top: 6px; line-height: 1.3; }
+        @media (max-width: 600px) { .ru-samples { grid-template-columns: repeat(2, 1fr); } }
+
         /* Purchase modal */
         .buy-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(6px); }
         .buy-modal[hidden] { display: none; }
@@ -481,7 +523,7 @@
         }
     </style>
     <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "WebPage", "url": "https://kristall2002-art.github.io/avatar-park-map/es/", "inLanguage": "es", "dateModified": "2026-09-27"}
+    {"@context": "https://schema.org", "@type": "WebPage", "url": "https://kristall2002-art.github.io/avatar-park-map/es/", "inLanguage": "es", "dateModified": "2026-10-02"}
     </script>
 </head>
 <body>
@@ -536,7 +578,10 @@
 
     <p class="subtitle" style="max-width:640px;margin:-16px auto 32px;padding:14px 20px;border-left:3px solid var(--accent);background:rgba(78,205,196,0.07);border-radius:8px;color:var(--text);"><strong>Son escaneos reales de mapas de papel</strong> de este año, traídos directamente desde la ciudad de Zhangjiajie. Toda la información está actualizada para esta temporada.</p>
 
-    <a href="#buy" class="buy-btn">Comprar el mapa del parque Avatar por 150 RUB</a>
+    <div class="hero-buys">
+        <a href="#buy" class="buy-btn">Comprar 3 mapas en inglés y chino por 250 ₽</a>
+        <a href="#buy-ru" class="buy-btn buy-btn-alt">Comprar el mapa del parque Avatar con traducción al ruso por 550 ₽</a>
+    </div>
 </header>
 
 <!-- FEATURES -->
@@ -657,13 +702,15 @@
 <!-- PRICING -->
 <section class="section-dark pricing" id="buy">
     <h2>Comprar el mapa del parque Avatar</h2>
-    <p class="desc">Mapa del parque Avatar — 150 RUB. Bonus: mapa de la ciudad de Zhangjiajie y mapa del Parque Tianmen (Puerta del Cielo)</p>
-    <div class="price-box">
-        <div>
-            <span class="price-amount">150</span>
-            <span class="price-currency"> RUB</span>
-        </div>
-        <ul class="price-includes">
+    <p class="desc">3 mapas en inglés y chino: parque Avatar, montaña Tianmen y ciudad de Zhangjiajie — 250 ₽. O el mapa del parque Avatar con traducción al ruso — 550 ₽</p>
+    <div class="offers">
+        <div class="price-box" id="buy-maps3">
+            <div class="offer-title">3 mapas en inglés y chino</div>
+            <div>
+                <span class="price-amount">250</span>
+                <span class="price-currency"> ₽</span>
+            </div>
+            <ul class="price-includes">
             <li>Mapa del parque Avatar (Wulingyuan) — producto principal</li>
             <li>Bonus: mapa de la ciudad de Zhangjiajie</li>
             <li>Bonus: mapa del Parque Tianmen — Puerta del Cielo (rutas A y B)</li>
@@ -672,8 +719,18 @@
             <li>Funciona sin conexión — Google Maps no funciona en China</li>
             <li>Acceso para siempre — descárgalo todas las veces que quieras</li>
         </ul>
-        <a href="https://t.me/avatarparkmap" class="buy-btn" id="buyBtn" target="_blank" rel="noopener">Comprar el mapa del parque Avatar por 150 RUB (+bonus: ciudad de Zhangjiajie y Parque Tianmen)</a>
-        <div style="margin-top:28px;padding:20px 28px;background:rgba(42,171,238,0.08);border:1px solid rgba(42,171,238,0.25);border-radius:16px;">
+            <a href="https://t.me/Avatarparkmap_bot?start=buy" class="buy-btn" id="buyBtn" data-product="maps3" target="_blank" rel="noopener">Comprar 3 mapas en inglés y chino por 250 ₽</a>
+        </div>
+        <div class="price-box offer-ru-compact" id="buy-ru">
+            <div class="offer-title">Mapa del parque Avatar con traducción al ruso</div>
+            <div>
+                <span class="price-amount">550</span>
+                <span class="price-currency"> ₽</span>
+            </div>
+            <p class="offer-text">Escaneo del mismo mapa de papel: 71 nombres traducidos al ruso, con los nombres en inglés al lado, entradas resaltadas en rojo, la montaña Avatar en morado y precios actualizados del ascensor Bailong, los teleféricos y el tren. PDF.</p>
+            <a href="https://t.me/Avatarparkmap_bot?start=buy_ru" class="buy-btn" data-product="ru" target="_blank" rel="noopener">Comprar el mapa del parque Avatar con traducción al ruso por 550 ₽</a>
+        </div>
+        <div style="width:100%;max-width:480px;box-sizing:border-box;padding:20px 28px;background:rgba(42,171,238,0.08);border:1px solid rgba(42,171,238,0.25);border-radius:16px;">
             <p style="font-size:15px;color:var(--text-light);margin-bottom:14px;">¿No consigues comprarlo? Escríbenos, te ayudamos.</p>
             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
                 <a href="https://t.me/avatarparkmap" target="_blank" rel="noopener" class="contact-btn contact-btn-tg">
@@ -1220,8 +1277,43 @@ function toggleTheme() {
 
 // --- Purchase modal ---
 var API_URL = "https://avatarparkmap-autopost.kristall2002.workers.dev/api";
+// Товары: maps3 — 3 карты (250 ₽), ru — карта с переводом на русский (550 ₽). Поле product уходит в /api/create-order.
+var BUY_PRODUCTS = {
+    "maps3": {
+        "desc": "3 mapas en PDF (parque Avatar, ciudad de Zhangjiajie, montaña Tianmen) por <b>250 ₽</b>",
+        "form": "Introduce tu email — te enviaremos los 3 mapas en PDF después del pago",
+        "pay": "Ir al pago — 250 ₽",
+        "email": "Pago → mapas en tu correo",
+        "tgsub": "Pago → mapas en el bot",
+        "tg": "https://t.me/Avatarparkmap_bot?start=buy"
+    },
+    "ru": {
+        "desc": "Mapa del parque Avatar con traducción al ruso (PDF) por <b>550 ₽</b>",
+        "form": "Introduce tu email — te enviaremos el mapa en PDF con traducción al ruso después del pago",
+        "pay": "Ir al pago — 550 ₽",
+        "email": "Pago → mapa en tu correo",
+        "tgsub": "Pago → mapa en el bot",
+        "tg": "https://t.me/Avatarparkmap_bot?start=buy_ru"
+    }
+};
+var buyProduct = 'maps3';
+function setBuyProduct(p) {
+    buyProduct = BUY_PRODUCTS[p] ? p : 'maps3';
+    var c = BUY_PRODUCTS[buyProduct];
+    document.getElementById('buyDesc').innerHTML = c.desc;
+    document.getElementById('buyFormDesc').textContent = c.form;
+    document.getElementById('buyEmailSub').textContent = c.email;
+    document.getElementById('buyTgSub').textContent = c.tgsub;
+    document.getElementById('buyTgLink').href = c.tg;
+    document.getElementById('buyPayBtn').textContent = c.pay;
+}
 function openBuyModal(e) {
-    if (e) e.preventDefault();
+    var p = 'maps3';
+    if (e) {
+        e.preventDefault();
+        if (e.currentTarget && e.currentTarget.getAttribute) p = e.currentTarget.getAttribute('data-product') || 'maps3';
+    }
+    setBuyProduct(p);
     document.getElementById('buyModal').hidden = false;
     document.body.style.overflow = 'hidden';
     if (typeof ym === 'function') ym(108565991, 'reachGoal', 'buy_modal_open');
@@ -1234,7 +1326,7 @@ function closeBuyModal() {
     document.getElementById('buyError').textContent = '';
     var btn = document.getElementById('buyPayBtn');
     btn.disabled = false;
-    btn.textContent = 'Ir al pago — 150 RUB';
+    btn.textContent = BUY_PRODUCTS[buyProduct].pay;
 }
 function showBuyEmailForm() {
     document.getElementById('buyChoice').hidden = true;
@@ -1261,7 +1353,7 @@ async function submitBuyOrder() {
         var resp = await fetch(API_URL + '/create-order', {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({email: email})
+            body: JSON.stringify({email: email, product: buyProduct})
         });
         var data = await resp.json();
         if (data.pay_url) {
@@ -1270,12 +1362,12 @@ async function submitBuyOrder() {
         } else {
             errEl.textContent = 'Error: ' + (data.error || 'inténtalo de nuevo más tarde');
             btn.disabled = false;
-            btn.textContent = 'Ir al pago — 150 RUB';
+            btn.textContent = BUY_PRODUCTS[buyProduct].pay;
         }
     } catch (err) {
         errEl.textContent = 'Sin conexión. Revisa tu internet e inténtalo de nuevo.';
         btn.disabled = false;
-        btn.textContent = 'Ir al pago — 150 RUB';
+        btn.textContent = BUY_PRODUCTS[buyProduct].pay;
     }
 }
 // Intercept buy button clicks (non-anchor ones)
@@ -1328,25 +1420,25 @@ document.addEventListener('DOMContentLoaded', function() {
         <button class="buy-modal-close" onclick="closeBuyModal()" aria-label="Cerrar">&times;</button>
         <div id="buyChoice">
             <h3>¿Cómo quieres recibir el mapa?</h3>
-            <p>3 mapas en PDF (parque Avatar, ciudad de Zhangjiajie, montaña Tianmen) por <b>150 RUB</b></p>
+            <p id="buyDesc">3 mapas en PDF (parque Avatar, ciudad de Zhangjiajie, montaña Tianmen) por <b>250 ₽</b></p>
             <button class="delivery-option" onclick="showBuyEmailForm()">
                 <span class="delivery-option-icon">📧</span>
                 <span class="delivery-option-text">Por email
-                    <span class="delivery-option-sub">Pago → mapas en tu correo</span>
+                    <span class="delivery-option-sub" id="buyEmailSub">Pago → mapas en tu correo</span>
                 </span>
             </button>
-            <a href="https://t.me/Avatarparkmap_bot" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_telegram')">
+            <a href="https://t.me/Avatarparkmap_bot?start=buy" id="buyTgLink" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_telegram')">
                 <span class="delivery-option-icon">📲</span>
                 <span class="delivery-option-text">Por Telegram
-                    <span class="delivery-option-sub">Pago → mapas en el bot</span>
+                    <span class="delivery-option-sub" id="buyTgSub">Pago → mapas en el bot</span>
                 </span>
             </a>
         </div>
         <div id="buyEmailForm" hidden>
             <h3>Pago con tarjeta</h3>
-            <p>Introduce tu email — te enviaremos los 3 mapas en PDF después del pago</p>
+            <p id="buyFormDesc">Introduce tu email — te enviaremos los 3 mapas en PDF después del pago</p>
             <input type="email" id="buyEmailInput" class="buy-input" placeholder="tu@email.com" autocomplete="email" />
-            <button id="buyPayBtn" class="buy-pay-btn" onclick="submitBuyOrder()">Ir al pago — 150 RUB</button>
+            <button id="buyPayBtn" class="buy-pay-btn" onclick="submitBuyOrder()">Ir al pago — 250 ₽</button>
             <p id="buyError" class="buy-error"></p>
             <button class="buy-back-btn" onclick="backToBuyChoice()">← Volver</button>
             <p class="buy-hint">Pago mediante YooKassa (SBP, tarjeta). Seguro.</p>
