@@ -437,6 +437,8 @@
         .buy-back-btn { width: 100%; padding: 10px; background: none; color: var(--text-muted); border: none; font-size: 14px; cursor: pointer; margin-top: 8px; }
         .buy-back-btn:hover { color: var(--text); }
         .buy-error { color: #e74c3c; font-size: 14px; margin: 10px 0 0 0; min-height: 20px; }
+        .buy-help { color: var(--text-muted); line-height: 1.5; }
+        .buy-help a { color: #4ecdc4; font-weight: 600; margin-right: 14px; white-space: nowrap; }
         .buy-hint { color: var(--text-muted); font-size: 13px; margin-top: 14px; text-align: center; }
 
         /* SUPPORT */
@@ -1341,11 +1343,37 @@ function openBuyModal(e) {
     document.body.style.overflow = 'hidden';
     if (typeof ym === 'function') ym(108565991, 'reachGoal', 'buy_modal_open');
 }
+// Сбой оплаты: вместо «ошибки» — куда написать (слово Сергея 05.10.2026). Адрес почты не показываем.
+var BUY_HELP = {"fail": "The payment page didn't open. Message us and we'll help you place the order:", "title": "Thank you for your purchase!", "done": "The map will arrive in your inbox within a few minutes — please check Spam too. Didn't get it, or the payment didn't go through? Message us and we'll help:"};
+function buyHelpLinks() {
+    return '<a href="https://t.me/Avatarparkmap_bot?start=contact" target="_blank" rel="noopener">Telegram</a>'
+        + '<a href="https://max.ru/id780453702801_bot?start=contact" target="_blank" rel="noopener">MAX</a>'
+        + '<a href="mailto:kristall2002@bk.ru?subject=Avatar%20Park%20map%20—%20order%20question">Email</a>';
+}
+function showBuyHelp(el) {
+    el.className = 'buy-error buy-help';
+    el.innerHTML = BUY_HELP.fail + '<br>' + buyHelpLinks();
+    if (typeof ym === 'function') ym(108565991, 'reachGoal', 'pay_help_shown');
+}
+// Возврат со страницы оплаты ЮKassa: ?paid=1 — спасибо и контакты.
+function showPaidThanks() {
+    document.getElementById('buyChoice').hidden = true;
+    document.getElementById('buyEmailForm').hidden = true;
+    document.getElementById('buyDoneTitle').textContent = BUY_HELP.title;
+    document.getElementById('buyDoneText').textContent = BUY_HELP.done;
+    document.getElementById('buyDoneLinks').innerHTML = buyHelpLinks();
+    document.getElementById('buyDone').hidden = false;
+    document.getElementById('buyModal').hidden = false;
+    document.body.style.overflow = 'hidden';
+    if (typeof ym === 'function') ym(108565991, 'reachGoal', 'payment_return');
+    try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {}
+}
 function closeBuyModal() {
     document.getElementById('buyModal').hidden = true;
     document.body.style.overflow = '';
     document.getElementById('buyEmailForm').hidden = true;
     document.getElementById('buyChoice').hidden = false;
+    document.getElementById('buyDone').hidden = true;
     document.getElementById('buyError').textContent = '';
     var btn = document.getElementById('buyPayBtn');
     btn.disabled = false;
@@ -1365,6 +1393,7 @@ async function submitBuyOrder() {
     var email = document.getElementById('buyEmailInput').value.trim().toLowerCase();
     var errEl = document.getElementById('buyError');
     errEl.textContent = '';
+    errEl.className = 'buy-error';
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
         errEl.textContent = 'Please enter a valid email';
         return;
@@ -1376,25 +1405,26 @@ async function submitBuyOrder() {
         var resp = await apiFetch('/create-order', {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({email: email, product: buyProduct})
+            body: JSON.stringify({email: email, product: buyProduct, return_url: location.origin + location.pathname + '?paid=1'})
         }, 80000);
         var data = await resp.json();
         if (data.pay_url) {
             if (typeof ym === 'function') ym(108565991, 'reachGoal', 'payment_redirect');
             window.location.href = data.pay_url;
         } else {
-            errEl.textContent = 'Error: ' + (data.error || 'please try again later');
+            showBuyHelp(errEl);
             btn.disabled = false;
             btn.textContent = BUY_PRODUCTS[buyProduct].pay;
         }
     } catch (err) {
-        errEl.textContent = 'Network unavailable. Please check your connection and try again.';
+        showBuyHelp(errEl);
         btn.disabled = false;
         btn.textContent = BUY_PRODUCTS[buyProduct].pay;
     }
 }
 // Intercept buy button clicks (non-anchor ones)
 document.addEventListener('DOMContentLoaded', function() {
+    if (/[?&]paid=1\b/.test(location.search)) showPaidThanks();
     var btns = document.querySelectorAll('.buy-btn');
     for (var i = 0; i < btns.length; i++) {
         var href = btns[i].getAttribute('href') || '';
@@ -1462,6 +1492,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="delivery-option-sub" id="buyTgSub">Payment → maps delivered in the bot</span>
                 </span>
             </a>
+        </div>
+        <div id="buyDone" hidden>
+            <h3 id="buyDoneTitle"></h3>
+            <p id="buyDoneText"></p>
+            <p class="buy-help" id="buyDoneLinks"></p>
         </div>
         <div id="buyEmailForm" hidden>
             <h3>Card payment</h3>
