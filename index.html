@@ -1322,7 +1322,26 @@ function toggleTheme() {
 }
 
 // --- Purchase modal ---
-var API_URL = "https://avatarparkmap-autopost.kristall2002.workers.dev/api";
+// Адреса API по очереди: хостинг reg.ru открывается из России; воркер Cloudflare — запасной
+// (из России в браузерах его режут). При сетевой ошибке или долгой тишине пробуем следующий.
+var API_URLS = ["https://rinazolotareva.ru/avatar-api", "https://avatarparkmap-autopost.kristall2002.workers.dev/api"];
+function apiFetch(path, opts, ms) {
+    var i = 0;
+    function attempt() {
+        var o = Object.assign({}, opts), timer = null;
+        if (typeof AbortController === 'function') {
+            var ac = new AbortController();
+            o.signal = ac.signal;
+            timer = setTimeout(function(){ ac.abort(); }, ms || 20000);
+        }
+        return fetch(API_URLS[i] + path, o).then(function(r){ clearTimeout(timer); return r; }, function(e){
+            clearTimeout(timer);
+            if (++i < API_URLS.length) return attempt();
+            throw e;
+        });
+    }
+    return attempt();
+}
 // Товары: maps3 — 3 карты (250 ₽), ru — карта с переводом на русский (550 ₽). Поле product уходит в /api/create-order.
 var BUY_PRODUCTS = {
     "maps3": {
@@ -1331,7 +1350,8 @@ var BUY_PRODUCTS = {
         "pay": "Перейти к оплате — 250 ₽",
         "email": "Оплата → карты в письме",
         "tgsub": "Оплата → карты в боте",
-        "tg": "https://t.me/Avatarparkmap_bot?start=buy"
+        "tg": "https://t.me/Avatarparkmap_bot?start=buy",
+        "max": "https://max.ru/id780453702801_bot?start=buy"
     },
     "ru": {
         "desc": "Карта парка Аватар с переводом на русский (PDF) за <b>550 ₽</b>",
@@ -1339,7 +1359,8 @@ var BUY_PRODUCTS = {
         "pay": "Перейти к оплате — 550 ₽",
         "email": "Оплата → карта в письме",
         "tgsub": "Оплата → карта в боте",
-        "tg": "https://t.me/Avatarparkmap_bot?start=buy_ru"
+        "tg": "https://t.me/Avatarparkmap_bot?start=buy_ru",
+        "max": "https://max.ru/id780453702801_bot?start=buy_ru"
     }
 };
 var buyProduct = 'maps3';
@@ -1351,6 +1372,8 @@ function setBuyProduct(p) {
     document.getElementById('buyEmailSub').textContent = c.email;
     document.getElementById('buyTgSub').textContent = c.tgsub;
     document.getElementById('buyTgLink').href = c.tg;
+    document.getElementById('buyMaxSub').textContent = c.tgsub;
+    document.getElementById('buyMaxLink').href = c.max;
     document.getElementById('buyPayBtn').textContent = c.pay;
 }
 // Источник визита: utm_source из ссылки (VK/TG/MAX), запоминаем на сессию.
@@ -1364,7 +1387,7 @@ function getSource() {
 // Свой лёгкий трекинг воронки → /api/track (visit / buy_click / checkout).
 function track(event) {
     try {
-        fetch(API_URL + '/track', {
+        apiFetch('/track', {
             method: 'POST', headers: {'Content-Type':'application/json'},
             body: JSON.stringify({event: event, source: getSource()}), keepalive: true
         }).catch(function(){});
@@ -1414,11 +1437,11 @@ async function submitBuyOrder() {
     btn.disabled = true;
     btn.textContent = 'Создаю платёж...';
     try {
-        var resp = await fetch(API_URL + '/create-order', {
+        var resp = await apiFetch('/create-order', {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({email: email, product: buyProduct, source: getSource()})
-        });
+        }, 80000);
         var data = await resp.json();
         if (data.pay_url) {
             track('checkout');
@@ -1538,14 +1561,20 @@ document.addEventListener('keydown', function(e) {
             <h3>Как получить карту?</h3>
             <p id="buyDesc">3 PDF-карты (парк Аватар, город Чжанцзяцзе, гора Тяньмэнь) за <b>250 ₽</b></p>
             <button class="delivery-option" onclick="showBuyEmailForm()">
-                <span class="delivery-option-icon">📧</span>
-                <span class="delivery-option-text">На email
+                <span class="delivery-option-icon">🌐</span>
+                <span class="delivery-option-text">Купить на сайте
                     <span class="delivery-option-sub" id="buyEmailSub">Оплата → карты в письме</span>
                 </span>
             </button>
+            <a href="https://max.ru/id780453702801_bot?start=buy" id="buyMaxLink" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_max')">
+                <span class="delivery-option-icon">🟣</span>
+                <span class="delivery-option-text">Купить в MAX
+                    <span class="delivery-option-sub" id="buyMaxSub">Оплата → карты в боте</span>
+                </span>
+            </a>
             <a href="https://t.me/Avatarparkmap_bot?start=buy" id="buyTgLink" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_telegram')">
                 <span class="delivery-option-icon">📲</span>
-                <span class="delivery-option-text">В Telegram
+                <span class="delivery-option-text">Купить в Telegram
                     <span class="delivery-option-sub" id="buyTgSub">Оплата → карты в боте</span>
                 </span>
             </a>

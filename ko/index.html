@@ -1277,7 +1277,26 @@ function toggleTheme() {
 }
 
 // --- Purchase modal ---
-var API_URL = "https://avatarparkmap-autopost.kristall2002.workers.dev/api";
+// Адреса API по очереди: хостинг reg.ru открывается из России; воркер Cloudflare — запасной
+// (из России в браузерах его режут). При сетевой ошибке или долгой тишине пробуем следующий.
+var API_URLS = ["https://rinazolotareva.ru/avatar-api", "https://avatarparkmap-autopost.kristall2002.workers.dev/api"];
+function apiFetch(path, opts, ms) {
+    var i = 0;
+    function attempt() {
+        var o = Object.assign({}, opts), timer = null;
+        if (typeof AbortController === 'function') {
+            var ac = new AbortController();
+            o.signal = ac.signal;
+            timer = setTimeout(function(){ ac.abort(); }, ms || 20000);
+        }
+        return fetch(API_URLS[i] + path, o).then(function(r){ clearTimeout(timer); return r; }, function(e){
+            clearTimeout(timer);
+            if (++i < API_URLS.length) return attempt();
+            throw e;
+        });
+    }
+    return attempt();
+}
 // Товары: maps3 — 3 карты (250 ₽), ru — карта с переводом на русский (550 ₽). Поле product уходит в /api/create-order.
 var BUY_PRODUCTS = {
     "maps3": {
@@ -1286,7 +1305,8 @@ var BUY_PRODUCTS = {
         "pay": "결제하기 — 250 ₽",
         "email": "결제 후 → 이메일로 지도 전송",
         "tgsub": "결제 후 → 봇에서 지도 전송",
-        "tg": "https://t.me/Avatarparkmap_bot?start=buy"
+        "tg": "https://t.me/Avatarparkmap_bot?start=buy",
+        "max": "https://max.ru/id780453702801_bot?start=buy"
     },
     "ru": {
         "desc": "러시아어 번역이 포함된 아바타 산 지도 (PDF) — <b>550 ₽</b>",
@@ -1294,7 +1314,8 @@ var BUY_PRODUCTS = {
         "pay": "결제하기 — 550 ₽",
         "email": "결제 후 → 이메일로 지도 전송",
         "tgsub": "결제 후 → 봇에서 지도 전송",
-        "tg": "https://t.me/Avatarparkmap_bot?start=buy_ru"
+        "tg": "https://t.me/Avatarparkmap_bot?start=buy_ru",
+        "max": "https://max.ru/id780453702801_bot?start=buy_ru"
     }
 };
 var buyProduct = 'maps3';
@@ -1306,6 +1327,8 @@ function setBuyProduct(p) {
     document.getElementById('buyEmailSub').textContent = c.email;
     document.getElementById('buyTgSub').textContent = c.tgsub;
     document.getElementById('buyTgLink').href = c.tg;
+    document.getElementById('buyMaxSub').textContent = c.tgsub;
+    document.getElementById('buyMaxLink').href = c.max;
     document.getElementById('buyPayBtn').textContent = c.pay;
 }
 function openBuyModal(e) {
@@ -1351,11 +1374,11 @@ async function submitBuyOrder() {
     btn.disabled = true;
     btn.textContent = '결제를 준비하는 중...';
     try {
-        var resp = await fetch(API_URL + '/create-order', {
+        var resp = await apiFetch('/create-order', {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({email: email, product: buyProduct})
-        });
+        }, 80000);
         var data = await resp.json();
         if (data.pay_url) {
             if (typeof ym === 'function') ym(108565991, 'reachGoal', 'payment_redirect');
@@ -1422,14 +1445,20 @@ document.addEventListener('DOMContentLoaded', function() {
             <h3>지도를 어떻게 받으시겠어요?</h3>
             <p id="buyDesc">PDF 지도 3장 (아바타 산 · 장가계 시내 · 톈먼산) — <b>250 ₽</b></p>
             <button class="delivery-option" onclick="showBuyEmailForm()">
-                <span class="delivery-option-icon">📧</span>
-                <span class="delivery-option-text">이메일로 받기
+                <span class="delivery-option-icon">🌐</span>
+                <span class="delivery-option-text">사이트에서 구매
                     <span class="delivery-option-sub" id="buyEmailSub">결제 후 → 이메일로 지도 전송</span>
                 </span>
             </button>
+            <a href="https://max.ru/id780453702801_bot?start=buy" id="buyMaxLink" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_max')">
+                <span class="delivery-option-icon">🟣</span>
+                <span class="delivery-option-text">MAX에서 구매
+                    <span class="delivery-option-sub" id="buyMaxSub">결제 후 → 봇에서 지도 전송</span>
+                </span>
+            </a>
             <a href="https://t.me/Avatarparkmap_bot?start=buy" id="buyTgLink" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_telegram')">
                 <span class="delivery-option-icon">📲</span>
-                <span class="delivery-option-text">텔레그램으로 받기
+                <span class="delivery-option-text">텔레그램에서 구매
                     <span class="delivery-option-sub" id="buyTgSub">결제 후 → 봇에서 지도 전송</span>
                 </span>
             </a>
