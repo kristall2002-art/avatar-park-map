@@ -585,7 +585,7 @@
     <div class="hero-buys">
         <a href="#buy" class="buy-btn">购买3张中英文地图 199 ₽</a>
         <a href="#buy-ru" class="buy-btn buy-btn-alt">购买带俄语翻译的阿凡达山公园地图 399 ₽</a>
-        <a href="#buy-tm" class="buy-btn buy-btn-alt">购买带俄语翻译的阿凡达山地图和天门山攻略 499 ₽</a>
+        <a href="#buy-tm" class="buy-btn buy-btn-alt">购买带俄语翻译的阿凡达山地图和天门山地图及攻略 449 ₽</a>
     </div>
 </header>
 
@@ -707,7 +707,7 @@
 <!-- PRICING -->
 <section class="section-dark pricing" id="buy">
     <h2>购买阿凡达山地图</h2>
-    <p class="desc">3张中英文地图：阿凡达山公园、天门山和张家界市区 — 199 ₽。或带俄语翻译的阿凡达山公园地图 — 399 ₽。或同一张地图加天门山攻略 — 499 ₽</p>
+    <p class="desc">3张中英文地图：阿凡达山公园、天门山和张家界市区 — 199 ₽。或带俄语翻译的阿凡达山公园地图 — 399 ₽。或同一张地图加天门山地图及线路攻略 — 449 ₽</p>
     <div class="offers">
         <div class="price-box" id="buy-maps3">
             <div class="offer-title">3张中英文地图</div>
@@ -736,13 +736,13 @@
             <a href="https://t.me/Avatarparkmap_bot?start=buy_ru" class="buy-btn" data-product="ru" target="_blank" rel="noopener">购买带俄语翻译的阿凡达山公园地图 399 ₽</a>
         </div>
         <div class="price-box offer-ru-compact" id="buy-tm">
-            <div class="offer-title">带俄语翻译的阿凡达山公园地图和天门山攻略</div>
+            <div class="offer-title">带俄语翻译的阿凡达山公园地图和天门山地图及线路攻略</div>
             <div>
-                <span class="price-amount">499</span>
+                <span class="price-amount">449</span>
                 <span class="price-currency"> ₽</span>
             </div>
-            <p class="offer-text">带俄语翻译的阿凡达山公园地图，加上带俄语翻译的天门山攻略：A、B、C三条上山线路的详细说明，上山线路图和山顶详细地图，以及2026年10月13日起天门山索道停运的通知。PDF。</p>
-            <a href="https://t.me/Avatarparkmap_bot?start=buy_tm" class="buy-btn" data-product="tm" target="_blank" rel="noopener">购买带俄语翻译的阿凡达山地图和天门山攻略 499 ₽</a>
+            <p class="offer-text">带俄语翻译的阿凡达山公园地图，加上带俄语翻译的天门山地图：上山线路图和山顶详细地图，方便规划游览；线路攻略详细说明A、B、C三条上山线路。PDF。</p>
+            <a href="https://t.me/Avatarparkmap_bot?start=buy_tm" class="buy-btn" data-product="tm" target="_blank" rel="noopener">购买带俄语翻译的阿凡达山地图和天门山地图及攻略 449 ₽</a>
         </div>
         <div style="width:100%;max-width:480px;box-sizing:border-box;padding:20px 28px;background:rgba(42,171,238,0.08);border:1px solid rgba(42,171,238,0.25);border-radius:16px;">
             <p style="font-size:15px;color:var(--text-light);margin-bottom:14px;">购买遇到问题？联系我们，我们来帮您！</p>
@@ -1334,7 +1334,7 @@ function apiFetch(path, opts, ms) {
     }
     return attempt();
 }
-// Товары: maps3 — 3 карты (199 ₽), ru — карта с переводом на русский (399 ₽), tm — она же + гайд по Тяньмэню (499 ₽).
+// Товары: maps3 — 3 карты (199 ₽), ru — карта с переводом на русский (399 ₽), tm — она же + карта Тяньмэня с гайдом (449 ₽).
 // Поле product уходит в /api/create-order; цену сервер берёт из своей таблицы, не отсюда.
 var BUY_PRODUCTS = {
     "maps3": {
@@ -1356,11 +1356,11 @@ var BUY_PRODUCTS = {
         "max": "https://max.ru/id780453702801_bot?start=buy_ru"
     },
     "tm": {
-        "desc": "带俄语翻译的阿凡达山公园地图和天门山攻略（PDF），仅 <b>499 ₽</b>",
-        "form": "请输入邮箱——付款后地图和天门山攻略PDF将发送到此邮箱",
-        "pay": "前往支付 — 499 ₽",
-        "email": "付款 → 邮件收地图和攻略",
-        "tgsub": "付款 → 机器人发送地图和攻略",
+        "desc": "带俄语翻译的阿凡达山公园地图和天门山地图及线路攻略（PDF），仅 <b>449 ₽</b>",
+        "form": "请输入邮箱——付款后阿凡达山地图和天门山地图及攻略PDF将发送到此邮箱",
+        "pay": "前往支付 — 449 ₽",
+        "email": "付款 → 邮件收地图",
+        "tgsub": "付款 → 机器人发送地图",
         "tg": "https://t.me/Avatarparkmap_bot?start=buy_tm",
         "max": "https://max.ru/id780453702801_bot?start=buy_tm"
     }

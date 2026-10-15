@@ -584,7 +584,7 @@
     <div class="hero-buys">
         <a href="#buy" class="buy-btn">Buy 3 maps in English and Chinese for 199 ₽</a>
         <a href="#buy-ru" class="buy-btn buy-btn-alt">Buy the Avatar Park map with Russian translation for 399 ₽</a>
-        <a href="#buy-tm" class="buy-btn buy-btn-alt">Buy the Avatar Park map and Tianmen guide with Russian translation for 499 ₽</a>
+        <a href="#buy-tm" class="buy-btn buy-btn-alt">Buy the Avatar Park map and Tianmen map with a route guide, with Russian translation, for 449 ₽</a>
     </div>
 </header>
 
@@ -706,7 +706,7 @@
 <!-- PRICING -->
 <section class="section-dark pricing" id="buy">
     <h2>Buy the Avatar Mountains map</h2>
-    <p class="desc">3 maps in English and Chinese: Avatar Park, Tianmen Mountain and Zhangjiajie city — 199 ₽. Or the Avatar Park map with Russian translation — 399 ₽. Or the same map with a Tianmen Mountain guide — 499 ₽</p>
+    <p class="desc">3 maps in English and Chinese: Avatar Park, Tianmen Mountain and Zhangjiajie city — 199 ₽. Or the Avatar Park map with Russian translation — 399 ₽. Or the same map with the Tianmen Mountain map and a route guide — 449 ₽</p>
     <div class="offers">
         <div class="price-box" id="buy-maps3">
             <div class="offer-title">3 maps in English and Chinese</div>
@@ -735,13 +735,13 @@
             <a href="https://t.me/Avatarparkmap_bot?start=buy_ru" class="buy-btn" data-product="ru" target="_blank" rel="noopener">Buy the Avatar Park map with Russian translation for 399 ₽</a>
         </div>
         <div class="price-box offer-ru-compact" id="buy-tm">
-            <div class="offer-title">Avatar Park map and Tianmen Mountain guide — with Russian translation</div>
+            <div class="offer-title">Avatar Park map and Tianmen Mountain map with a route guide — with Russian translation</div>
             <div>
-                <span class="price-amount">499</span>
+                <span class="price-amount">449</span>
                 <span class="price-currency"> ₽</span>
             </div>
-            <p class="offer-text">The Avatar Park map with Russian translation plus a Tianmen Mountain guide with Russian translation: a detailed description of routes A, B and C to plan your own way up, a map of the routes up the mountain and a detailed summit map for your walk, and the notice on the big cableway closure since 13 October 2026. PDF.</p>
-            <a href="https://t.me/Avatarparkmap_bot?start=buy_tm" class="buy-btn" data-product="tm" target="_blank" rel="noopener">Buy the Avatar Park map and Tianmen guide with Russian translation for 499 ₽</a>
+            <p class="offer-text">The Avatar Park map with Russian translation plus the Tianmen Mountain map with Russian translation: a map of the routes up the mountain and a detailed summit map to plan your walk, and a route guide on how to plan your own way — a detailed description of routes A, B and C. PDF.</p>
+            <a href="https://t.me/Avatarparkmap_bot?start=buy_tm" class="buy-btn" data-product="tm" target="_blank" rel="noopener">Buy the Avatar Park map and Tianmen map with a route guide, with Russian translation, for 449 ₽</a>
         </div>
         <div style="width:100%;max-width:480px;box-sizing:border-box;padding:20px 28px;background:rgba(42,171,238,0.08);border:1px solid rgba(42,171,238,0.25);border-radius:16px;">
             <p style="font-size:15px;color:var(--text-light);margin-bottom:14px;">Having trouble purchasing? Contact us — we'll help!</p>
@@ -1334,7 +1334,7 @@ function apiFetch(path, opts, ms) {
     }
     return attempt();
 }
-// Товары: maps3 — 3 карты (199 ₽), ru — карта с переводом на русский (399 ₽), tm — она же + гайд по Тяньмэню (499 ₽).
+// Товары: maps3 — 3 карты (199 ₽), ru — карта с переводом на русский (399 ₽), tm — она же + карта Тяньмэня с гайдом (449 ₽).
 // Поле product уходит в /api/create-order; цену сервер берёт из своей таблицы, не отсюда.
 var BUY_PRODUCTS = {
     "maps3": {
@@ -1356,11 +1356,11 @@ var BUY_PRODUCTS = {
         "max": "https://max.ru/id780453702801_bot?start=buy_ru"
     },
     "tm": {
-        "desc": "Avatar Park map and Tianmen Mountain guide with Russian translation (PDF) for <b>499 ₽</b>",
-        "form": "Enter your email — the Avatar Park map and the Tianmen Mountain guide (PDF) will be sent there after payment",
-        "pay": "Proceed to payment — 499 ₽",
-        "email": "Payment → map and guide delivered by email",
-        "tgsub": "Payment → map and guide delivered in the bot",
+        "desc": "Avatar Park map and Tianmen Mountain map with a route guide, with Russian translation (PDF), for <b>449 ₽</b>",
+        "form": "Enter your email — the Avatar Park map and the Tianmen Mountain map with a route guide (PDF) will be sent there after payment",
+        "pay": "Proceed to payment — 449 ₽",
+        "email": "Payment → maps delivered by email",
+        "tgsub": "Payment → maps delivered in the bot",
         "tg": "https://t.me/Avatarparkmap_bot?start=buy_tm",
         "max": "https://max.ru/id780453702801_bot?start=buy_tm"
     }
