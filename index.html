@@ -408,6 +408,16 @@
         .fragment-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
         .fragment-item img { width: 100%; display: block; }
         .fragment-label { padding: 10px 14px; font-size: 13px; color: var(--text-muted); background: var(--bg2); }
+        a.fragment-item, figure.fragment-item { display: block; margin: 0; text-decoration: none; }
+        .fragments-grid.frag-two { grid-template-columns: repeat(2, 1fr); }
+        .fragments-grid.frag-three { grid-template-columns: repeat(3, 1fr); }
+        .frag-group { text-align: center; font-size: 20px; color: var(--text); max-width: 1100px; margin: 40px auto 16px; }
+        .frag-group.frag-small { font-size: 17px; margin-top: 28px; }
+        .frag-sub { text-align: center; color: var(--text-muted); max-width: 760px; margin: -6px auto 18px; font-size: 15px; }
+        .frag-buy { text-align: center; margin: 0 0 8px; }
+        .frag-buy .buy-btn { padding: 12px 28px; font-size: 16px; }
+        .fragment-credit { display: block; font-size: 11px; margin-top: 4px; opacity: 0.8; }
+        .fragment-credit a { color: inherit; }
 
         /* REVIEWS */
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
@@ -559,7 +569,9 @@
             .features-grid .feature-icon { font-size: 22px; margin-bottom: 6px; }
             .features-grid .feature-item h3 { font-size: 13px; }
             .features-grid .feature-item p { font-size: 11px; }
-            .photos-grid, .fragments-grid { grid-template-columns: 1fr; }
+            .photos-grid, .fragments-grid, .fragments-grid.frag-three { grid-template-columns: 1fr; }
+            .fragments-grid.frag-two { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .fragments-grid.frag-two .fragment-label { font-size: 12px; padding: 8px 10px; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
             .park-days { grid-template-columns: 1fr; }
         }
@@ -732,7 +744,7 @@
             </div>
         </div>
         <div class="map-card">
-            <img src="img/tianmen.jpg" alt="Карта горы Тяньмэнь — Небесные Врата, маршруты A, B и C" loading="lazy">
+            <img src="img/tianmen_map_preview.jpg" alt="Карта горы Тяньмэнь — Небесные Врата, маршруты A, B и C" loading="lazy">
             <div class="map-card-body">
                 <h3>Карта горы Тяньмэнь — Небесные Врата</h3>
                 <p style="font-size:12px;color:var(--accent2);margin-bottom:8px;">Tianmen Mountain · 天门山 · Небесные Врата</p>
@@ -743,20 +755,89 @@
     </div>
 </section>
 
-<!-- MAP FRAGMENTS -->
+<!-- MAP FRAGMENTS: реальные фрагменты всех трёх товаров и фото пещеры Тяньмэнь (Сергей 16.10.2026) -->
 <section id="map-details">
     <h2>Что вы увидите на картах</h2>
-    <p style="text-align:center;color:var(--text-muted);margin-bottom:40px;">Реальные фрагменты актуальной карты парка Чжанцзяцзе — названия на двух языках, актуальное расписание автобусов, тропы с таймингами</p>
-    <div class="fragments-grid" style="grid-template-columns: repeat(2, 1fr);">
-        <div class="fragment-item">
-            <img src="img/fragment1.jpg" alt="Фрагмент карты Чжанцзяцзе — расписание автобусов до Фэнхуан и Чанша" loading="lazy">
-            <div class="fragment-label">🚌 Расписание автобусов — направления и время</div>
-        </div>
-        <div class="fragment-item">
-            <img src="img/fragment2.jpg" alt="Фрагмент карты Чжанцзяцзе — лифт Байлун, тропы, Галерея Десяти Миль" loading="lazy">
-            <div class="fragment-label">⏱ Лифт Байлун, тропы, время в минутах</div>
-        </div>
+    <p style="text-align:center;color:var(--text-muted);margin-bottom:8px;">Реальные фрагменты карт из PDF — так они выглядят после покупки. Нажмите на фрагмент, чтобы открыть крупнее</p>
+
+    <h3 class="frag-group">3 карты на английском и китайском — 199 ₽</h3>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="img/frag_park_bailong.jpg" target="_blank" rel="noopener">
+            <img src="img/frag_park_bailong.jpg" alt="Фрагмент карты парка Чжанцзяцзе — лифт Байлун, Юаньцзяцзе, тропы с временем в минутах" loading="lazy">
+            <div class="fragment-label">🚡 Карта парка: лифт Байлун, Юаньцзяцзе и тропы — время пешком в минутах</div>
+        </a>
+        <a class="fragment-item" href="img/fragment1.jpg" target="_blank" rel="noopener">
+            <img src="img/fragment1.jpg" alt="Фрагмент карты парка Чжанцзяцзе — вход Улинъюань, касса, автобус №1, парковка" loading="lazy">
+            <div class="fragment-label">🚪 Карта парка: вход Улинъюань — касса, автобус №1, парковка и улицы посёлка</div>
+        </a>
+        <a class="fragment-item" href="img/fragment2.jpg" target="_blank" rel="noopener">
+            <img src="img/fragment2.jpg" alt="Фрагмент карты города Чжанцзяцзе — вокзал и центральный автовокзал" loading="lazy">
+            <div class="fragment-label">🚉 Карта города: вокзал Чжанцзяцзе и центральный автовокзал рядом с ним</div>
+        </a>
+        <a class="fragment-item" href="img/frag_city_centr.jpg" target="_blank" rel="noopener">
+            <img src="img/frag_city_centr.jpg" alt="Фрагмент карты города Чжанцзяцзе — центр: Народная площадь, Dayong City, улицы на английском и китайском" loading="lazy">
+            <div class="fragment-label">🏙 Карта города: центр — Народная площадь, квартал Dayong City, магазины и улицы</div>
+        </a>
+        <a class="fragment-item" href="img/frag_tm_skhema.jpg" target="_blank" rel="noopener">
+            <img src="img/frag_tm_skhema.jpg" alt="Фрагмент карты горы Тяньмэнь — схема маршрутов A, B и C, канатки и серпантин" loading="lazy">
+            <div class="fragment-label">⛰️ Карта горы Тяньмэнь: схема маршрутов A, B и C — канатки, серпантин и пересадки</div>
+        </a>
+        <a class="fragment-item" href="img/frag_tm_vershina.jpg" target="_blank" rel="noopener">
+            <img src="img/frag_tm_vershina.jpg" alt="Фрагмент карты вершины горы Тяньмэнь — пещера, лестница 999 ступеней, эскалатор сквозь гору" loading="lazy">
+            <div class="fragment-label">🥾 Карта вершины Тяньмэня: пещера, лестница в 999 ступеней и эскалатор сквозь гору</div>
+        </a>
     </div>
+    <p class="frag-buy"><a href="#buy-maps3" class="buy-btn">Купить 3 карты за 199 ₽</a></p>
+
+    <h3 class="frag-group">Карта парка Аватар с переводом на русский — 399 ₽</h3>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="img/frag_ru_vhody.jpg" target="_blank" rel="noopener">
+            <img src="img/frag_ru_vhody.jpg" alt="Фрагмент карты парка Аватар с переводом на русский — четыре входа в парк и гора Аватар" loading="lazy">
+            <div class="fragment-label">🚪 Четыре входа в парк и гора Аватар — всё подписано по-русски</div>
+        </a>
+        <a class="fragment-item" href="img/frag_ru_bailong.jpg" target="_blank" rel="noopener">
+            <img src="img/frag_ru_bailong.jpg" alt="Фрагмент карты парка Аватар с переводом на русский — лифт Байлун, тропы, вход Цзымуган" loading="lazy">
+            <div class="fragment-label">🚡 Лифт «Байлун» и тропы: русские названия рядом с английскими</div>
+        </a>
+    </div>
+    <p class="frag-buy"><a href="#buy-ru" class="buy-btn buy-btn-alt">Купить карту с переводом за 399 ₽</a></p>
+
+    <h3 class="frag-group">Карта парка Аватар и карта горы Тяньмэнь с гайдом — с переводом на русский — 449 ₽</h3>
+    <p class="frag-sub">Та же карта парка с переводом на русский, а к ней Тяньмэнь на русском: схема подъёма, гайд по маршрутам A, B и C, большая карта горы и карта вершины</p>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="img/frag_ru_avatar.jpg" target="_blank" rel="noopener">
+            <img src="img/frag_ru_avatar.jpg" alt="Фрагмент карты парка Аватар с переводом на русский — гора Аватар, Небесный мост, Юаньцзяцзе" loading="lazy">
+            <div class="fragment-label">🏔 Карта парка на русском: гора Аватар, Небесный мост и Юаньцзяцзе</div>
+        </a>
+        <a class="fragment-item" href="img/frag_ru_tyanczy.jpg" target="_blank" rel="noopener">
+            <img src="img/frag_ru_tyanczy.jpg" alt="Фрагмент карты парка Аватар с переводом на русский — гора Тяньцзы, Пик Императора, Трон Императора" loading="lazy">
+            <div class="fragment-label">🚌 Карта парка на русском: гора Тяньцзы, Пик и Трон Императора, остановки автобусов</div>
+        </a>
+        <a class="fragment-item" href="img/frag_tmru_skhema.jpg" target="_blank" rel="noopener">
+            <img src="img/frag_tmru_skhema.jpg" alt="Фрагмент схемы подъёма на гору Тяньмэнь на русском — маршруты A, B и C, станции канаток" loading="lazy">
+            <div class="fragment-label">⛰️ Тяньмэнь на русском: схема подъёма — маршруты A, B и C, станции канаток</div>
+        </a>
+        <a class="fragment-item" href="img/frag_tmru_gora.jpg" target="_blank" rel="noopener">
+            <img src="img/frag_tmru_gora.jpg" alt="Фрагмент карты горы Тяньмэнь на русском — площадь перед пещерой, лестница 999 ступеней, эскалатор" loading="lazy">
+            <div class="fragment-label">🗺 Тяньмэнь на русском: карта горы — площадь перед пещерой, лестница в 999 ступеней</div>
+        </a>
+    </div>
+    <h3 class="frag-group frag-small">Пещера «Небесные врата» — сюда ведут все маршруты на гору</h3>
+    <div class="fragments-grid frag-three">
+        <figure class="fragment-item">
+            <a href="img/tianmen_cave_1.jpg" target="_blank" rel="noopener"><img src="img/tianmen_cave_1.jpg" alt="Лестница в 999 ступеней к пещере «Небесные врата» на горе Тяньмэнь" loading="lazy"></a>
+            <figcaption class="fragment-label">Лестница в 999 ступеней к пещере<span class="fragment-credit">Фото: xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Tianmen_38330-Zhangjiajie_(49047525877).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.ru" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+        <figure class="fragment-item">
+            <a href="img/tianmen_cave_2.jpg" target="_blank" rel="noopener"><img src="img/tianmen_cave_2.jpg" alt="Арка пещеры «Небесные врата» на горе Тяньмэнь" loading="lazy"></a>
+            <figcaption class="fragment-label">Арка пещеры снизу<span class="fragment-credit">Фото: xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Heaven%27s_Door_38308-Zhangjiajie_(49046797493).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.ru" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+        <figure class="fragment-item">
+            <a href="img/tianmen_cave_3.jpg" target="_blank" rel="noopener"><img src="img/tianmen_cave_3.jpg" alt="Смотровая площадка внутри пещеры «Небесные врата»" loading="lazy"></a>
+            <figcaption class="fragment-label">Внутри пещеры: смотровая площадка<span class="fragment-credit">Фото: xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Tianmen_38258-Zhangjiajie_(49047523437).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.ru" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+    </div>
+    <p class="frag-buy"><a href="#buy-tm" class="buy-btn buy-btn-alt">Купить карту парка и Тяньмэнь с гайдом за 449 ₽</a></p>
 </section>
 
 <!-- PRICING -->
