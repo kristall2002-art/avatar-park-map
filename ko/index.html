@@ -372,6 +372,16 @@
         .fragment-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
         .fragment-item img { width: 100%; display: block; }
         .fragment-label { padding: 10px 14px; font-size: 13px; color: var(--text-muted); background: var(--bg2); }
+        a.fragment-item, figure.fragment-item { display: block; margin: 0; text-decoration: none; }
+        .fragments-grid.frag-two { grid-template-columns: repeat(2, 1fr); }
+        .fragments-grid.frag-three { grid-template-columns: repeat(3, 1fr); }
+        .frag-group { text-align: center; font-size: 20px; color: var(--text); max-width: 1100px; margin: 40px auto 16px; }
+        .frag-group.frag-small { font-size: 17px; margin-top: 28px; }
+        .frag-sub { text-align: center; color: var(--text-muted); max-width: 760px; margin: -6px auto 18px; font-size: 15px; }
+        .frag-buy { text-align: center; margin: 0 0 8px; }
+        .frag-buy .buy-btn { padding: 12px 28px; font-size: 16px; }
+        .fragment-credit { display: block; font-size: 11px; margin-top: 4px; opacity: 0.8; }
+        .fragment-credit a { color: inherit; }
 
         /* REVIEWS */
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
@@ -522,7 +532,9 @@
             .features-grid .feature-icon { font-size: 22px; margin-bottom: 6px; }
             .features-grid .feature-item h3 { font-size: 13px; }
             .features-grid .feature-item p { font-size: 11px; }
-            .photos-grid, .fragments-grid { grid-template-columns: 1fr; }
+            .photos-grid, .fragments-grid, .fragments-grid.frag-three { grid-template-columns: 1fr; }
+            .fragments-grid.frag-two { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .fragments-grid.frag-two .fragment-label { font-size: 12px; padding: 8px 10px; }
             .park-days { grid-template-columns: 1fr; }
         }
     </style>
@@ -677,7 +689,7 @@
             </div>
         </div>
         <div class="map-card">
-            <img src="../img/tianmen.jpg" alt="톈먼산 지도 — 하늘의 문, A·B·C 코스" loading="lazy">
+            <img src="../img/tianmen_map_preview.jpg" alt="톈먼산 지도 — 하늘의 문, A·B·C 코스" loading="lazy">
             <div class="map-card-body">
                 <h3>톈먼산 지도 — 하늘의 문</h3>
                 <p style="font-size:12px;color:var(--accent2);margin-bottom:8px;">Tianmen Mountain · 天门山 · 하늘의 문</p>
@@ -688,20 +700,89 @@
     </div>
 </section>
 
-<!-- MAP FRAGMENTS -->
+<!-- MAP FRAGMENTS: реальные фрагменты всех трёх товаров и фото пещеры Тяньмэнь (Сергей 16.10.2026) -->
 <section id="map-details">
     <h2>지도에서 확인하실 수 있는 정보</h2>
-    <p style="text-align:center;color:var(--text-muted);margin-bottom:40px;">실제 장가계 최신 지도의 일부 — 두 가지 언어 병기, 최신 버스 시간표, 도보 소요시간이 표시된 등산로</p>
-    <div class="fragments-grid" style="grid-template-columns: repeat(2, 1fr);">
-        <div class="fragment-item">
-            <img src="../img/fragment1.jpg" alt="장가계 지도 일부 — 펑황·창사 방면 버스 시간표" loading="lazy">
-            <div class="fragment-label">🚌 버스 시간표 — 방면과 시간</div>
-        </div>
-        <div class="fragment-item">
-            <img src="../img/fragment2.jpg" alt="장가계 지도 일부 — 바이룽 엘리베이터, 등산로, 십리화랑" loading="lazy">
-            <div class="fragment-label">⏱ 바이룽 엘리베이터, 등산로, 소요시간(분)</div>
-        </div>
+    <p style="text-align:center;color:var(--text-muted);margin-bottom:8px;">PDF 지도의 실제 일부입니다 — 구매 후 이렇게 보입니다. 누르면 크게 볼 수 있습니다</p>
+
+    <h3 class="frag-group">영어·중국어 지도 3종 — 199 ₽</h3>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="../img/frag_park_bailong.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_park_bailong.jpg" alt="공원 지도: 바이룽 엘리베이터, 위안자제, 등산로 — 도보 소요시간(분)" loading="lazy">
+            <div class="fragment-label">🚡 공원 지도: 바이룽 엘리베이터, 위안자제, 등산로 — 도보 소요시간(분)</div>
+        </a>
+        <a class="fragment-item" href="../img/fragment1.jpg" target="_blank" rel="noopener">
+            <img src="../img/fragment1.jpg" alt="공원 지도: 우링위안 입구 — 매표소, 1번 버스, 주차장, 마을 거리" loading="lazy">
+            <div class="fragment-label">🚪 공원 지도: 우링위안 입구 — 매표소, 1번 버스, 주차장, 마을 거리</div>
+        </a>
+        <a class="fragment-item" href="../img/fragment2.jpg" target="_blank" rel="noopener">
+            <img src="../img/fragment2.jpg" alt="시내 지도: 장가계역과 바로 옆 중앙버스터미널" loading="lazy">
+            <div class="fragment-label">🚉 시내 지도: 장가계역과 바로 옆 중앙버스터미널</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_city_centr.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_city_centr.jpg" alt="시내 지도: 중심가 — 인민광장, 다융푸청(Dayong City), 상점과 거리" loading="lazy">
+            <div class="fragment-label">🏙 시내 지도: 중심가 — 인민광장, 다융푸청(Dayong City), 상점과 거리</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tm_skhema.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tm_skhema.jpg" alt="톈먼산 지도: A·B·C 코스 — 케이블카, 굽잇길, 환승" loading="lazy">
+            <div class="fragment-label">⛰️ 톈먼산 지도: A·B·C 코스 — 케이블카, 굽잇길, 환승</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tm_vershina.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tm_vershina.jpg" alt="톈먼산 정상 지도: 톈먼동, 999계단, 산을 관통하는 에스컬레이터" loading="lazy">
+            <div class="fragment-label">🥾 톈먼산 정상 지도: 톈먼동, 999계단, 산을 관통하는 에스컬레이터</div>
+        </a>
     </div>
+    <p class="frag-buy"><a href="#buy-maps3" class="buy-btn">영어·중국어 지도 3종 구매 · 199 ₽</a></p>
+
+    <h3 class="frag-group">러시아어 번역 아바타 산 지도 — 399 ₽</h3>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="../img/frag_ru_vhody.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_vhody.jpg" alt="공원 입구 4곳과 아바타 산 — 모두 러시아어로 표기" loading="lazy">
+            <div class="fragment-label">🚪 공원 입구 4곳과 아바타 산 — 모두 러시아어로 표기</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_ru_bailong.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_bailong.jpg" alt="바이룽 엘리베이터와 등산로: 영어 이름 옆에 러시아어 이름" loading="lazy">
+            <div class="fragment-label">🚡 바이룽 엘리베이터와 등산로: 영어 이름 옆에 러시아어 이름</div>
+        </a>
+    </div>
+    <p class="frag-buy"><a href="#buy-ru" class="buy-btn buy-btn-alt">러시아어 번역이 포함된 아바타 산 지도 구매 · 399 ₽</a></p>
+
+    <h3 class="frag-group">아바타 산 지도 + 톈먼산 지도·가이드 — 러시아어 번역 — 449 ₽</h3>
+    <p class="frag-sub">같은 러시아어 공원 지도에 러시아어 톈먼산이 더해집니다: 등반 코스도, A·B·C 코스 가이드, 산 전체 지도, 정상 지도</p>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="../img/frag_ru_avatar.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_avatar.jpg" alt="러시아어 공원 지도: 아바타 산, 천하제일교, 위안자제" loading="lazy">
+            <div class="fragment-label">🏔 러시아어 공원 지도: 아바타 산, 천하제일교, 위안자제</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_ru_tyanczy.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_tyanczy.jpg" alt="러시아어 공원 지도: 톈쯔산, 전망대, 버스 정류장" loading="lazy">
+            <div class="fragment-label">🚌 러시아어 공원 지도: 톈쯔산, 전망대, 버스 정류장</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tmru_skhema.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tmru_skhema.jpg" alt="러시아어 톈먼산: 등반 코스도 — A·B·C 코스, 케이블카 역" loading="lazy">
+            <div class="fragment-label">⛰️ 러시아어 톈먼산: 등반 코스도 — A·B·C 코스, 케이블카 역</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tmru_gora.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tmru_gora.jpg" alt="러시아어 톈먼산: 산 지도 — 톈먼동 앞 광장, 999계단" loading="lazy">
+            <div class="fragment-label">🗺 러시아어 톈먼산: 산 지도 — 톈먼동 앞 광장, 999계단</div>
+        </a>
+    </div>
+    <h3 class="frag-group frag-small">톈먼동(하늘의 문) — 모든 등반 코스가 향하는 곳</h3>
+    <div class="fragments-grid frag-three">
+        <figure class="fragment-item">
+            <a href="../img/tianmen_cave_1.jpg" target="_blank" rel="noopener"><img src="../img/tianmen_cave_1.jpg" alt="톈먼동으로 오르는 999계단" loading="lazy"></a>
+            <figcaption class="fragment-label">톈먼동으로 오르는 999계단<span class="fragment-credit">사진: xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Tianmen_38330-Zhangjiajie_(49047525877).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.ko" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+        <figure class="fragment-item">
+            <a href="../img/tianmen_cave_2.jpg" target="_blank" rel="noopener"><img src="../img/tianmen_cave_2.jpg" alt="아래에서 본 톈먼동 아치" loading="lazy"></a>
+            <figcaption class="fragment-label">아래에서 본 톈먼동 아치<span class="fragment-credit">사진: xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Heaven%27s_Door_38308-Zhangjiajie_(49046797493).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.ko" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+        <figure class="fragment-item">
+            <a href="../img/tianmen_cave_3.jpg" target="_blank" rel="noopener"><img src="../img/tianmen_cave_3.jpg" alt="톈먼동 안: 전망대" loading="lazy"></a>
+            <figcaption class="fragment-label">톈먼동 안: 전망대<span class="fragment-credit">사진: xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Tianmen_38258-Zhangjiajie_(49047523437).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.ko" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+    </div>
+    <p class="frag-buy"><a href="#buy-tm" class="buy-btn buy-btn-alt">러시아어 번역 아바타 산 지도 + 톈먼산 지도·가이드 구매 · 449 ₽</a></p>
 </section>
 
 <!-- PRICING -->

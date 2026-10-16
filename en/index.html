@@ -372,6 +372,16 @@
         .fragment-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
         .fragment-item img { width: 100%; display: block; }
         .fragment-label { padding: 10px 14px; font-size: 13px; color: var(--text-muted); background: var(--bg2); }
+        a.fragment-item, figure.fragment-item { display: block; margin: 0; text-decoration: none; }
+        .fragments-grid.frag-two { grid-template-columns: repeat(2, 1fr); }
+        .fragments-grid.frag-three { grid-template-columns: repeat(3, 1fr); }
+        .frag-group { text-align: center; font-size: 20px; color: var(--text); max-width: 1100px; margin: 40px auto 16px; }
+        .frag-group.frag-small { font-size: 17px; margin-top: 28px; }
+        .frag-sub { text-align: center; color: var(--text-muted); max-width: 760px; margin: -6px auto 18px; font-size: 15px; }
+        .frag-buy { text-align: center; margin: 0 0 8px; }
+        .frag-buy .buy-btn { padding: 12px 28px; font-size: 16px; }
+        .fragment-credit { display: block; font-size: 11px; margin-top: 4px; opacity: 0.8; }
+        .fragment-credit a { color: inherit; }
 
         /* REVIEWS */
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
@@ -522,7 +532,9 @@
             .features-grid .feature-icon { font-size: 22px; margin-bottom: 6px; }
             .features-grid .feature-item h3 { font-size: 13px; }
             .features-grid .feature-item p { font-size: 11px; }
-            .photos-grid, .fragments-grid { grid-template-columns: 1fr; }
+            .photos-grid, .fragments-grid, .fragments-grid.frag-three { grid-template-columns: 1fr; }
+            .fragments-grid.frag-two { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .fragments-grid.frag-two .fragment-label { font-size: 12px; padding: 8px 10px; }
             .park-days { grid-template-columns: 1fr; }
         }
     </style>
@@ -676,7 +688,7 @@
             </div>
         </div>
         <div class="map-card">
-            <img src="../img/tianmen.jpg" alt="Tianmen Mountain map — Heaven's Gate, routes A, B and C" loading="lazy">
+            <img src="../img/tianmen_map_preview.jpg" alt="Tianmen Mountain map — Heaven's Gate, routes A, B and C" loading="lazy">
             <div class="map-card-body">
                 <h3>Tianmen Mountain map — Heaven's Gate</h3>
                 <p style="font-size:12px;color:var(--accent2);margin-bottom:8px;">Tianmen Mountain · 天门山 · Heaven's Gate</p>
@@ -687,20 +699,89 @@
     </div>
 </section>
 
-<!-- MAP FRAGMENTS -->
+<!-- MAP FRAGMENTS: реальные фрагменты всех трёх товаров и фото пещеры Тяньмэнь (Сергей 16.10.2026) -->
 <section id="map-details">
     <h2>What you'll see on the maps</h2>
-    <p style="text-align:center;color:var(--text-muted);margin-bottom:40px;">Real fragments of the Zhangjiajie park map — names in two languages, current bus schedules, trails with timings</p>
-    <div class="fragments-grid" style="grid-template-columns: repeat(2, 1fr);">
-        <div class="fragment-item">
-            <img src="../img/fragment1.jpg" alt="Zhangjiajie map fragment — bus schedule to Fenghuang and Changsha" loading="lazy">
-            <div class="fragment-label">🚌 Bus schedule — destinations and times</div>
-        </div>
-        <div class="fragment-item">
-            <img src="../img/fragment2.jpg" alt="Zhangjiajie map fragment — Bailong Elevator, trails, Ten-Mile Gallery" loading="lazy">
-            <div class="fragment-label">⏱ Bailong Elevator, trails, times in minutes</div>
-        </div>
+    <p style="text-align:center;color:var(--text-muted);margin-bottom:8px;">Real fragments of the PDF maps — exactly what you get after purchase. Tap a fragment to enlarge it</p>
+
+    <h3 class="frag-group">3 maps in English and Chinese — 199 ₽</h3>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="../img/frag_park_bailong.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_park_bailong.jpg" alt="Park map: Bailong Elevator, Yuanjiajie and trails — walking times in minutes" loading="lazy">
+            <div class="fragment-label">🚡 Park map: Bailong Elevator, Yuanjiajie and trails — walking times in minutes</div>
+        </a>
+        <a class="fragment-item" href="../img/fragment1.jpg" target="_blank" rel="noopener">
+            <img src="../img/fragment1.jpg" alt="Park map: Wulingyuan Entrance — ticket office, bus No. 1, parking and village streets" loading="lazy">
+            <div class="fragment-label">🚪 Park map: Wulingyuan Entrance — ticket office, bus No. 1, parking and village streets</div>
+        </a>
+        <a class="fragment-item" href="../img/fragment2.jpg" target="_blank" rel="noopener">
+            <img src="../img/fragment2.jpg" alt="City map: Zhangjiajie Railway Station and the Central Bus Station next to it" loading="lazy">
+            <div class="fragment-label">🚉 City map: Zhangjiajie Railway Station and the Central Bus Station next to it</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_city_centr.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_city_centr.jpg" alt="City map: downtown — People&#x27;s Square, Dayong City, shops and streets" loading="lazy">
+            <div class="fragment-label">🏙 City map: downtown — People&#x27;s Square, Dayong City, shops and streets</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tm_skhema.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tm_skhema.jpg" alt="Tianmen Mountain map: routes A, B and C — cableways, the winding road and transfers" loading="lazy">
+            <div class="fragment-label">⛰️ Tianmen Mountain map: routes A, B and C — cableways, the winding road and transfers</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tm_vershina.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tm_vershina.jpg" alt="Tianmen summit map: the cave, the 999-step staircase and the escalator through the mountain" loading="lazy">
+            <div class="fragment-label">🥾 Tianmen summit map: the cave, the 999-step staircase and the escalator through the mountain</div>
+        </a>
     </div>
+    <p class="frag-buy"><a href="#buy-maps3" class="buy-btn">Buy 3 maps in English and Chinese for 199 ₽</a></p>
+
+    <h3 class="frag-group">Avatar Park map with Russian translation — 399 ₽</h3>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="../img/frag_ru_vhody.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_vhody.jpg" alt="Four park entrances and Avatar Mountain — everything labelled in Russian" loading="lazy">
+            <div class="fragment-label">🚪 Four park entrances and Avatar Mountain — everything labelled in Russian</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_ru_bailong.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_bailong.jpg" alt="Bailong Elevator and trails: Russian names next to the English ones" loading="lazy">
+            <div class="fragment-label">🚡 Bailong Elevator and trails: Russian names next to the English ones</div>
+        </a>
+    </div>
+    <p class="frag-buy"><a href="#buy-ru" class="buy-btn buy-btn-alt">Buy the Avatar Park map with Russian translation for 399 ₽</a></p>
+
+    <h3 class="frag-group">Avatar Park map and Tianmen Mountain map with a guide — with Russian translation — 449 ₽</h3>
+    <p class="frag-sub">The same Avatar Park map in Russian, plus Tianmen in Russian: the ascent scheme, a guide to routes A, B and C, the large mountain map and the summit map</p>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="../img/frag_ru_avatar.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_avatar.jpg" alt="Park map in Russian: Avatar Mountain, the Natural Bridge and Yuanjiajie" loading="lazy">
+            <div class="fragment-label">🏔 Park map in Russian: Avatar Mountain, the Natural Bridge and Yuanjiajie</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_ru_tyanczy.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_tyanczy.jpg" alt="Park map in Russian: Tianzi Mountain, Emperor Peak and Emperor&#x27;s Throne, bus stops" loading="lazy">
+            <div class="fragment-label">🚌 Park map in Russian: Tianzi Mountain, Emperor Peak and Emperor&#x27;s Throne, bus stops</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tmru_skhema.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tmru_skhema.jpg" alt="Tianmen in Russian: ascent scheme — routes A, B and C, cableway stations" loading="lazy">
+            <div class="fragment-label">⛰️ Tianmen in Russian: ascent scheme — routes A, B and C, cableway stations</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tmru_gora.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tmru_gora.jpg" alt="Tianmen in Russian: mountain map — the square in front of the cave, the 999-step staircase" loading="lazy">
+            <div class="fragment-label">🗺 Tianmen in Russian: mountain map — the square in front of the cave, the 999-step staircase</div>
+        </a>
+    </div>
+    <h3 class="frag-group frag-small">Heaven&#x27;s Gate Cave — where every route up the mountain leads</h3>
+    <div class="fragments-grid frag-three">
+        <figure class="fragment-item">
+            <a href="../img/tianmen_cave_1.jpg" target="_blank" rel="noopener"><img src="../img/tianmen_cave_1.jpg" alt="The 999-step staircase to the cave" loading="lazy"></a>
+            <figcaption class="fragment-label">The 999-step staircase to the cave<span class="fragment-credit">Photo: xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Tianmen_38330-Zhangjiajie_(49047525877).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.en" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+        <figure class="fragment-item">
+            <a href="../img/tianmen_cave_2.jpg" target="_blank" rel="noopener"><img src="../img/tianmen_cave_2.jpg" alt="The cave arch from below" loading="lazy"></a>
+            <figcaption class="fragment-label">The cave arch from below<span class="fragment-credit">Photo: xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Heaven%27s_Door_38308-Zhangjiajie_(49046797493).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.en" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+        <figure class="fragment-item">
+            <a href="../img/tianmen_cave_3.jpg" target="_blank" rel="noopener"><img src="../img/tianmen_cave_3.jpg" alt="Inside the cave: the viewing platform" loading="lazy"></a>
+            <figcaption class="fragment-label">Inside the cave: the viewing platform<span class="fragment-credit">Photo: xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Tianmen_38258-Zhangjiajie_(49047523437).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.en" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+    </div>
+    <p class="frag-buy"><a href="#buy-tm" class="buy-btn buy-btn-alt">Buy the Avatar Park map and Tianmen map with a route guide, with Russian translation, for 449 ₽</a></p>
 </section>
 
 <!-- PRICING -->

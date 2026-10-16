@@ -372,6 +372,16 @@
         .fragment-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
         .fragment-item img { width: 100%; display: block; }
         .fragment-label { padding: 10px 14px; font-size: 13px; color: var(--text-muted); background: var(--bg2); }
+        a.fragment-item, figure.fragment-item { display: block; margin: 0; text-decoration: none; }
+        .fragments-grid.frag-two { grid-template-columns: repeat(2, 1fr); }
+        .fragments-grid.frag-three { grid-template-columns: repeat(3, 1fr); }
+        .frag-group { text-align: center; font-size: 20px; color: var(--text); max-width: 1100px; margin: 40px auto 16px; }
+        .frag-group.frag-small { font-size: 17px; margin-top: 28px; }
+        .frag-sub { text-align: center; color: var(--text-muted); max-width: 760px; margin: -6px auto 18px; font-size: 15px; }
+        .frag-buy { text-align: center; margin: 0 0 8px; }
+        .frag-buy .buy-btn { padding: 12px 28px; font-size: 16px; }
+        .fragment-credit { display: block; font-size: 11px; margin-top: 4px; opacity: 0.8; }
+        .fragment-credit a { color: inherit; }
 
         /* REVIEWS */
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
@@ -522,7 +532,9 @@
             .features-grid .feature-icon { font-size: 22px; margin-bottom: 6px; }
             .features-grid .feature-item h3 { font-size: 13px; }
             .features-grid .feature-item p { font-size: 11px; }
-            .photos-grid, .fragments-grid { grid-template-columns: 1fr; }
+            .photos-grid, .fragments-grid, .fragments-grid.frag-three { grid-template-columns: 1fr; }
+            .fragments-grid.frag-two { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .fragments-grid.frag-two .fragment-label { font-size: 12px; padding: 8px 10px; }
             .park-days { grid-template-columns: 1fr; }
         }
     </style>
@@ -677,7 +689,7 @@
             </div>
         </div>
         <div class="map-card">
-            <img src="../img/tianmen.jpg" alt="天门山地图——A、B、C三条线路" loading="lazy">
+            <img src="../img/tianmen_map_preview.jpg" alt="天门山地图——A、B、C三条线路" loading="lazy">
             <div class="map-card-body">
                 <h3>天门山地图</h3>
                 <p style="font-size:12px;color:var(--accent2);margin-bottom:8px;">Tianmen Mountain · 天门山</p>
@@ -688,20 +700,89 @@
     </div>
 </section>
 
-<!-- MAP FRAGMENTS -->
+<!-- MAP FRAGMENTS: реальные фрагменты всех трёх товаров и фото пещеры Тяньмэнь (Сергей 16.10.2026) -->
 <section id="map-details">
     <h2>地图细节展示</h2>
-    <p style="text-align:center;color:var(--text-muted);margin-bottom:40px;">张家界地图真实片段——双语地名、最新公交时刻、带时间标注的小径</p>
-    <div class="fragments-grid" style="grid-template-columns: repeat(2, 1fr);">
-        <div class="fragment-item">
-            <img src="../img/fragment1.jpg" alt="张家界地图片段——前往凤凰和长沙的公交时刻" loading="lazy">
-            <div class="fragment-label">🚌 公交时刻——方向与时间</div>
-        </div>
-        <div class="fragment-item">
-            <img src="../img/fragment2.jpg" alt="张家界地图片段——百龙天梯、徒步小径、十里画廊" loading="lazy">
-            <div class="fragment-label">⏱ 百龙天梯、徒步小径、分钟级时间</div>
-        </div>
+    <p style="text-align:center;color:var(--text-muted);margin-bottom:8px;">PDF地图的真实片段——购买后就是这个样子。点击片段可放大</p>
+
+    <h3 class="frag-group">3张中英文地图——199 ₽</h3>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="../img/frag_park_bailong.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_park_bailong.jpg" alt="公园地图：百龙天梯、袁家界和步道——步行时间（分钟）" loading="lazy">
+            <div class="fragment-label">🚡 公园地图：百龙天梯、袁家界和步道——步行时间（分钟）</div>
+        </a>
+        <a class="fragment-item" href="../img/fragment1.jpg" target="_blank" rel="noopener">
+            <img src="../img/fragment1.jpg" alt="公园地图：武陵源门票站——售票处、1路公交、停车场和镇上街道" loading="lazy">
+            <div class="fragment-label">🚪 公园地图：武陵源门票站——售票处、1路公交、停车场和镇上街道</div>
+        </a>
+        <a class="fragment-item" href="../img/fragment2.jpg" target="_blank" rel="noopener">
+            <img src="../img/fragment2.jpg" alt="市区地图：张家界站和旁边的中心汽车站" loading="lazy">
+            <div class="fragment-label">🚉 市区地图：张家界站和旁边的中心汽车站</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_city_centr.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_city_centr.jpg" alt="市区地图：市中心——人民广场、大庸府城、商店和街道" loading="lazy">
+            <div class="fragment-label">🏙 市区地图：市中心——人民广场、大庸府城、商店和街道</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tm_skhema.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tm_skhema.jpg" alt="天门山地图：A、B、C线路示意——索道、盘山公路和换乘" loading="lazy">
+            <div class="fragment-label">⛰️ 天门山地图：A、B、C线路示意——索道、盘山公路和换乘</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tm_vershina.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tm_vershina.jpg" alt="天门山山顶地图：天门洞、999级上天梯和穿山扶梯" loading="lazy">
+            <div class="fragment-label">🥾 天门山山顶地图：天门洞、999级上天梯和穿山扶梯</div>
+        </a>
     </div>
+    <p class="frag-buy"><a href="#buy-maps3" class="buy-btn">购买3张中英文地图 199 ₽</a></p>
+
+    <h3 class="frag-group">带俄语翻译的阿凡达山公园地图——399 ₽</h3>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="../img/frag_ru_vhody.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_vhody.jpg" alt="公园四个入口和阿凡达山——全部标有俄语" loading="lazy">
+            <div class="fragment-label">🚪 公园四个入口和阿凡达山——全部标有俄语</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_ru_bailong.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_bailong.jpg" alt="百龙天梯和步道：英文名旁边有俄语名" loading="lazy">
+            <div class="fragment-label">🚡 百龙天梯和步道：英文名旁边有俄语名</div>
+        </a>
+    </div>
+    <p class="frag-buy"><a href="#buy-ru" class="buy-btn buy-btn-alt">购买带俄语翻译的阿凡达山公园地图 399 ₽</a></p>
+
+    <h3 class="frag-group">阿凡达山公园地图和天门山地图及攻略——带俄语翻译——449 ₽</h3>
+    <p class="frag-sub">同一张俄语公园地图，再加上俄语天门山：上山线路图、A、B、C线路攻略、天门山大地图和山顶地图</p>
+    <div class="fragments-grid frag-two">
+        <a class="fragment-item" href="../img/frag_ru_avatar.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_avatar.jpg" alt="俄语公园地图：阿凡达山、天下第一桥和袁家界" loading="lazy">
+            <div class="fragment-label">🏔 俄语公园地图：阿凡达山、天下第一桥和袁家界</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_ru_tyanczy.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_ru_tyanczy.jpg" alt="俄语公园地图：天子山、观景台和公交站" loading="lazy">
+            <div class="fragment-label">🚌 俄语公园地图：天子山、观景台和公交站</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tmru_skhema.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tmru_skhema.jpg" alt="俄语天门山：上山线路图——A、B、C线路和索道站" loading="lazy">
+            <div class="fragment-label">⛰️ 俄语天门山：上山线路图——A、B、C线路和索道站</div>
+        </a>
+        <a class="fragment-item" href="../img/frag_tmru_gora.jpg" target="_blank" rel="noopener">
+            <img src="../img/frag_tmru_gora.jpg" alt="俄语天门山：天门山地图——天门洞广场和999级台阶" loading="lazy">
+            <div class="fragment-label">🗺 俄语天门山：天门山地图——天门洞广场和999级台阶</div>
+        </a>
+    </div>
+    <h3 class="frag-group frag-small">天门洞——所有上山线路的终点</h3>
+    <div class="fragments-grid frag-three">
+        <figure class="fragment-item">
+            <a href="../img/tianmen_cave_1.jpg" target="_blank" rel="noopener"><img src="../img/tianmen_cave_1.jpg" alt="通往天门洞的999级台阶" loading="lazy"></a>
+            <figcaption class="fragment-label">通往天门洞的999级台阶<span class="fragment-credit">照片： xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Tianmen_38330-Zhangjiajie_(49047525877).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.zh-hans" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+        <figure class="fragment-item">
+            <a href="../img/tianmen_cave_2.jpg" target="_blank" rel="noopener"><img src="../img/tianmen_cave_2.jpg" alt="从下方看天门洞" loading="lazy"></a>
+            <figcaption class="fragment-label">从下方看天门洞<span class="fragment-credit">照片： xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Heaven%27s_Door_38308-Zhangjiajie_(49046797493).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.zh-hans" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+        <figure class="fragment-item">
+            <a href="../img/tianmen_cave_3.jpg" target="_blank" rel="noopener"><img src="../img/tianmen_cave_3.jpg" alt="天门洞内的观景台" loading="lazy"></a>
+            <figcaption class="fragment-label">天门洞内的观景台<span class="fragment-credit">照片： xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Tianmen_38258-Zhangjiajie_(49047523437).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.zh-hans" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
+        </figure>
+    </div>
+    <p class="frag-buy"><a href="#buy-tm" class="buy-btn buy-btn-alt">购买带俄语翻译的阿凡达山地图和天门山地图及攻略 449 ₽</a></p>
 </section>
 
 <!-- PRICING -->
