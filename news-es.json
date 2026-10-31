@@ -1,5 +1,11 @@
 [
   {
+    "id": "news-2026-10-31-1793440834328",
+    "date": "2026-10-31",
+    "title": "Ascensor Bailong: 326 metros verticales hacia arriba",
+    "text": "Bailong es el ascensor exterior mas alto del mundo segun el Libro Guinness. Sube a la cima en 1 minuto y 32 segundos. Altura 326 m, velocidad 3 m/s, capacidad 50 personas. Desde la estacion superior se ve el pilar Hallelujah de Avatar."
+  },
+  {
     "id": "news-2026-10-30-1793354436219",
     "date": "2026-10-30",
     "title": "Invierno en Zhangjiajie (diciembre - febrero)",
@@ -22,11 +28,5 @@
     "date": "2026-10-27",
     "title": "Primavera en Zhangjiajie (marzo - mayo)",
     "text": "Una de las mejores epocas para visitar el parque. Temperatura +15…+25°C, florecen los rododendros y las flores de montana. Contras: nieblas y lluvias frecuentes. Pero justo la niebla crea esa atmosfera de Avatar: los pilares flotan entre nubes."
-  },
-  {
-    "id": "news-2026-10-26-1793008834274",
-    "date": "2026-10-26",
-    "title": "Fiesta del Dragon en Zhangjiajie (Duanwu)",
-    "text": "Duanwu es una de las principales fiestas chinas, el dia 5 del quinto mes lunar, normalmente finales de mayo o junio. Tradiciones: carreras de barcos dragon en el rio Lishui, zongzi rellenos de arroz en hojas de bambu, amuletos de ajenjo en las puertas y paseos por parques."
   }
 ]
