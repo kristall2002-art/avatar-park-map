@@ -35,12 +35,12 @@
     <!-- Open Graph -->
     <meta property="og:type" content="product">
     <meta property="og:title" content="Zhangjiajie (Avatar Mountains) National Park Map — PDF 2026">
-    <meta property="og:description" content="The most detailed Zhangjiajie map — everything in one place. 3 maps in English and Chinese (Avatar Mountains park, Tianmen Mountain with routes A, B and C and a summit map, and Zhangjiajie city) — 199 ₽. Avatar Park map with Russian translation — 399 ₽. Updated for 2026.">
+    <meta property="og:description" content="The set “Avatar Park and Heaven&#x27;s Gate: 5 maps and point-by-point routes in Russian” — 500 ₽: Avatar Park map with Russian translation, Tianmen Mountain maps, Zhangjiajie city map and point-by-point routes. All in Russian, PDF, works offline.">
     <meta property="og:image" content="https://kristall2002-art.github.io/avatar-park-map/img/park_preview.jpg">
     <meta property="og:url" content="https://kristall2002-art.github.io/avatar-park-map/en/">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Avatar Park Map">
-    <meta property="product:price:amount" content="199">
+    <meta property="product:price:amount" content="500">
     <meta property="product:price:currency" content="RUB">
 
     <!-- Schema.org: Organization -->
@@ -59,8 +59,8 @@
     {
         "@context": "https://schema.org",
         "@type": "Product",
-        "name": "Zhangjiajie (Avatar Mountains) National Park Map — 2026",
-        "description": "The most detailed Zhangjiajie National Park map (Avatar Mountains) available for China. Updated for 2026. High-resolution PDF with all 4-day routes, timings, bus stops, cable cars, Bailong Elevator, Glass Bridge and every attraction. Names in English and Chinese — easy to show to park staff and taxi drivers. Also in the set: the Tianmen Mountain (Heaven's Gate) map with routes A, B and C and a summit map, plus a bonus Zhangjiajie city map.",
+        "name": "Avatar Park and Heaven's Gate: 5 maps and point-by-point routes in Russian",
+        "description": "The set “Avatar Park and Heaven's Gate: 5 maps and point-by-point routes in Russian”: the Avatar Park map with Russian translation (English names kept alongside), the Tianmen Mountain map, the summit map and the ascent scheme in Russian, the Zhangjiajie city map with Russian labels, and point-by-point routes in Avatar Park and on Tianmen Mountain.",
         "image": "https://kristall2002-art.github.io/avatar-park-map/img/park_preview.jpg",
         "brand": {
             "@type": "Brand",
@@ -68,7 +68,7 @@
         },
         "offers": {
             "@type": "Offer",
-            "price": "199",
+            "price": "500",
             "priceCurrency": "RUB",
             "availability": "https://schema.org/InStock",
             "url": "https://kristall2002-art.github.io/avatar-park-map/en/#buy"
@@ -78,28 +78,6 @@
             "ratingValue": "5",
             "reviewCount": "28",
             "bestRating": "5"
-        }
-    }
-    </script>
-
-    <!-- Schema.org: Product (карта с переводом на русский) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "Avatar Park map with Russian translation",
-        "description": "A scan of the paper map of Zhangjiajie (Avatar Mountains) National Park, 2026: 71 names translated into Russian with the English names kept alongside, entrances highlighted in red, the Avatar Mountain in purple, up-to-date prices for the Bailong elevator, cable cars and the train. PDF.",
-        "image": "https://kristall2002-art.github.io/avatar-park-map/img/ru_1_obrazec_sq.jpg",
-        "brand": {
-            "@type": "Brand",
-            "name": "Sole proprietor Zolotarev Yuri Nikolaevich"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "399",
-            "priceCurrency": "RUB",
-            "availability": "https://schema.org/InStock",
-            "url": "https://kristall2002-art.github.io/avatar-park-map/en/#buy-ru"
         }
     }
     </script>
@@ -139,7 +117,7 @@
                 "name": "What does the Zhangjiajie park map include?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The main product is the Avatar Mountains (Wulingyuan) map: all 4-day routes, walking trails with timings, bus stops, Bailong Elevator, cable cars, park entrances, cafes, viewpoints and every attraction. The set also includes two more maps in English and Chinese: the Tianmen Mountain — Heaven's Gate map (routes A, B and C and a detailed summit map) and, as a bonus, a Zhangjiajie city map (airport, railway stations, restaurants, hotels). Names are in English and Chinese — convenient for showing to drivers and park staff."
+                    "text": "The set “Avatar Park and Heaven's Gate: 5 maps and point-by-point routes in Russian” (500 ₽) includes the Avatar Park (Wulingyuan) map with Russian translation — routes, trails with timings, bus stops, the Bailong Elevator, cable cars and entrances, with English names kept alongside; the Tianmen Mountain map, the summit map and the ascent scheme in Russian; the Zhangjiajie city map with Russian labels; and point-by-point routes in Avatar Park for 1 and 2 days and on Tianmen Mountain. All maps and routes are in Russian."
                 }
             },
             {
@@ -399,6 +377,8 @@
         .price-includes { list-style: none; margin: 24px 0; text-align: left; }
         .price-includes li { padding: 8px 0; padding-left: 28px; position: relative; color: var(--text-light); font-size: 15px; }
         .price-includes li::before { content: '\2713'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        .price-includes.num { counter-reset: sostav; }
+        .price-includes.num li.n::before { counter-increment: sostav; content: counter(sostav) '.'; }
         .buy-btn { display: inline-block; padding: 16px 48px; background: linear-gradient(135deg, #4ecdc4, #44b8b0); color: #0d1117; text-decoration: none; border-radius: 12px; font-size: 18px; font-weight: 700; margin-top: 24px; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none; }
         .buy-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(78,205,196,0.4); }
 
@@ -590,9 +570,13 @@
     <p class="subtitle" style="max-width:640px;margin:-16px auto 32px;padding:14px 20px;border-left:3px solid var(--accent);background:rgba(78,205,196,0.07);border-radius:8px;color:var(--text);"><strong>These are live scans of real paper maps</strong>, up to date for the current year — brought directly from Zhangjiajie. All the information is fresh, exactly for this season.</p>
 
     <div class="hero-buys">
-        <a href="#buy" class="buy-btn">Buy 3 maps in English and Chinese for 199 ₽</a>
-        <a href="#buy-ru" class="buy-btn buy-btn-alt">Buy the Avatar Park map with Russian translation for 399 ₽</a>
-        <a href="#buy-tm" class="buy-btn buy-btn-alt">Buy the Avatar Park map and Tianmen map with a route guide, with Russian translation, for 449 ₽</a>
+        <a href="#buy" class="buy-btn">Buy the set “Avatar Park and Heaven&#x27;s Gate” for 500 ₽</a>
+    </div>
+
+    <div class="promo-note" style="max-width:640px;margin:24px auto 0;padding:16px 20px;border:1px solid var(--accent);background:rgba(78,205,196,0.08);border-radius:12px;text-align:left;line-height:1.55">
+        <b>🎁 New: one set for 500 ₽ instead of three products</b><br>
+        The set “Avatar Park and Heaven&#x27;s Gate: 5 maps and point-by-point routes in Russian”: the Avatar Park map with Russian translation (English names kept alongside), the Tianmen Mountain map, the summit map and the ascent scheme in Russian, the Zhangjiajie city map with Russian labels, and point-by-point routes in Avatar Park and on Tianmen Mountain.<br><br>
+        <b>Please note: all maps and routes in the set are in Russian. Payment is via YooKassa, Russian bank cards only.</b>
     </div>
 </header>
 
@@ -654,8 +638,8 @@
             </div>
             <div class="feature-item">
                 <div class="feature-icon">🏔</div>
-                <h3>+ 2 more maps in the set</h3>
-                <p>Also in the set, in English and Chinese: the Tianmen Mountain — Heaven's Gate (天门山) map with routes A, B and C and a detailed summit map, plus a bonus Zhangjiajie city map</p>
+                <h3>+ Tianmen, city map and routes in the set</h3>
+                <p>Also in the set, in Russian: the Tianmen Mountain — Heaven&#x27;s Gate (天门山) map, the summit map and the ascent scheme, the Zhangjiajie city map and point-by-point routes in Avatar Park and on Tianmen Mountain</p>
             </div>
         </div>
     </article>
@@ -700,36 +684,7 @@
     <h2>What you'll see on the maps</h2>
     <p style="text-align:center;color:var(--text-muted);margin-bottom:8px;">Real fragments of the PDF maps — exactly what you get after purchase. Tap a fragment to enlarge it</p>
 
-    <h3 class="frag-group">3 maps in English and Chinese — 199 ₽</h3>
-    <div class="fragments-grid frag-two">
-        <a class="fragment-item" href="../img/frag_park_bailong.jpg" target="_blank" rel="noopener">
-            <img src="../img/frag_park_bailong.jpg" alt="Park map: Bailong Elevator, Yuanjiajie and trails — walking times in minutes" loading="lazy">
-            <div class="fragment-label">🚡 Park map: Bailong Elevator, Yuanjiajie and trails — walking times in minutes</div>
-        </a>
-        <a class="fragment-item" href="../img/fragment1.jpg" target="_blank" rel="noopener">
-            <img src="../img/fragment1.jpg" alt="Park map: Wulingyuan Entrance — ticket office, bus No. 1, parking and village streets" loading="lazy">
-            <div class="fragment-label">🚪 Park map: Wulingyuan Entrance — ticket office, bus No. 1, parking and village streets</div>
-        </a>
-        <a class="fragment-item" href="../img/fragment2.jpg" target="_blank" rel="noopener">
-            <img src="../img/fragment2.jpg" alt="City map: Zhangjiajie Railway Station and the Central Bus Station next to it" loading="lazy">
-            <div class="fragment-label">🚉 City map: Zhangjiajie Railway Station and the Central Bus Station next to it</div>
-        </a>
-        <a class="fragment-item" href="../img/frag_city_centr.jpg" target="_blank" rel="noopener">
-            <img src="../img/frag_city_centr.jpg" alt="City map: downtown — People&#x27;s Square, Dayong City, shops and streets" loading="lazy">
-            <div class="fragment-label">🏙 City map: downtown — People&#x27;s Square, Dayong City, shops and streets</div>
-        </a>
-        <a class="fragment-item" href="../img/frag_tm_skhema.jpg" target="_blank" rel="noopener">
-            <img src="../img/frag_tm_skhema.jpg" alt="Tianmen Mountain map: routes A, B and C — cableways, the winding road and transfers" loading="lazy">
-            <div class="fragment-label">⛰️ Tianmen Mountain map: routes A, B and C — cableways, the winding road and transfers</div>
-        </a>
-        <a class="fragment-item" href="../img/frag_tm_vershina.jpg" target="_blank" rel="noopener">
-            <img src="../img/frag_tm_vershina.jpg" alt="Tianmen summit map: the cave, the 999-step staircase and the escalator through the mountain" loading="lazy">
-            <div class="fragment-label">🥾 Tianmen summit map: the cave, the 999-step staircase and the escalator through the mountain</div>
-        </a>
-    </div>
-    <p class="frag-buy"><a href="#buy-maps3" class="buy-btn">Buy 3 maps in English and Chinese for 199 ₽</a></p>
-
-    <h3 class="frag-group">Avatar Park map with Russian translation — 399 ₽</h3>
+    <h3 class="frag-group">Avatar Park map with Russian translation</h3>
     <div class="fragments-grid frag-two">
         <a class="fragment-item" href="../img/frag_ru_vhody.jpg" target="_blank" rel="noopener">
             <img src="../img/frag_ru_vhody.jpg" alt="Four park entrances and Avatar Mountain — everything labelled in Russian" loading="lazy">
@@ -740,9 +695,9 @@
             <div class="fragment-label">🚡 Bailong Elevator and trails: Russian names next to the English ones</div>
         </a>
     </div>
-    <p class="frag-buy"><a href="#buy-ru" class="buy-btn buy-btn-alt">Buy the Avatar Park map with Russian translation for 399 ₽</a></p>
+    <p class="frag-buy"><a href="#buy" class="buy-btn buy-btn-alt">Buy the set “Avatar Park and Heaven&#x27;s Gate” for 500 ₽</a></p>
 
-    <h3 class="frag-group">Avatar Park map and Tianmen Mountain map with a guide — with Russian translation — 449 ₽</h3>
+    <h3 class="frag-group">Avatar Park map and Tianmen Mountain map with a guide — with Russian translation</h3>
     <p class="frag-sub">The same Avatar Park map in Russian, plus Tianmen in Russian: the ascent scheme, a guide to routes A, B and C, the large mountain map and the summit map</p>
     <div class="fragments-grid frag-two">
         <a class="fragment-item" href="../img/frag_ru_avatar.jpg" target="_blank" rel="noopener">
@@ -777,48 +732,33 @@
             <figcaption class="fragment-label">Inside the cave: the viewing platform<span class="fragment-credit">Photo: xiquinhosilva, <a href="https://commons.wikimedia.org/wiki/File:Tianmen_38258-Zhangjiajie_(49047523437).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.en" target="_blank" rel="noopener">CC BY 2.0</a></span></figcaption>
         </figure>
     </div>
-    <p class="frag-buy"><a href="#buy-tm" class="buy-btn buy-btn-alt">Buy the Avatar Park map and Tianmen map with a route guide, with Russian translation, for 449 ₽</a></p>
+    <p class="frag-buy"><a href="#buy" class="buy-btn buy-btn-alt">Buy the set “Avatar Park and Heaven&#x27;s Gate” for 500 ₽</a></p>
 </section>
 
 <!-- PRICING -->
 <section class="section-dark pricing" id="buy">
-    <h2>Buy the Avatar Mountains map</h2>
-    <p class="desc">3 maps in English and Chinese: Avatar Park, Tianmen Mountain and Zhangjiajie city — 199 ₽. Or the Avatar Park map with Russian translation — 399 ₽. Or the same map with the Tianmen Mountain map and a route guide — 449 ₽</p>
+    <h2>Buy the set “Avatar Park and Heaven&#x27;s Gate”</h2>
+    <p class="desc">One set — 5 maps in Russian and point-by-point routes in Avatar Park and on Tianmen Mountain — 500 ₽</p>
     <div class="offers">
-        <div class="price-box" id="buy-maps3">
-            <div class="offer-title">3 maps in English and Chinese</div>
+        <div class="price-box offer-ru-full" id="buy-nabor">
+            <span id="buy-maps3"></span><span id="buy-ru"></span><span id="buy-tm"></span>
+            <div class="offer-title">Avatar Park and Heaven&#x27;s Gate: 5 maps and point-by-point routes in Russian</div>
             <div>
-                <span class="price-amount">199</span>
+                <span class="price-amount">500</span>
                 <span class="price-currency"> ₽</span>
             </div>
-            <ul class="price-includes">
-            <li>Avatar Mountains park map (Wulingyuan) — main product</li>
-            <li>Tianmen Mountain — Heaven's Gate map: routes A, B and C and a detailed summit map</li>
-            <li>Bonus: Zhangjiajie city map</li>
-            <li>High resolution for print and phone</li>
-            <li>Current prices, schedules and operating hours for 2026</li>
-            <li>Works offline — Google Maps is blocked in China</li>
-            <li>Lifetime access — download as many times as you like</li>
-        </ul>
-            <a href="https://t.me/Avatarparkmap_bot?start=buy" class="buy-btn" id="buyBtn" data-product="maps3" target="_blank" rel="noopener">Buy 3 maps in English and Chinese for 199 ₽</a>
-        </div>
-        <div class="price-box offer-ru-compact" id="buy-ru">
-            <div class="offer-title">Avatar Park map with Russian translation</div>
-            <div>
-                <span class="price-amount">399</span>
-                <span class="price-currency"> ₽</span>
-            </div>
-            <p class="offer-text">A scan of the same paper map: 71 names translated into Russian with the English names kept alongside, entrances highlighted in red, the Avatar Mountain in purple, and up-to-date prices for the Bailong elevator, cable cars and the train. PDF.</p>
-            <a href="https://t.me/Avatarparkmap_bot?start=buy_ru" class="buy-btn" data-product="ru" target="_blank" rel="noopener">Buy the Avatar Park map with Russian translation for 399 ₽</a>
-        </div>
-        <div class="price-box offer-ru-compact" id="buy-tm">
-            <div class="offer-title">Avatar Park map and Tianmen Mountain map with a route guide — with Russian translation</div>
-            <div>
-                <span class="price-amount">449</span>
-                <span class="price-currency"> ₽</span>
-            </div>
-            <p class="offer-text">The Avatar Park map with Russian translation plus the Tianmen Mountain map with Russian translation: a map of the routes up the mountain and a detailed summit map to plan your walk, and a route guide on how to plan your own way — a detailed description of routes A, B and C. PDF.</p>
-            <a href="https://t.me/Avatarparkmap_bot?start=buy_tm" class="buy-btn" data-product="tm" target="_blank" rel="noopener">Buy the Avatar Park map and Tianmen map with a route guide, with Russian translation, for 449 ₽</a>
+            <ul class="price-includes num">
+                <li class="n">Avatar Park map with Russian translation: 71 names translated, English names kept alongside, entrances and Avatar Mountain highlighted, up-to-date prices for the Bailong Elevator, cable cars and the train</li>
+                <li class="n">Tianmen Mountain (Heaven&#x27;s Gate) map in Russian</li>
+                <li class="n">Tianmen summit map in Russian</li>
+                <li class="n">Tianmen ascent scheme: routes A, B and C</li>
+                <li class="n">Zhangjiajie city map with Russian labels</li>
+                <li class="n">Point-by-point routes in Avatar Park for 1 and 2 days, from Zhangjiajie city and from Wulingyuan</li>
+                <li class="n">Point-by-point routes on Tianmen Mountain: the ascent by route C, west and east loops on the summit</li>
+                <li>PDF — opens on your phone and works offline. By email the set arrives in two letters</li>
+            </ul>
+            <p class="offer-text">Please note: all maps and routes in the set are in Russian. Payment is via YooKassa, Russian bank cards only.</p>
+            <a href="https://t.me/Avatarparkmap_bot?start=buy_nabor" class="buy-btn" id="buyBtn" data-product="nabor" target="_blank" rel="noopener">Buy the set “Avatar Park and Heaven&#x27;s Gate” for 500 ₽</a>
         </div>
         <div style="width:100%;max-width:480px;box-sizing:border-box;padding:20px 28px;background:rgba(42,171,238,0.08);border:1px solid rgba(42,171,238,0.25);border-radius:16px;">
             <p style="font-size:15px;color:var(--text-light);margin-bottom:14px;">Having trouble purchasing? Contact us — we'll help!</p>
@@ -1295,7 +1235,7 @@
         <h2>Frequently Asked Questions about Zhangjiajie</h2>
         <div class="faq-item">
             <h3>What does the Zhangjiajie park map include?</h3>
-            <p>The main product is the Avatar Mountains (Wulingyuan) map: all 4-day routes, walking trails with timings, bus stops, Bailong Elevator, cable cars, park entrances, cafes and every attraction. The set also includes two more maps in English and Chinese: the Tianmen Mountain — Heaven's Gate map (routes A, B and C and a detailed summit map) and, as a bonus, a Zhangjiajie city map (airport, railway stations, restaurants, hotels). Names are in English and Chinese — convenient for showing to drivers and park staff.</p>
+            <p>The set “Avatar Park and Heaven&#x27;s Gate: 5 maps and point-by-point routes in Russian” (500 ₽) includes the Avatar Park (Wulingyuan) map with Russian translation — routes, trails with timings, bus stops, the Bailong Elevator, cable cars and entrances, with English names kept alongside; the Tianmen Mountain map, the summit map and the ascent scheme in Russian; the Zhangjiajie city map with Russian labels; and point-by-point routes in Avatar Park for 1 and 2 days and on Tianmen Mountain. All maps and routes are in Russian.</p>
         </div>
         <div class="faq-item">
             <h3>What format is the Zhangjiajie map?</h3>
@@ -1349,7 +1289,7 @@
 
         <h3>Why you need an up-to-date Zhangjiajie map</h3>
 
-        <p>The park covers a huge area inside the Wulingyuan scenic zone (武陵源). Navigating without a detailed map is extremely difficult: Google Maps is blocked in China, and standard maps don't show walking trails, cable cars or timings between points. There are plenty of Zhangjiajie maps online — but most are outdated, incomplete or unreadable. This map brings everything together in one place: current routes, schedules, prices, bus stops, cable cars and elevators. The most informative park map we could find in China — readable, convenient, comprehensive. Along with the main park map, the set includes the Tianmen Mountain (Heaven's Gate) map in English and Chinese — routes A, B and C and a summit map — and, as a bonus, a Zhangjiajie city map. Names are in English and Chinese — convenient for showing to park staff and drivers.</p>
+        <p>The park covers a huge area inside the Wulingyuan scenic zone (武陵源). Navigating without a detailed map is extremely difficult: Google Maps is blocked in China, and standard maps don't show walking trails, cable cars or timings between points. There are plenty of Zhangjiajie maps online — but most are outdated, incomplete or unreadable. This map brings everything together in one place: current routes, schedules, prices, bus stops, cable cars and elevators. The most informative park map we could find in China — readable, convenient, comprehensive. In the set “Avatar Park and Heaven's Gate”, along with the park map with Russian translation, there are the Tianmen Mountain maps and the ascent scheme, the Zhangjiajie city map and point-by-point routes — all in Russian.</p>
 
         <h3>Avatar Mountains — what to see in 4 days</h3>
 
@@ -1415,6 +1355,15 @@ function apiFetch(path, opts, ms) {
 // Товары: maps3 — 3 карты (199 ₽), ru — карта с переводом на русский (399 ₽), tm — она же + карта Тяньмэня с гайдом (449 ₽).
 // Поле product уходит в /api/create-order; цену сервер берёт из своей таблицы, не отсюда.
 var BUY_PRODUCTS = {
+    "nabor": {
+        "desc": "The set “Avatar Park and Heaven's Gate: 5 maps and point-by-point routes in Russian” for <b>500 ₽</b>",
+        "form": "Enter your email — after payment you will receive two letters: the first with Avatar Park, the second with Tianmen Mountain and the city",
+        "pay": "Proceed to payment — 500 ₽",
+        "email": "Payment → two letters with maps and routes",
+        "tgsub": "Payment → maps and routes in the bot",
+        "tg": "https://t.me/Avatarparkmap_bot?start=buy_nabor",
+        "max": "https://max.ru/id780453702801_bot?start=buy_nabor"
+    },
     "maps3": {
         "desc": "3 PDF maps (Avatar Park, Zhangjiajie city, Tianmen Mountain) for <b>199 ₽</b>",
         "form": "Enter your email — the 3 PDF maps will be sent there after payment",
@@ -1443,9 +1392,11 @@ var BUY_PRODUCTS = {
         "max": "https://max.ru/id780453702801_bot?start=buy_tm"
     }
 };
-var buyProduct = 'maps3';
+var buyProduct = 'nabor';
 function setBuyProduct(p) {
-    buyProduct = BUY_PRODUCTS[p] ? p : 'maps3';
+    // прежние товары сняты с продажи (01.11.2026): все кнопки открывают набор за 500 ₽
+    if (p === 'maps3' || p === 'ru' || p === 'tm') p = 'nabor';
+    buyProduct = BUY_PRODUCTS[p] ? p : 'nabor';
     var c = BUY_PRODUCTS[buyProduct];
     document.getElementById('buyDesc').innerHTML = c.desc;
     document.getElementById('buyFormDesc').textContent = c.form;
@@ -1457,10 +1408,10 @@ function setBuyProduct(p) {
     document.getElementById('buyPayBtn').textContent = c.pay;
 }
 function openBuyModal(e) {
-    var p = 'maps3';
+    var p = 'nabor';
     if (e) {
         e.preventDefault();
-        if (e.currentTarget && e.currentTarget.getAttribute) p = e.currentTarget.getAttribute('data-product') || 'maps3';
+        if (e.currentTarget && e.currentTarget.getAttribute) p = e.currentTarget.getAttribute('data-product') || 'nabor';
     }
     setBuyProduct(p);
     document.getElementById('buyModal').hidden = false;
@@ -1597,23 +1548,23 @@ document.addEventListener('DOMContentLoaded', function() {
         <button class="buy-modal-close" onclick="closeBuyModal()" aria-label="Close">&times;</button>
         <div id="buyChoice">
             <h3>How would you like to receive the map?</h3>
-            <p id="buyDesc">3 PDF maps (Avatar Park, Zhangjiajie city, Tianmen Mountain) for <b>199 ₽</b></p>
+            <p id="buyDesc">The set “Avatar Park and Heaven's Gate: 5 maps and point-by-point routes in Russian” for <b>500 ₽</b></p>
             <button class="delivery-option" onclick="showBuyEmailForm()">
                 <span class="delivery-option-icon">🌐</span>
                 <span class="delivery-option-text">Buy on the website
-                    <span class="delivery-option-sub" id="buyEmailSub">Payment → maps delivered by email</span>
+                    <span class="delivery-option-sub" id="buyEmailSub">Payment → two letters with maps and routes</span>
                 </span>
             </button>
-            <a href="https://max.ru/id780453702801_bot?start=buy" id="buyMaxLink" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_max')">
+            <a href="https://max.ru/id780453702801_bot?start=buy_nabor" id="buyMaxLink" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_max')">
                 <span class="delivery-option-icon">🟣</span>
                 <span class="delivery-option-text">Buy in MAX
-                    <span class="delivery-option-sub" id="buyMaxSub">Payment → maps delivered in the bot</span>
+                    <span class="delivery-option-sub" id="buyMaxSub">Payment → maps and routes in the bot</span>
                 </span>
             </a>
-            <a href="https://t.me/Avatarparkmap_bot?start=buy" id="buyTgLink" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_telegram')">
+            <a href="https://t.me/Avatarparkmap_bot?start=buy_nabor" id="buyTgLink" class="delivery-option" target="_blank" rel="noopener" onclick="if(typeof ym==='function')ym(108565991,'reachGoal','buy_via_telegram')">
                 <span class="delivery-option-icon">📲</span>
                 <span class="delivery-option-text">Buy in Telegram
-                    <span class="delivery-option-sub" id="buyTgSub">Payment → maps delivered in the bot</span>
+                    <span class="delivery-option-sub" id="buyTgSub">Payment → maps and routes in the bot</span>
                 </span>
             </a>
         </div>
@@ -1624,9 +1575,9 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div id="buyEmailForm" hidden>
             <h3>Card payment</h3>
-            <p id="buyFormDesc">Enter your email — the 3 PDF maps will be sent there after payment</p>
+            <p id="buyFormDesc">Enter your email — after payment you will receive two letters: the first with Avatar Park, the second with Tianmen Mountain and the city</p>
             <input type="email" id="buyEmailInput" class="buy-input" placeholder="your@email.com" autocomplete="email" />
-            <button id="buyPayBtn" class="buy-pay-btn" onclick="submitBuyOrder()">Proceed to payment — 199 ₽</button>
+            <button id="buyPayBtn" class="buy-pay-btn" onclick="submitBuyOrder()">Proceed to payment — 500 ₽</button>
             <p id="buyError" class="buy-error"></p>
             <button class="buy-back-btn" onclick="backToBuyChoice()">← Back</button>
             <p class="buy-hint">Payment via YooKassa (SBP, card). Secure.</p>
