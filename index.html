@@ -1416,7 +1416,7 @@ function apiFetch(path, opts, ms) {
     return attempt();
 }
 // Товары: nabor — набор «Парк Аватар и Небесные врата: 5 карт и маршруты по точкам на русском» (500 ₽, с 01.11.2026 единственный на этой странице);
-// прежние maps3 (199 ₽), ru (399 ₽), tm (449 ₽) — для старых ссылок.
+// прежние maps3 (199 ₽), ru (399 ₽), tm (449 ₽) сняты с продажи: setBuyProduct ведёт их на набор.
 // Поле product уходит в /api/create-order; цену сервер берёт из своей таблицы, не отсюда.
 var BUY_PRODUCTS = {
     "nabor": {
@@ -1458,6 +1458,8 @@ var BUY_PRODUCTS = {
 };
 var buyProduct = 'nabor';
 function setBuyProduct(p) {
+    // прежние товары сняты с продажи (01.11.2026): старые ссылки #buy-ru, #buy-tm и прочие открывают набор
+    if (p === 'maps3' || p === 'ru' || p === 'tm') p = 'nabor';
     buyProduct = BUY_PRODUCTS[p] ? p : 'nabor';
     var c = BUY_PRODUCTS[buyProduct];
     document.getElementById('buyDesc').innerHTML = c.desc;
