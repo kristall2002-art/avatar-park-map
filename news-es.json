@@ -1,5 +1,11 @@
 [
   {
+    "id": "news-2026-11-08-1794132033365",
+    "date": "2026-11-08",
+    "title": "Como llegar a Zhangjiajie",
+    "text": "Aeropuerto de Zhangjiajie (DYG): vuelos directos desde Pekin (2,5 h), Shanghai (2 h), Guangzhou (1,5 h), Chengdu y Chongqing. Tren de alta velocidad desde Changsha (2,5 h). Desde la ciudad al parque: bus 40 min, taxi 60 yuanes."
+  },
+  {
     "id": "news-2026-11-07-1794045635098",
     "date": "2026-11-07",
     "title": "WeChat Pay en China para extranjeros",
@@ -22,11 +28,5 @@
     "date": "2026-11-04",
     "title": "Arroyo del Latigo Dorado: el sendero mas bello",
     "text": "7,5 km de sendero junto a un arroyo de montana entre pilares de cuarcita. Es la ruta imprescindible del parque. Tiempo 2,5-3 horas, desnivel minimo, sendero plano. A los lados pilares verticales de 200-300 m, agua cristalina, puentes y monos."
-  },
-  {
-    "id": "news-2026-11-03-1793700035003",
-    "date": "2026-11-03",
-    "title": "99 curvas hacia la Puerta Celestial",
-    "text": "La carretera Tongtian Dadao: 11 km de serpentina de montana con 99 curvas cerradas. Una de las vias mas peligrosas y espectaculares del mundo. Lleva al pie del monte Tianmen hasta la cueva Puerta Celestial, un arco natural de 131 m en la roca."
   }
 ]
