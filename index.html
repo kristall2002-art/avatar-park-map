@@ -415,6 +415,7 @@
         .ru-samples img { width: 100%; height: auto; display: block; }
         .ru-samples figcaption { font-size: 12px; color: var(--text-muted); margin-top: 6px; line-height: 1.3; }
         @media (max-width: 600px) { .ru-samples { grid-template-columns: repeat(2, 1fr); } }
+        .ru-samples.three { grid-template-columns: repeat(3, 1fr); }
 
         /* Purchase modal */
         .buy-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(6px); }
@@ -779,10 +780,32 @@
 <!-- PRICING -->
 <section class="section-dark pricing" id="buy">
     <h2>Купить карты Чжанцзяцзе на русском</h2>
-    <p class="desc">Один набор — 5 карт на русском и маршруты по точкам в парке Аватар и на горе Тяньмэнь — 500 ₽</p>
+    <p class="desc">Карта парка Аватар на русском — 250 ₽. Или набор: 5 карт на русском и маршруты по точкам в парке Аватар и на горе Тяньмэнь — 500 ₽</p>
     <div class="offers">
+        <!-- Карта парка Аватар на русском за 250 ₽ — второй товар, перед набором (слово Сергея 09.11.2026); образцы — те же, что у карты в образцах набора -->
+        <div class="price-box offer-ru-full" id="buy-ru">
+            <div class="offer-title">Карта парка Аватар с переводом на русский</div>
+            <div>
+                <span class="price-amount">250</span>
+                <span class="price-currency"> руб.</span>
+            </div>
+            <div class="ru-samples three">
+                <figure><a href="img/ru_1_obrazec_sq.jpg" target="_blank" rel="noopener"><img src="img/ru_1_obrazec_sq.jpg" alt="Образец карты парка Аватар с переводом на русский — общий вид" width="640" height="640" loading="lazy"></a><figcaption>Общий вид карты</figcaption></figure>
+                <figure><a href="img/ru_2_vhody_legenda_sq.jpg" target="_blank" rel="noopener"><img src="img/ru_2_vhody_legenda_sq.jpg" alt="Образец карты парка Аватар с переводом на русский — входы и легенда" width="640" height="640" loading="lazy"></a><figcaption>Входы и легенда</figcaption></figure>
+                <figure><a href="img/ru_3_lift_baylun_sq.jpg" target="_blank" rel="noopener"><img src="img/ru_3_lift_baylun_sq.jpg" alt="Образец карты парка Аватар с переводом на русский — лифт Байлун и цены" width="640" height="640" loading="lazy"></a><figcaption>Лифт Байлун и цены</figcaption></figure>
+            </div>
+            <ul class="price-includes">
+                <li>Та же карта, что первая в наборе: скан настоящей бумажной карты парка</li>
+                <li>71 название переведено на русский, английские оставлены рядом</li>
+                <li>Входы выделены красным, гора Аватар — фиолетовым</li>
+                <li>Актуальные цены на лифт Байлун, канатные дороги и поезд</li>
+                <li>Один файл PDF — открывается на телефоне, работает без интернета</li>
+                <li>Маршрутов по точкам, Тяньмэня и карты города в ней нет — они в наборе ниже</li>
+            </ul>
+            <a href="https://t.me/Avatarparkmap_bot?start=buy_ru" class="buy-btn" data-product="ru" target="_blank" rel="noopener">Купить карту парка Аватар на русском за 250 ₽</a>
+        </div>
         <div class="price-box offer-ru-full" id="buy-nabor">
-            <span id="buy-maps3"></span><span id="buy-ru"></span><span id="buy-tm"></span>
+            <span id="buy-maps3"></span><span id="buy-tm"></span>
             <div class="offer-title">Парк Аватар и Небесные врата: 5 карт и маршруты по точкам на русском</div>
             <div>
                 <span class="price-amount">500</span>
@@ -1438,8 +1461,9 @@ function apiFetch(path, opts, ms) {
     }
     return attempt();
 }
-// Товары: nabor — набор «Парк Аватар и Небесные врата: 5 карт и маршруты по точкам на русском» (500 ₽, с 01.11.2026 единственный на этой странице);
-// прежние maps3 (199 ₽), ru (399 ₽), tm (449 ₽) сняты с продажи: setBuyProduct ведёт их на набор.
+// Товары: ru — карта парка Аватар с переводом на русский (250 ₽, с 09.11.2026, слово Сергея) и nabor — набор
+// «Парк Аватар и Небесные врата: 5 карт и маршруты по точкам на русском» (500 ₽, с 01.11.2026);
+// прежние maps3 (199 ₽) и tm (449 ₽) сняты с продажи: setBuyProduct ведёт их на набор.
 // Поле product уходит в /api/create-order; цену сервер берёт из своей таблицы, не отсюда.
 var BUY_PRODUCTS = {
     "nabor": {
@@ -1461,9 +1485,9 @@ var BUY_PRODUCTS = {
         "max": "https://max.ru/id780453702801_bot?start=buy"
     },
     "ru": {
-        "desc": "Карта парка Аватар с переводом на русский (PDF) за <b>399 ₽</b>",
+        "desc": "Карта парка Аватар с переводом на русский (PDF) за <b>250 ₽</b>",
         "form": "Введите email — на него придёт PDF-карта с переводом на русский после оплаты",
-        "pay": "Перейти к оплате — 399 ₽",
+        "pay": "Перейти к оплате — 250 ₽",
         "email": "Оплата → карта в письме",
         "tgsub": "Оплата → карта в боте",
         "tg": "https://t.me/Avatarparkmap_bot?start=buy_ru",
@@ -1481,8 +1505,8 @@ var BUY_PRODUCTS = {
 };
 var buyProduct = 'nabor';
 function setBuyProduct(p) {
-    // прежние товары сняты с продажи (01.11.2026): старые ссылки #buy-ru, #buy-tm и прочие открывают набор
-    if (p === 'maps3' || p === 'ru' || p === 'tm') p = 'nabor';
+    // прежние товары сняты с продажи (01.11.2026): старые ссылки #buy-maps3, #buy-tm открывают набор; ru — карта за 250 ₽ (09.11.2026)
+    if (p === 'maps3' || p === 'tm') p = 'nabor';
     buyProduct = BUY_PRODUCTS[p] ? p : 'nabor';
     var c = BUY_PRODUCTS[buyProduct];
     document.getElementById('buyDesc').innerHTML = c.desc;
