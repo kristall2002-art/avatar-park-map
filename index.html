@@ -1766,6 +1766,7 @@ document.addEventListener('keydown', function(e) {
             <input type="email" id="buyEmailInput" class="buy-input" placeholder="your@email.com" autocomplete="email" />
             <button id="buyPayBtn" class="buy-pay-btn" onclick="submitBuyOrder()">Перейти к оплате — 500 ₽</button>
             <button id="buyPaySbpBtn" class="buy-pay-btn buy-pay-sbp" onclick="submitBuyOrder('sbp')">Оплатить через СБП — 500 ₽</button>
+            <p class="buy-hint">Если страница оплаты не открывается: в России выключите VPN, за границей включите VPN через Россию или нажмите «Оплатить через СБП».</p>
             <p id="buyError" class="buy-error"></p>
             <button class="buy-back-btn" onclick="backToBuyChoice()">← Назад</button>
             <p class="buy-hint">Оплата через ЮKassa (СБП, карта). Безопасно.</p>
