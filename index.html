@@ -437,6 +437,7 @@
         .buy-pay-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #4ecdc4, #44b8b0); color: #0d1117; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: transform 0.15s; }
         .buy-pay-btn:hover:not(:disabled) { transform: scale(1.02); }
         .buy-pay-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .buy-pay-sbp { margin-top: 10px; background: linear-gradient(135deg, #5b8def, #4a74d1); color: #fff; }
         .buy-back-btn { width: 100%; padding: 10px; background: none; color: var(--text-muted); border: none; font-size: 14px; cursor: pointer; margin-top: 8px; }
         .buy-back-btn:hover { color: var(--text); }
         .buy-error { color: #e74c3c; font-size: 14px; margin: 10px 0 0 0; min-height: 20px; }
@@ -1517,6 +1518,14 @@ function setBuyProduct(p) {
     document.getElementById('buyMaxSub').textContent = c.tgsub;
     document.getElementById('buyMaxLink').href = c.max;
     document.getElementById('buyPayBtn').textContent = c.pay;
+    document.getElementById('buyPaySbpBtn').textContent = sbpLabel(c);
+}
+// Вторая кнопка — СБП: ссылка qr.nspk.ru открывает приложение банка без страницы ЮKassa (13.11.2026)
+function sbpLabel(c) { return c.pay.replace('Перейти к оплате', 'Оплатить через СБП'); }
+function resetPayButtons() {
+    var c = BUY_PRODUCTS[buyProduct], b1 = document.getElementById('buyPayBtn'), b2 = document.getElementById('buyPaySbpBtn');
+    b1.disabled = false; b1.textContent = c.pay;
+    b2.disabled = false; b2.textContent = sbpLabel(c);
 }
 // Источник визита: utm_source из ссылки (VK/TG/MAX), запоминаем на сессию.
 function getSource() {
@@ -1579,9 +1588,7 @@ function closeBuyModal() {
     document.getElementById('buyChoice').hidden = false;
     document.getElementById('buyDone').hidden = true;
     document.getElementById('buyError').textContent = '';
-    var btn = document.getElementById('buyPayBtn');
-    btn.disabled = false;
-    btn.textContent = BUY_PRODUCTS[buyProduct].pay;
+    resetPayButtons();
 }
 function showBuyEmailForm() {
     document.getElementById('buyChoice').hidden = true;
@@ -1593,7 +1600,7 @@ function backToBuyChoice() {
     document.getElementById('buyChoice').hidden = false;
     document.getElementById('buyError').textContent = '';
 }
-async function submitBuyOrder() {
+async function submitBuyOrder(method) {
     var email = document.getElementById('buyEmailInput').value.trim().toLowerCase();
     var errEl = document.getElementById('buyError');
     errEl.textContent = '';
@@ -1602,14 +1609,15 @@ async function submitBuyOrder() {
         errEl.textContent = 'Введите корректный email';
         return;
     }
-    var btn = document.getElementById('buyPayBtn');
-    btn.disabled = true;
+    var btn = document.getElementById(method === 'sbp' ? 'buyPaySbpBtn' : 'buyPayBtn');
+    document.getElementById('buyPayBtn').disabled = true;
+    document.getElementById('buyPaySbpBtn').disabled = true;
     btn.textContent = 'Создаю платёж...';
     try {
         var resp = await apiFetch('/create-order', {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({email: email, product: buyProduct, source: getSource(), return_url: location.origin + location.pathname + '?paid=1'})
+            body: JSON.stringify({email: email, product: buyProduct, source: getSource(), method: method === 'sbp' ? 'sbp' : 'card', return_url: location.origin + location.pathname + '?paid=1'})
         }, 80000);
         var data = await resp.json();
         if (data.pay_url) {
@@ -1618,13 +1626,11 @@ async function submitBuyOrder() {
             window.location.href = data.pay_url;
         } else {
             showBuyHelp(errEl);
-            btn.disabled = false;
-            btn.textContent = BUY_PRODUCTS[buyProduct].pay;
+            resetPayButtons();
         }
     } catch (err) {
         showBuyHelp(errEl);
-        btn.disabled = false;
-        btn.textContent = BUY_PRODUCTS[buyProduct].pay;
+        resetPayButtons();
     }
 }
 // Intercept buy button clicks (non-anchor ones)
@@ -1755,10 +1761,11 @@ document.addEventListener('keydown', function(e) {
             <p class="buy-help" id="buyDoneLinks"></p>
         </div>
         <div id="buyEmailForm" hidden>
-            <h3>Оплата картой</h3>
+            <h3>Оплата</h3>
             <p id="buyFormDesc">Введите email — после оплаты на него придут два письма с картами и маршрутами</p>
             <input type="email" id="buyEmailInput" class="buy-input" placeholder="your@email.com" autocomplete="email" />
             <button id="buyPayBtn" class="buy-pay-btn" onclick="submitBuyOrder()">Перейти к оплате — 500 ₽</button>
+            <button id="buyPaySbpBtn" class="buy-pay-btn buy-pay-sbp" onclick="submitBuyOrder('sbp')">Оплатить через СБП — 500 ₽</button>
             <p id="buyError" class="buy-error"></p>
             <button class="buy-back-btn" onclick="backToBuyChoice()">← Назад</button>
             <p class="buy-hint">Оплата через ЮKassa (СБП, карта). Безопасно.</p>
