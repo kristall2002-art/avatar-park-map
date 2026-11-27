@@ -397,6 +397,50 @@
         .buy-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(78,205,196,0.4); }
 
         /* Два предложения: 3 карты и карта с переводом на русский */
+        /* Первый экран: два товара с ценой и кнопкой (16.11.2026) */
+        .hero h1 { margin-bottom: 12px; }
+        .hero-lead { font-size: clamp(16px, 2.2vw, 19px); color: #c9d1d9; max-width: 720px; margin: 0 auto 22px; line-height: 1.5; }
+        .hero-choose { font-size: 15px; letter-spacing: 1px; text-transform: uppercase; color: #4ecdc4; margin-bottom: 12px; font-weight: 700; }
+        .hero-offers { display: flex; gap: 20px; justify-content: center; align-items: stretch; width: 100%; max-width: 920px; }
+        .hero-offer { flex: 1 1 0; display: flex; flex-direction: column; text-align: left; background: rgba(13,17,23,0.82); border: 1px solid rgba(78,205,196,0.45); border-radius: 18px; padding: 20px 22px; backdrop-filter: blur(4px); }
+        .hero-offer-main { border: 2px solid #4ecdc4; box-shadow: 0 0 28px rgba(78,205,196,0.18); }
+        .hero-offer-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 10px; }
+        .hero-offer-name { font-size: 18px; font-weight: 700; color: #e6edf3; line-height: 1.3; }
+        .hero-offer-price { font-size: 30px; font-weight: 700; color: #4ecdc4; line-height: 1; white-space: nowrap; }
+        .hero-offer ul { list-style: none; margin: 0 0 14px; padding: 0; flex: 1; }
+        .hero-offer li { position: relative; padding: 3px 0 3px 22px; font-size: 15px; line-height: 1.4; color: #c9d1d9; }
+        .hero-offer li::before { content: '\2713'; position: absolute; left: 0; color: #4ecdc4; font-weight: bold; }
+        .hero-offer .buy-btn { display: block; margin-top: auto; text-align: center; padding: 13px 16px; font-size: 16px; line-height: 1.3; }
+        .hero-pay { font-size: 14px; color: #a3adb8; max-width: 760px; margin: 16px auto 22px; line-height: 1.5; }
+        .hero-pay a { color: #4ecdc4; white-space: nowrap; }
+        body.light-theme .hero-offer { background: rgba(13,17,23,0.85); }
+        @media (max-width: 760px) {
+            .hero { padding: 18px 14px 32px; }
+            .hero .badge { display: none; }
+            .hero h1 { font-size: 27px; margin-bottom: 8px; }
+            .hero-lead { font-size: 15px; margin-bottom: 14px; }
+            .hero-choose { font-size: 13px; margin-bottom: 8px; }
+            .hero-offers { flex-direction: column; gap: 12px; }
+            .hero-offer { padding: 14px 15px; border-radius: 14px; }
+            .hero-offer-head { margin-bottom: 6px; }
+            .hero-offer-name { font-size: 16px; }
+            .hero-offer-price { font-size: 24px; }
+            .hero-offer li { font-size: 14px; padding: 2px 0 2px 20px; }
+            .hero-offer ul { margin-bottom: 10px; }
+            .hero-offer .buy-btn { padding: 11px 12px; font-size: 15px; }
+            .hero-offer .buy-btn:hover { transform: none; }
+            nav { padding: 10px 14px; }
+            nav ul { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; gap: 18px; white-space: nowrap; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+            nav ul::-webkit-scrollbar { display: none; }
+            #cookie-consent { padding: 10px 12px !important; font-size: 13px !important; line-height: 1.35 !important; }
+            #cookie-consent > div { margin-top: 8px !important; }
+            #cookie-consent button { padding: 6px 14px !important; }
+            .a11y-panel { bottom: 12px; right: 10px; gap: 5px; transition: opacity 0.2s; }
+            .a11y-panel button { padding: 6px 12px; font-size: 11px; }
+            .a11y-panel .lang-link { font-size: 10px; padding: 3px 5px; min-width: 22px; }
+        }
+        .a11y-panel { transition: opacity 0.2s; }
+        @media (max-width: 1380px) { body.offers-in-view .a11y-panel { opacity: 0; pointer-events: none; } }
         .hero-buys { display: flex; flex-wrap: wrap; gap: 0 16px; justify-content: center; }
         .hero-buys .buy-btn { padding: 14px 28px; font-size: 16px; }
         .buy-btn.buy-btn-alt { background: linear-gradient(135deg, #ffe66d, #f5c842); }
@@ -574,6 +618,34 @@
 
     <span class="badge">Актуальная карта 2026 · Национальный парк Чжанцзяцзе · 张家界国家森林公园</span>
 
+    <h1>Карта парка Аватар (Чжанцзяцзе) на русском</h1>
+
+    <p class="hero-lead">Живые сканы настоящих бумажных карт 2026 года, привезённые из Чжанцзяцзе и переведённые на русский. PDF для телефона, работает без интернета.</p>
+
+    <!-- Два товара на первом экране (слово Сергея 16.11.2026): карта парка 250 ₽ и полный набор 500 ₽, тексты — как строка цены в постах (NABOR.md) -->
+    <p class="hero-choose">Два варианта на выбор</p>
+    <div class="hero-offers">
+        <div class="hero-offer">
+            <div class="hero-offer-head"><span class="hero-offer-name">🗺 Только карта парка Аватар с переводом на русский</span><span class="hero-offer-price">250&nbsp;₽</span></div>
+            <ul>
+                <li>71 название на русском, английские оставлены рядом</li>
+                <li>Входы и гора Аватар выделены, цены на лифт Байлун, канатные дороги и поезд</li>
+                <li>Один PDF: только карта парка, без маршрутов, Тяньмэня и карты города</li>
+            </ul>
+            <a href="https://t.me/Avatarparkmap_bot?start=buy_ru" class="buy-btn" data-product="ru" target="_blank" rel="noopener">Купить карту парка Аватар на русском за 250 ₽</a>
+        </div>
+        <div class="hero-offer hero-offer-main">
+            <div class="hero-offer-head"><span class="hero-offer-name">🎒 Полный набор: 5 карт на русском и маршруты по точкам</span><span class="hero-offer-price">500&nbsp;₽</span></div>
+            <ul>
+                <li>5 карт на русском: парк Аватар, город Чжанцзяцзе, гора Тяньмэнь, её вершина и схема подъёма к Небесным вратам</li>
+                <li>Маршруты по точкам в самом парке Аватар на 1–2 дня и на Тяньмэне</li>
+                <li>Где жить, как добраться, что посмотреть</li>
+            </ul>
+            <a href="https://t.me/Avatarparkmap_bot?start=buy_nabor" class="buy-btn" data-product="nabor" target="_blank" rel="noopener">Купить набор «Парк Аватар и Небесные врата» за 500 ₽</a>
+        </div>
+    </div>
+    <p class="hero-pay">Оплата картой или через СБП, файлы приходят сразу после оплаты: в Telegram, в MAX или на почту. <a href="#buy">Образцы карт и полный состав</a></p>
+
     <div class="hero-names">
         <span class="hero-name-tag">Горы Аватара</span>
         <span class="hero-name-tag">Чжанцзяцзе</span>
@@ -583,21 +655,7 @@
         <span class="hero-name-tag">张家界</span>
     </div>
 
-    <h1>Карта парка Аватар (Чжанцзяцзе) на русском</h1>
-
-    <p class="subtitle">Самая информативная карта парка, которую удалось найти в Китае. Карт много — но эта собрала всё в одном месте: читабельная, удобная, с полной информацией. Все маршруты на 4 дня, тропы, автобусы, лифт Байлун, стеклянный мост и все достопримечательности. Названия переведены на русский, английские оставлены рядом — удобно сверяться с указателями. PDF для телефона — работает без интернета.</p>
-
-    <p class="subtitle" style="max-width:640px;margin:-16px auto 32px;padding:14px 20px;border-left:3px solid var(--accent);background:rgba(78,205,196,0.07);border-radius:8px;color:var(--text);"><strong>Это живые сканы настоящих бумажных карт</strong>, актуальных на текущий год — привезены прямо из города Чжанцзяцзе. Вся информация свежая, именно на этот сезон.</p>
-
-    <div class="hero-buys">
-        <a href="#buy" class="buy-btn">Купить набор «Парк Аватар и Небесные врата» за 500 ₽</a>
-    </div>
-
-    <div class="promo-note" style="max-width:640px;margin:24px auto 0;padding:16px 20px;border:1px solid var(--accent);background:rgba(78,205,196,0.08);border-radius:12px;text-align:left;line-height:1.55">
-        <b>🎁 Новинка: карты переведены на русский и собраны в один набор</b><br>
-        Набор «Парк Аватар и Небесные врата: 5 карт и маршруты по точкам на русском» — 500 ₽ вместо трёх товаров. Карта парка Аватар, карта горы Тяньмэнь, карта её вершины и схема подъёма переведены на русский, на карте города Чжанцзяцзе — русские подписи. И маршруты по точкам в парке Аватар и на горе Тяньмэнь.<br><br>
-        <a href="https://t.me/avatarparkmap" style="color:var(--accent);font-weight:bold">Наш канал в Telegram</a> · <a href="https://max.ru/id780453702801_biz" style="color:var(--accent)">Мы в MAX</a>
-    </div>
+    <p class="subtitle">Самая информативная карта парка, которую удалось найти в Китае. Карт много — но эта собрала всё в одном месте: читабельная, удобная, с полной информацией. Все маршруты на 4 дня, тропы, автобусы, лифт Байлун, стеклянный мост и все достопримечательности. Названия переведены на русский, английские оставлены рядом — удобно сверяться с указателями.</p>
 </header>
 
 <!-- ТЯНЬМЭНЬ: закрытие маршрутов A и B с 13.10.2026 -->
@@ -1633,6 +1691,9 @@ async function submitBuyOrder(method) {
         resetPayButtons();
     }
 }
+// Телефон: панель «Крупнее / Светлый фон / язык» прячется, пока на экране карточки покупки первого экрана (16.11.2026)
+(function(){ var o = document.querySelector('.hero-offers'); if (!o || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(es){ document.body.classList.toggle('offers-in-view', es[0].isIntersecting); }).observe(o); })();
 // Intercept buy button clicks (non-anchor ones)
 document.addEventListener('DOMContentLoaded', function() {
     if (/[?&]paid=1\b/.test(location.search)) showPaidThanks();
